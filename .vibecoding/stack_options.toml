@@ -1,9 +1,11 @@
-# TECH STACK OPTIONS
-# BLUEPRINT.md 작성 시 참고할 기술 스택 메뉴판입니다.
-# 각 항목에서 프로젝트에 적합한 기술을 선택(Pick)하십시오.
+# 기술 스택 메뉴판 (TECH STACK OPTIONS)
+# BLUEPRINT.md 작성 시 참고할 기술 목록입니다.
+# [지침]
+# 1. 각 항목은 '단순 배열'로 구성되어 있습니다.
+# 2. 프로젝트의 요구사항에 맞춰 가장 적합한 기술을 '하나씩' 선택(Pick One)하십시오.
 
 # ==========================================
-# 1. Core & Environment (개발 기반)
+# 1. 개발 기반 (Core & Environment)
 # ==========================================
 [core]
 # 런타임 및 언어
@@ -15,11 +17,11 @@ package_managers = ["pnpm", "Bun", "Deno task"]
 # 모노레포 및 워크스페이스
 monorepos = ["Turborepo", "Nx", "Native Workspaces"]
 
-# 스캐폴딩 (프로젝트 생성)
+# 스캐폴딩 (프로젝트 초기 생성)
 scaffolding = ["yo code (Yeoman)", "create-t3-app", "create-vite"]
 
 # ==========================================
-# 2. Client Side (프론트엔드 & 앱)
+# 2. 클라이언트 (Client Side)
 # ==========================================
 [client]
 # 웹 프레임워크
@@ -40,11 +42,11 @@ game_engines = ["Phaser", "Flame"]
 # Web3 / 블록체인
 web3 = ["Anchor", "Cadence", "ink!", "Move"]
 
-# 리치 텍스트 에디터
+# 리치 텍스트 에디터 (WYSIWYG)
 editors = ["TipTap", "Lexical", "Slate.js", "Editor.js"]
 
 # ==========================================
-# 3. Server & Data (백엔드)
+# 3. 서버 및 데이터 (Server & Data)
 # ==========================================
 [server]
 # 백엔드 프레임워크
@@ -61,7 +63,7 @@ baas = [
     "PocketBase",
 ]
 
-# 데이터베이스 (Self-hosted)
+# 데이터베이스 (직접 구축)
 databases = ["SQLite", "PostgreSQL"]
 
 # ORM / 쿼리 빌더
@@ -89,7 +91,7 @@ storage = [
 cms = ["TinaCMS", "Payload CMS", "Directus", "Strapi"]
 
 # ==========================================
-# 4. Quality & Security (품질 관리)
+# 4. 품질 및 보안 (Quality & Security)
 # ==========================================
 [quality]
 # 인증 솔루션
@@ -111,7 +113,7 @@ test_runners = ["Vitest", "Playwright"]
 api_clients = ["Bruno", "Hoppscotch"]
 
 # ==========================================
-# 5. DevOps & Infra (인프라)
+# 5. 인프라 및 데브옵스 (DevOps & Infra)
 # ==========================================
 [infra]
 # 배포 플랫폼
@@ -155,7 +157,7 @@ automation = [
 ]
 
 # ==========================================
-# 6. Business & Money (수익화)
+# 6. 비즈니스 및 수익화 (Business & Money)
 # ==========================================
 [business]
 # 결제 PG
@@ -205,7 +207,7 @@ ads = [
 ]
 
 # ==========================================
-# 7. Operations & Features (운영)
+# 7. 운영 및 기능 (Operations & Features)
 # ==========================================
 [ops]
 # 이메일 전송

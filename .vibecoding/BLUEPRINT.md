@@ -1,105 +1,95 @@
-# PROJECT BLUEPRINT
+# 프로젝트 청사진 (BLUEPRINT)
 
 > System Instruction: 이 파일은 프로젝트의 불변하는 설계도입니다. 기능 구현 시 이 파일에 정의된 스펙, 디자인 시스템, 디렉토리 구조를 엄격히 준수하십시오. 진행 상황은 이 파일이 아닌 TODOS.md에 기록합니다.
 
-## 1. Project Identity
+## 1. 프로젝트 개요
 
-- Name: {{PROJECT_NAME}}
-- Domain: {{DOMAIN_URL}}
-- Concept: {{ONE_LINE_DESCRIPTION}}
-- Target Audience: {{TARGET_USER}}
+- 프로젝트명: {{PROJECT_NAME}}
+- 도메인: {{DOMAIN_URL}}
+- 한 줄 요약: {{ONE_LINE_DESCRIPTION}}
+- 타겟 유저: {{TARGET_USER}}
 
-## 2. Tech Stack & Global Scope
+## 2. 기술 스택 선정
 
-프로젝트에 적용할 핵심 기술과 전역 기능을 정의합니다.
+> [지침]
+> .vibecoding/stack_options.toml 파일을 참고하여, 프로젝트 목표 달성에 필수적인 기술만 선별하여 기입하십시오.
+>
+> - 프로젝트 성격에 맞지 않는 카테고리는 과감히 생략합니다.
+> - 선정 이유는 "왜 이 기술이 이 프로젝트에 적합한가?"를 한 줄로 요약합니다.
 
-### Tech Stack
-
-- Framework: {{FRAMEWORK}} (예: SvelteKit, Next.js)
-- Language: TypeScript
-- Styling: TailwindCSS
-- Database: {{DATABASE}} (예: Supabase)
-- Deployment: {{DEPLOY_TARGET}} (예: Vercel)
-
-### Global Features
-
-- [ ] **Responsive UI**: Mobile First 전략 (모바일 -> 데스크탑)
-- [ ] **Dark Mode**: 시스템 설정 감지 및 토글 버튼 지원
-- [ ] **PWA**: 설치형 앱 지원 (Manifest, Service Worker)
-- [ ] **I18n**: 다국어 지원 (한국어 기본 + 영어)
-- [ ] **SEO**: 동적 메타 태그 및 OG Image 생성
-
-## 3. Design System & Theme
-
-UI 구현 시 아래의 컬러 토큰과 스타일 가이드를 변수로 등록하여 사용하십시오.
-
-### Color Palette (Brand)
-
-브랜드 정체성을 나타내는 핵심 컬러입니다.
-
-| Token | Hex | OKLCH | Usage |
-| :--- | :--- | :--- | :--- |
-| **Primary** | `{{PRIMARY_HEX}}` | `{{PRIMARY_OKLCH}}` | 메인 버튼, 활성 상태, 브랜드 로고 |
-| **Secondary** | `{{SECONDARY_HEX}}` | `{{SECONDARY_OKLCH}}` | 강조, 알림 뱃지, 보조 버튼 |
-| **Accent** | `{{ACCENT_HEX}}` | `{{ACCENT_OKLCH}}` | 링크 텍스트, 포커스 링 |
-
-### Semantic Colors (Mode Adaptive)
-
-다크 모드 전환 시 반전되는 의미론적 컬러입니다.
-
-| Role | Light Mode | Dark Mode |
+| 구분 | 선택된 기술 | 선정 이유 (Context) |
 | :--- | :--- | :--- |
-| **Background** | `#FFFFFF` | `#0F172A` |
-| **Surface** | `#F8FAFC` (Slate-50) | `#1E293B` (Slate-800) |
-| **Border** | `#E2E8F0` (Slate-200) | `#334155` (Slate-700) |
-| **Text (Body)** | `#334155` (Slate-700) | `#E2E8F0` (Slate-200) |
-| **Text (Muted)** | `#64748B` (Slate-500) | `#94A3B8` (Slate-400) |
+| (예시) 런타임 | Bun | 빠른 프로토타이핑 속도 필요 |
+| (예시) DB | SQLite | 로컬 중심의 가벼운 데이터 관리 |
+| (이곳을 채우세요) | ... | ... |
 
-### Typography & Layout
+## 3. 전역 기능 범위 (Global Features)
 
-- **Font Family**: {{FONT_FAMILY}} (예: Pretendard Variable)
-- **Base Size**: 16px (1rem)
-- **Border Radius**:
-  - Button: `0.5rem` (Rounded-lg)
-  - Card: `1rem` (Rounded-2xl)
+> [지침]
+> .vibecoding/feature_options.toml 파일을 참고하여, 구현해야 할 기능을 체크리스트로 구성하십시오.
 
-## 4. Pages & Features Map
+### 3.1. UI/UX 표준
 
-페이지별 핵심 기능과 제약 사항입니다.
+- [ ] (ui_ux_standards 섹션 참고...)
 
-### Phase 1: MVP (Core)
+### 3.2. 앱 기능 및 성능
 
-#### / (Landing)
+- [ ] (app_capabilities 섹션 참고...)
 
-- **Auth**: Public (비로그인 접근 가능)
-- **Key Features**:
-  - 히어로 섹션 (캐치프레이즈 + CTA)
-  - 주요 기능 소개 (Grid Layout)
-  - 푸터 (이용약관 링크)
+### 3.3. SEO 및 메타 전략
 
-#### /login (Auth)
+- [ ] (seo_and_meta 섹션 참고...)
 
-- **Auth**: Guest Only (로그인 시 리다이렉트)
-- **Key Features**:
-  - 소셜 로그인 (Google, Kakao)
-  - 이메일 매직 링크 로그인
-  - 에러 토스트 메시지 처리
+### 3.4. 보안 및 규정
 
-#### /app (Main Dashboard)
+- [ ] (security_policies 및 compliance 섹션 참고...)
 
-- **Auth**: Protected (로그인 필수)
-- **Key Features**:
-  - {{CORE_FEATURE_1}}
-  - {{CORE_FEATURE_2}}
-  - 무한 스크롤 리스트
+## 4. 디자인 시스템 및 테마
 
-### Phase 2: Advanced
+> [지침]
+>
+> 1. .vibecoding/theme_options.toml 파일에서 테마 하나를 선택하십시오.
+> 2. 브랜드 컬러(Primary, Secondary, Accent, Status)는 선택한 테마의 값을 그대로 사용하십시오.
+> 3. 뉴트럴 컬러(Background, Surface, Text, Border)는 테마의 base_scale (예: Slate, Stone)을 기준으로 아래 규칙에 따라 자동 생성하십시오.
+>    - Light Mode: Bg(White), Surface(50), Border(200), Text(700), Muted(500)
+>    - Dark Mode: Bg(900 또는 950), Surface(800), Border(700), Text(200), Muted(400)
+> 4. 모든 색상의 Hex 값과 OKLCH 값을 계산하여 기입하십시오.
 
-#### /settings
+### 컬러 팔레트 및 토큰 정의
 
-- **Auth**: Protected
-- **Key Features**:
-  - 프로필 이미지 수정
-  - 테마 변경 (Light/Dark/System)
-  - 회원 탈퇴 (Soft Delete)
-  
+[선택된 테마]: (예: corporate_navy) / [Base Scale]: (예: Slate)
+
+| 용도 (Token) | 라이트 HEX | 라이트 OKLCH | 다크 HEX | 다크 OKLCH | 비고 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 기본 (Primary) | (TOML값) | ... | (TOML값) | ... | 브랜드 메인 |
+| 보조 (Secondary) | (TOML값) | ... | (TOML값) | ... | 서브 강조 |
+| 포인트 (Accent) | (TOML값) | ... | (TOML값) | ... | 링크, 포커스 |
+| 배경 (Background) | #FFFFFF | ... | (Scale-900) | ... | 전체 배경 |
+| 표면 (Surface) | (Scale-50) | ... | (Scale-800) | ... | 카드 배경 |
+| 테두리 (Border) | (Scale-200) | ... | (Scale-700) | ... | 구분선 |
+| 텍스트 (Main) | (Scale-700) | ... | (Scale-200) | ... | 기본 본문 |
+| 텍스트 (Muted) | (Scale-500) | ... | (Scale-400) | ... | 보조 텍스트 |
+| 성공 (Success) | (Status.succ) | ... | (Status.succ) | ... | 성공 상태 |
+| 경고 (Warning) | (Status.warn) | ... | (Status.warn) | ... | 경고 상태 |
+| 오류 (Error) | (Status.err) | ... | (Status.err) | ... | 에러 상태 |
+
+### 타이포그래피 및 레이아웃
+
+- 폰트: {{FONT_FAMILY}}
+- 둥글기 (Radius): 0.5rem (버튼), 1rem (카드)
+
+## 5. 페이지 구조 및 기능 명세
+
+> [지침]
+> 프로젝트의 핵심 페이지 구조와 각 페이지별 필수 기능을 정의하십시오.
+
+### 1단계: MVP (핵심 기능)
+
+#### / (라우트 경로)
+
+- 접근 권한: (전체 공개 / 로그인 필수 / 게스트 전용)
+- 핵심 기능:
+  - (기능 1)
+  - (기능 2)
+
+#### (페이지 추가...)

@@ -1,0 +1,233 @@
+# 디자인 테마 메뉴판 (THEME OPTIONS)
+# BLUEPRINT.md 작성 시 참고할 컬러 팔레트 프리셋입니다.
+
+# ==========================================
+# 1. 어스 앤 포레스트 (Earth & Forest)
+# ==========================================
+[palette.earth_forest]
+description = "깊은 숲속의 이끼와 나무. 캠핑, 아웃도어, 자연 친화적 브랜드."
+base_scale = "Stone (Warm Gray)"
+primary = { hex = "#283618", name = "Dark Moss Green" }
+secondary = { hex = "#606C38", name = "Dried Herb Green" }
+accent = { hex = "#BC6C25", name = "Earth Bronze" }
+status = { success = "#283618", warning = "#DDA15E", error = "#BC6C25" }
+
+# ==========================================
+# 2. 딥 오션 선셋 (Deep Ocean Sunset)
+# ==========================================
+[palette.ocean_sunset]
+description = "푸른 바다와 강렬한 오렌지색 석양. 여행, 스포츠, 에너지."
+base_scale = "Slate (Cool Gray)"
+primary = { hex = "#023047", name = "Deep Navy" }
+secondary = { hex = "#219EBC", name = "Ocean Blue" }
+accent = { hex = "#FB8500", name = "Vivid Orange" }
+status = { success = "#219EBC", warning = "#FFB703", error = "#FB8500" }
+
+# ==========================================
+# 3. 레트로 아메리카나 (Retro Americana)
+# ==========================================
+[palette.retro_cream]
+description = "클래식한 레드, 네이비 그리고 크림색. 빈티지 샵, 베이커리."
+base_scale = "Sand (Warm Neutral)"
+primary = { hex = "#C1121F", name = "Vintage Red" }
+secondary = { hex = "#003049", name = "Classic Navy" }
+accent = { hex = "#669BBC", name = "Faded Blue" }
+status = { success = "#003049", warning = "#FDF0D5", error = "#780000" }
+
+# ==========================================
+# 4. 빈티지 보태니컬 (Vintage Botanical)
+# ==========================================
+[palette.vintage_botanic]
+description = "물 빠진 녹색과 붉은 꽃. 차분하고 서정적인 분위기."
+base_scale = "Sage (Greenish Gray)"
+primary = { hex = "#386641", name = "Deep Hunter Green" }
+secondary = { hex = "#6A994E", name = "Asparagus Green" }
+accent = { hex = "#BC4749", name = "Muted Red" }
+status = { success = "#386641", warning = "#A7C957", error = "#BC4749" }
+
+# ==========================================
+# 5. 파스텔 드림 (Pastel Dream)
+# ==========================================
+[palette.pastel_dream]
+description = "부드러운 솜사탕 같은 파스텔 톤. 유아, 디저트, 팬시."
+base_scale = "Gray (Neutral)"
+primary = { hex = "#FFAFCC", name = "Cotton Candy Pink" }
+secondary = { hex = "#BDE0FE", name = "Baby Blue" }
+accent = { hex = "#CDB4DB", name = "Soft Lilac" }
+status = { success = "#A2D2FF", warning = "#FFC8DD", error = "#FFAFCC" }
+
+# ==========================================
+# 6. 코퍼레이트 네이비 (Corporate Navy)
+# ==========================================
+[palette.corporate_navy]
+description = "신뢰감을 주는 모노톤의 네이비. 금융, 컨설팅, 대기업."
+base_scale = "Slate (Cool Gray)"
+primary = { hex = "#0D1B2A", name = "Midnight Black" }
+secondary = { hex = "#1B263B", name = "Oxford Blue" }
+accent = { hex = "#415A77", name = "Shadow Blue" }
+status = { success = "#415A77", warning = "#778DA9", error = "#1B263B" }
+
+# ==========================================
+# 7. 오가닉 베이지 (Organic Beige)
+# ==========================================
+[palette.organic_beige]
+description = "자극 없는 베이지와 브라운. 인테리어, 카페, 미니멀리즘."
+base_scale = "Stone (Warm Gray)"
+primary = { hex = "#D5BDAF", name = "Latte Beige" }
+secondary = { hex = "#D6CCC2", name = "Pale Gray" }
+accent = { hex = "#E3D5CA", name = "Mocha Mousse" }
+status = { success = "#D6CCC2", warning = "#E3D5CA", error = "#D5BDAF" }
+
+# ==========================================
+# 8. 말차 앤 우드 (Matcha & Wood)
+# ==========================================
+[palette.matcha_wood]
+description = "부드러운 말차 녹색과 나무색. 티 하우스, 웰빙, 명상."
+base_scale = "Olive (Yellowish Green)"
+primary = { hex = "#CCD5AE", name = "Matcha Green" }
+secondary = { hex = "#E9EDC9", name = "Leaf Green" }
+accent = { hex = "#D4A373", name = "Wood Brown" }
+status = { success = "#CCD5AE", warning = "#FAEDCD", error = "#D4A373" }
+
+# ==========================================
+# 9. 모던 레드 & 스틸 (Red & Steel)
+# ==========================================
+[palette.red_steel]
+description = "선명한 레드와 차가운 스틸 블루의 대비. 테크, 뉴스, 데이터 시각화."
+base_scale = "Zinc (Industrial Gray)"
+primary = { hex = "#1D3557", name = "Royal Navy" }
+secondary = { hex = "#457B9D", name = "Steel Blue" }
+accent = { hex = "#E63946", name = "Alert Red" }
+status = { success = "#1D3557", warning = "#A8DADC", error = "#E63946" }
+
+# ==========================================
+# 10. 미드나잇 옐로우 (Midnight Yellow)
+# ==========================================
+[palette.midnight_yellow]
+description = "칠흑 같은 어둠 속의 강렬한 노란색. 야간 모드, 게임, 프리미엄 서비스."
+base_scale = "Neutral (Pure Black)"
+primary = { hex = "#FFC300", name = "Cyber Yellow" }
+secondary = { hex = "#003566", name = "Electric Blue" }
+accent = { hex = "#FFD60A", name = "Highlighter Yellow" }
+status = { success = "#FFC300", warning = "#FFD60A", error = "#001D3D" }
+
+# ==========================================
+# 11. 딥 그린 포레스트 (Deep Green Forest)
+# ==========================================
+[palette.deep_forest]
+description = "안개 낀 숲속의 차분한 그린 그라데이션. 밀리터리, 캠핑, 차분함."
+base_scale = "Sage (Greenish Gray)"
+primary = { hex = "#344e41", name = "Deep Hunter" }
+secondary = { hex = "#588157", name = "Fern Green" }
+accent = { hex = "#dad7cd", name = "Pale Sage" }
+status = { success = "#3a5a40", warning = "#a3b18a", error = "#344e41" }
+
+# ==========================================
+# 12. 프레시 라임 (Fresh Lime)
+# ==========================================
+[palette.fresh_lime]
+description = "다크 그린과 눈부신 라임의 대비. 스포츠, 에너지 드링크, 역동적."
+base_scale = "Neutral (Gray)"
+primary = { hex = "#132a13", name = "Black Forest" }
+secondary = { hex = "#4f772d", name = "Leafy Green" }
+accent = { hex = "#ecf39e", name = "Neon Lime" }
+status = { success = "#90a955", warning = "#ecf39e", error = "#31572c" }
+
+# ==========================================
+# 13. 클래식 레더 (Classic Leather)
+# ==========================================
+[palette.classic_leather]
+description = "중후한 가죽과 커피, 그리고 골드. 남성 패션, 바버샵, 위스키."
+base_scale = "Stone (Warm Gray)"
+primary = { hex = "#432818", name = "Dark Espresso" }
+secondary = { hex = "#99582a", name = "Saddle Brown" }
+accent = { hex = "#ffe6a7", name = "Champagne Gold" }
+status = { success = "#6f1d1b", warning = "#bb9457", error = "#6f1d1b" }
+
+# ==========================================
+# 14. 레트로 플로럴 (Retro Floral)
+# ==========================================
+[palette.retro_floral]
+description = "말린 장미와 빛바랜 올리브 색. 앤틱, 플라워 샵, 여성 의류."
+base_scale = "Sand (Warm Neutral)"
+primary = { hex = "#723d46", name = "Antique Rose" }
+secondary = { hex = "#c9cba3", name = "Sage Beige" }
+accent = { hex = "#e26d5c", name = "Terracotta" }
+status = { success = "#472d30", warning = "#ffe1a8", error = "#e26d5c" }
+
+# ==========================================
+# 15. 오션 뎁스 (Ocean Depths)
+# ==========================================
+[palette.ocean_depths]
+description = "심해의 짙은 파랑부터 수면의 하늘색까지. 물, 기술, 청량함."
+base_scale = "Sky (Cool Blue)"
+primary = { hex = "#03045e", name = "Abyss Blue" }
+secondary = { hex = "#0077b6", name = "Pacific Blue" }
+accent = { hex = "#caf0f8", name = "Ice Water" }
+status = { success = "#00b4d8", warning = "#90e0ef", error = "#03045e" }
+
+# ==========================================
+# 16. 소프트 보헤미안 (Soft Boho)
+# ==========================================
+[palette.soft_boho]
+description = "부드러운 피치와 민트, 크림색. 일러스트, 베이커리, 감성 앱."
+base_scale = "Warm Gray"
+primary = { hex = "#f28482", name = "Soft Coral" }
+secondary = { hex = "#84a59d", name = "Muted Mint" }
+accent = { hex = "#f6bd60", name = "Mellow Yellow" }
+status = { success = "#84a59d", warning = "#f6bd60", error = "#f28482" }
+
+# ==========================================
+# 17. 유니콘 캔디 (Unicorn Candy)
+# ==========================================
+[palette.unicorn_candy]
+description = "꿈환적인 파스텔 핑크, 옐로우, 블루. 키즈, 팬시, 아이돌."
+base_scale = "Neutral (White Base)"
+primary = { hex = "#ff99c8", name = "Bubblegum Pink" }
+secondary = { hex = "#a9def9", name = "Sky Pastel" }
+accent = { hex = "#fcf6bd", name = "Lemon Chiffon" }
+status = { success = "#d0f4de", warning = "#fcf6bd", error = "#ff99c8" }
+
+# ==========================================
+# 18. 쥬얼 선셋 (Jewel Sunset)
+# ==========================================
+[palette.jewel_sunset]
+description = "보석처럼 강렬한 퍼플, 레드, 오렌지. 화려함, 축제, 칵테일 바."
+base_scale = "Zinc (Industrial Gray)"
+primary = { hex = "#5f0f40", name = "Deep Plum" }
+secondary = { hex = "#9a031e", name = "Ruby Red" }
+accent = { hex = "#fb8b24", name = "Sunset Orange" }
+status = { success = "#0f4c5c", warning = "#fb8b24", error = "#9a031e" }
+
+# ==========================================
+# 19. 모던 레트로 (Modern Retro)
+# ==========================================
+[palette.modern_retro]
+description = "차콜과 틸, 그리고 번트 오렌지. 가장 트렌디한 일러스트 배색."
+base_scale = "Slate (Cool Gray)"
+primary = { hex = "#264653", name = "Charcoal Green" }
+secondary = { hex = "#2a9d8f", name = "Persian Green" }
+accent = { hex = "#e76f51", name = "Burnt Sienna" }
+status = { success = "#2a9d8f", warning = "#e9c46a", error = "#e76f51" }
+
+# ==========================================
+# 20. 프라이머리 팝 (Primary Pop)
+# ==========================================
+[palette.primary_pop]
+description = "네이비, 레드, 옐로우의 강력한 원색 대비. 브랜드, 푸드 트럭, 에너지."
+base_scale = "Neutral (Gray)"
+primary = { hex = "#003049", name = "Prussian Blue" }
+secondary = { hex = "#d62828", name = "Fire Engine Red" }
+accent = { hex = "#fcbf49", name = "Marigold" }
+status = { success = "#003049", warning = "#fcbf49", error = "#d62828" }
+
+# ==========================================
+# 21. 테라 캄 (Terra Calm)
+# ==========================================
+[palette.terra_calm]
+description = "차분한 네이비와 부드러운 테라코타, 크림색. 교육, 인테리어, 서점."
+base_scale = "Sand (Beige Gray)"
+primary = { hex = "#3d405b", name = "Independence Blue" }
+secondary = { hex = "#e07a5f", name = "Terra Cotta" }
+accent = { hex = "#81b29a", name = "Dusty Green" }
+status = { success = "#81b29a", warning = "#f2cc8f", error = "#e07a5f" }
