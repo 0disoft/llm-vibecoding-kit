@@ -1,0 +1,261 @@
+# TECH STACK OPTIONS
+# BLUEPRINT.md 작성 시 참고할 기술 스택 메뉴판입니다.
+# 각 항목에서 프로젝트에 적합한 기술을 선택(Pick)하십시오.
+
+# ==========================================
+# 1. Core & Environment (개발 기반)
+# ==========================================
+[core]
+# 런타임 및 언어
+runtimes = ["Bun", "Node.js", "Deno", "Rust", "Go"]
+
+# 패키지 매니저
+package_managers = ["pnpm", "Bun", "Deno task"]
+
+# 모노레포 및 워크스페이스
+monorepos = ["Turborepo", "Nx", "Native Workspaces"]
+
+# 스캐폴딩 (프로젝트 생성)
+scaffolding = ["yo code (Yeoman)", "create-t3-app", "create-vite"]
+
+# ==========================================
+# 2. Client Side (프론트엔드 & 앱)
+# ==========================================
+[client]
+# 웹 프레임워크
+frameworks = ["Astro", "SvelteKit", "QwikCity", "SolidStart", "Fresh"]
+
+# 스타일링 및 UI 라이브러리
+styling = ["Vanilla CSS", "Tailwind CSS", "UnoCSS", "Panda CSS", "shadcn-ui"]
+
+# 브라우저 확장 프로그램
+browser_extensions = ["WXT", "CRXJS"]
+
+# 크로스플랫폼 (모바일/데스크탑)
+cross_platform = ["Tauri", "Flutter"]
+
+# 게임 엔진
+game_engines = ["Phaser", "Flame"]
+
+# Web3 / 블록체인
+web3 = ["Anchor", "Cadence", "ink!", "Move"]
+
+# 리치 텍스트 에디터
+editors = ["TipTap", "Lexical", "Slate.js", "Editor.js"]
+
+# ==========================================
+# 3. Server & Data (백엔드)
+# ==========================================
+[server]
+# 백엔드 프레임워크
+frameworks = ["Elysia", "Hono", "Axum (Rust)", "Gin (Go)"]
+
+# BaaS / 서버리스 DB
+baas = [
+    "Supabase",
+    "Neon",
+    "Vercel Postgres",
+    "Turso",
+    "Cloudflare D1",
+    "CockroachDB",
+    "PocketBase",
+]
+
+# 데이터베이스 (Self-hosted)
+databases = ["SQLite", "PostgreSQL"]
+
+# ORM / 쿼리 빌더
+orms = ["Drizzle", "Prisma", "Kysely", "MikroORM"]
+
+# 캐시 / 세션 스토리지
+caches = ["Redis", "Upstash Redis", "Cloudflare KV"]
+
+# 텍스트 검색 엔진
+text_search = ["Meilisearch", "Typesense", "OpenSearch"]
+
+# 벡터 검색 (AI 임베딩)
+vector_search = ["Qdrant", "Weaviate", "Milvus"]
+
+# 파일 / 오브젝트 스토리지
+storage = [
+    "Cloudflare R2",
+    "Amazon S3",
+    "Google Cloud Storage",
+    "Backblaze B2",
+    "pCloud",
+]
+
+# Headless CMS
+cms = ["TinaCMS", "Payload CMS", "Directus", "Strapi"]
+
+# ==========================================
+# 4. Quality & Security (품질 관리)
+# ==========================================
+[quality]
+# 인증 솔루션
+auth_solutions = [
+    "Supabase Auth",
+    "Firebase Auth",
+    "Better-Auth",
+    "Keycloak",
+    "SuperTokens",
+]
+
+# 데이터 유효성 검사
+validation = ["Zod", "ArkType", "Valibot", "TypeBox"]
+
+# 테스트 러너
+test_runners = ["Vitest", "Playwright"]
+
+# API 클라이언트
+api_clients = ["Bruno", "Hoppscotch"]
+
+# ==========================================
+# 5. DevOps & Infra (인프라)
+# ==========================================
+[infra]
+# 배포 플랫폼
+deployment = [
+    "Docker",
+    "Vercel",
+    "Netlify",
+    "Cloudflare Workers",
+    "Fly.io",
+    "Render",
+    "Railway",
+    "Coolify",
+]
+
+# 모니터링 / 관측성
+observability = [
+    "Uptime Kuma",
+    "Sentry",
+    "GlitchTip",
+    "Prometheus + Grafana",
+    "SigNoz",
+    "Datadog",
+    "New Relic",
+]
+
+# 제품 분석 (Analytics)
+analytics = ["Plausible", "PostHog", "Umami", "Matomo", "GA4"]
+
+# 자동화 / 워크플로우
+automation = [
+    "Apache Airflow",
+    "Node-RED",
+    "Windmill",
+    "GitHub Actions",
+    "n8n",
+    "Dagger",
+    "Trigger.dev",
+    "ActivePieces",
+    "Huginn",
+    "Inngest",
+]
+
+# ==========================================
+# 6. Business & Money (수익화)
+# ==========================================
+[business]
+# 결제 PG
+payments = ["포트원", "Paddle", "Lemon Squeezy", "Creem", "부트페이", "Stripe Billing"]
+
+# 인앱 결제 / 구독
+in_app_purchases = [
+    "Google Play Billing",
+    "Apple StoreKit",
+    "RevenueCat",
+    "Adapty.io",
+    "Qonversion.io",
+]
+
+# 후원 플랫폼
+donations = [
+    "Gumroad",
+    "GitHub Sponsors",
+    "Buy Me a Coffee",
+    "Ko-fi",
+    "Patreon",
+    "Toonation",
+    "Open Collective",
+    "Liberapay",
+    "Donorbox",
+    "Payoneer",
+    "Wise",
+]
+
+# 정산 / 송금 (수취용)
+payouts = ["Payoneer", "Wise", "Revolut", "Paysera"]
+
+# 광고 네트워크
+ads = [
+    "AdSense",
+    "Ezoic",
+    "Raptive",
+    "Mediavine",
+    "Monumetric",
+    "Freestar",
+    "Snigel",
+    "NitroPay",
+    "Setupad",
+    "Newor Media",
+    "Publift",
+    "Prebid.js",
+]
+
+# ==========================================
+# 7. Operations & Features (운영)
+# ==========================================
+[ops]
+# 이메일 전송
+email = ["Resend", "Brevo", "Mailjet", "SMTP2GO", "Mailtrap", "AWS SES"]
+
+# 알림 통합 (Push/SMS)
+notifications = [
+    "Novu",
+    "SuprSend",
+    "OneSignal",
+    "Firebase Cloud Messaging",
+    "ntfy",
+]
+
+# 백그라운드 작업 큐
+background_jobs = ["Trigger", "Asynq", "BullMQ", "Inngest", "Apalis", "Faktory"]
+
+# 피처 플래그 / 실험
+feature_flags = [
+    "PostHog",
+    "GO Feature Flag",
+    "Flipt",
+    "GrowthBook",
+    "Flagsmith",
+]
+
+# 국제화 (i18n)
+i18n = ["Lingui", "inlang", "Tolgee", "typesafe-i18n", "i18next", "Weblate"]
+
+# 고객 지원 / 채팅
+support = ["Chatwoot", "Sleekplan", "Crisp", "Upvoty", "Help Scout", "Tidio"]
+
+# 문서 / 위키
+documentation = [
+    "MkDocs",
+    "Wiki.js",
+    "Docusaurus",
+    "Nextra",
+    "BookStack",
+    "Outline",
+]
+
+# 커뮤니티 / 댓글
+community = [
+    "Remark42",
+    "Commento",
+    "Cusdis",
+    "Talkyard",
+    "Hyvor Talk",
+    "Giscus",
+    "Flarum",
+    "Isso",
+]

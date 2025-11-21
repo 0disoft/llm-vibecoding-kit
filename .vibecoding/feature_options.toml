@@ -1,0 +1,162 @@
+# GLOBAL FEATURE OPTIONS
+# BLUEPRINT.md 작성을 위한 기능 메뉴판입니다.
+# [지침]
+# 1. 각 항목은 'options'와 'note'로 구성됩니다.
+# 2. 프로젝트 성격에 맞춰 필요한 기능을 'options'에서 다중 선택(Pick Multiple)하십시오.
+
+[ui_ux_standards]
+# 반응형 전략
+responsive_strategy = { options = [
+    "Mobile First",
+    "Desktop First",
+    "Adaptive",
+], note = "B2C는 모바일 우선, B2B 관리자 화면은 데스크탑 우선" }
+
+# 테마 시스템
+theme_system = { options = [
+    "System Preference Sync",
+    "Dark/Light Toggle",
+    "Multi-theme",
+    "Always Dark",
+], note = "사용자 선호 존중은 System Sync, 브랜드 강조는 Always Dark" }
+
+# 폰트 로딩 전략
+font_loading = { options = [
+    "Pretendard (Variable)",
+    "Google Fonts (CDN)",
+    "Local Font File",
+    "System Font Stack",
+], note = "한글은 Pretendard Variable이 표준, 성능 최우선은 System Font" }
+
+# 접근성 (A11y)
+accessibility = { options = [
+    "Screen Reader Support (WAI-ARIA)",
+    "Keyboard Navigation",
+    "High Contrast Mode",
+    "Reduced Motion",
+], note = "법적 준수 및 공공기관 프로젝트 필수 항목" }
+
+# 모션 및 인터랙션
+motion_effects = { options = [
+    "Page Transitions",
+    "Micro-interactions",
+    "Scroll Animations",
+    "Parallax",
+], note = "고급스러운 느낌을 주려면 Page Transitions 필수" }
+
+[app_capabilities]
+# PWA (웹앱)
+pwa_support = { options = [
+    "Installable (Manifest)",
+    "Offline Support (Service Worker)",
+    "Push Notifications",
+    "Background Sync",
+], note = "앱스토어 없이 설치형 경험 제공 시 필수" }
+
+# 클라이언트 저장소
+client_storage = { options = [
+    "Local Storage Persistence",
+    "Session Storage",
+    "IndexedDB",
+    "Zustand/Recoil Persist",
+], note = "단순 설정은 LocalStorage, 대용량 데이터는 IndexedDB" }
+
+# 업데이트 알림
+update_strategy = { options = [
+    "Auto-update Toast",
+    "Force Update Modal",
+    "Silent Update",
+], note = "중요한 로직 변경 시 Force Update, 일반적으론 Toast 권장" }
+
+[seo_and_meta]
+# 검색 엔진 최적화
+search_engine = { options = [
+    "Sitemap.xml Auto-gen",
+    "Robots.txt Config",
+    "Canonical Tags",
+    "RSS/Atom Feed",
+], note = "기본적인 구글/네이버 검색 노출을 위한 필수 세트" }
+
+# [중요] AI 및 LLM 최적화
+ai_readability = { options = [
+    "llms.txt (AI Summary)",
+    "llms-full.txt (Full Content)",
+    "AI Plugin Manifest",
+], note = "ChatGPT, Perplexity 등 AI 검색 엔진이 사이트를 잘 이해하도록 돕는 파일" }
+
+# 소셜 공유 (OG 태그)
+social_sharing = { options = [
+    "Dynamic OpenGraph (OG) Images",
+    "Twitter Cards",
+    "Kakao/Line Preview",
+], note = "링크 공유 시 클릭률(CTR)을 높이기 위해 필수" }
+
+# 구조화된 데이터 (Schema.org)
+structured_data = { options = [
+    "JSON-LD Schema (Article)",
+    "JSON-LD Schema (Product)",
+    "Breadcrumbs",
+], note = "검색 결과에 가격, 별점, 저자 등을 노출시키기 위함" }
+
+# 분석 도구 연동
+analytics_integration = { options = [
+    "GTM (Google Tag Manager)",
+    "Pixel Tracking (Meta/TikTok)",
+], note = "마케팅 성과 측정 및 리타겟팅 광고 집행 시 필요" }
+
+[security_policies]
+# 보안 헤더
+http_headers = { options = [
+    "CSP (Content Security Policy)",
+    "HSTS (Force HTTPS)",
+    "X-Frame-Options",
+    "Referrer-Policy",
+], note = "기본적인 웹 취약점 방어 (보안 점수 향상)" }
+
+# API 보호
+api_protection = { options = [
+    "Rate Limiting",
+    "DDOS Protection",
+    "CSRF Token",
+    "JWT Expiration",
+], note = "무차별 대입 공격 및 어뷰징 방지" }
+
+# CORS 정책
+cors_policy = { options = [
+    "Strict CORS (Specific Origin)",
+    "Public API (Open CORS)",
+], note = "보통은 Strict 모드, 외부 공개 API만 Public" }
+
+[performance_optimization]
+# 이미지 처리
+image_handling = { options = [
+    "Image Optimization (WebP/AVIF)",
+    "Lazy Loading",
+    "CDN Caching",
+], note = "LCP(최대 콘텐츠 렌더링) 점수 개선의 핵심" }
+
+# 번들링 최적화
+bundling = { options = [
+    "Code Splitting",
+    "Tree Shaking",
+    "Minification",
+    "Gzip/Brotli Compression",
+], note = "초기 로딩 속도(FCP) 단축을 위해 필수" }
+
+# 렌더링 전략
+rendering_strategy = { options = [
+    "SSR (Server Side)",
+    "SSG (Static Gen)",
+    "ISR (Incremental)",
+    "CSR (Client Side)",
+    "Edge Rendering",
+], note = "SEO 중요하면 SSR/SSG, 대시보드는 CSR" }
+
+[compliance_and_legal]
+# 법적 고지
+policies = { options = [
+    "Privacy Policy Page",
+    "Terms of Service Page",
+    "Cookie Consent Banner (GDPR)",
+    "Age Verification",
+], note = "서비스 출시 전 반드시 갖춰야 할 페이지들" }
