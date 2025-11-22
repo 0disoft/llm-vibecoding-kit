@@ -48,14 +48,12 @@
 
 > [지침]
 >
-> 1. .vibecoding/theme_options.toml 파일에서 테마 하나를 선택하십시오.
-> 2. 브랜드 컬러(Primary, Secondary, Accent, Status)는 선택한 테마의 값을 그대로 사용하십시오.
-> 3. 뉴트럴 컬러(Background, Surface, Text, Border)는 테마의 base_scale (예: Slate, Stone)을 기준으로 아래 규칙에 따라 자동 생성하십시오.
->    - Light Mode: Bg(White), Surface(50), Border(200), Text(700), Muted(500)
->    - Dark Mode: Bg(900 또는 950), Surface(800), Border(700), Text(200), Muted(400)
-> 4. 모든 색상의 Hex 값과 OKLCH 값을 계산하여 기입하십시오.
+> 1. **색상**: .vibecoding/theme_options.toml 참고하여 테마 선택 및 팔레트 작성.
+> 2. **UI 스타일**: .vibecoding/ui_options.toml 참고.
+> 3. [중요] 스타일 옵션을 기입할 때는 메뉴판의 이름뿐만 아니라, 괄호 안에 있는 '참조용 표준값(Reference Value)'을 반드시 별도 컬럼에 명시하십시오.
+>    - 예: 선택 옵션이 "Tight (leading-tight)"라면 -> 적용 값에 "leading-tight" 기입.
 
-### 컬러 팔레트 및 토큰 정의
+### 4.1. 컬러 팔레트 및 토큰 정의
 
 [선택된 테마]: (예: corporate_navy) / [Base Scale]: (예: Slate)
 
@@ -73,10 +71,24 @@
 | 경고 (Warning) | (Status.warn) | ... | (Status.warn) | ... | 경고 상태 |
 | 오류 (Error) | (Status.err) | ... | (Status.err) | ... | 에러 상태 |
 
-### 타이포그래피 및 레이아웃
+### 4.2. UI 스타일 및 구조 (Shape & Typography)
 
-- 폰트: {{FONT_FAMILY}}
-- 둥글기 (Radius): 0.5rem (버튼), 1rem (카드)
+> [지침]
+> .vibecoding/ui_options.toml의 항목들을 빠짐없이 결정하여 기입하십시오.
+> **적용 값**에는 괄호 안의 내용(Tailwind Class 또는 CSS 값)을 정확히 옮겨 적으십시오.
+
+| 구분 | 선택된 스타일 (Vibe) | 적용 값 (Class / Value) |
+| :--- | :--- | :--- |
+| **폰트 패밀리** | (예: Modern Gothic) | font-['Pretendard'] |
+| **줄 간격** | (예: Normal) | leading-normal |
+| **글자 굵기** | (예: Standard) | 400 / 700 |
+| **둥글기 (Radius)** | (예: Standard) | rounded-lg |
+| **그림자 (Shadow)** | (예: Subtle) | shadow-sm |
+| **테두리 두께** | (예: Hairline) | 1px |
+| **컨테이너 폭** | (예: Dashboard) | max-w-7xl |
+| **여백 밀도** | (예: Comfortable) | Base 1rem |
+| **반응 속도** | (예: Snappy) | duration-150 |
+| **클릭 효과** | (예: Subtle Press) | active:scale-95 |
 
 ## 5. 페이지 구조 및 기능 명세
 
