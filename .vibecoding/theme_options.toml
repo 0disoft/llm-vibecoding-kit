@@ -6,228 +6,713 @@
 # ==========================================
 [palette.earth_forest]
 description = "깊은 숲속의 이끼와 나무. 캠핑, 아웃도어, 자연 친화적 브랜드."
-base_scale = "Stone (Warm Gray)"
+
+# 1.1 브랜드 컬러 (Brand Identity)
+[palette.earth_forest.brand]
 primary = { hex = "#283618", name = "Dark Moss Green" }
 secondary = { hex = "#606C38", name = "Dried Herb Green" }
 accent = { hex = "#BC6C25", name = "Earth Bronze" }
-status = { success = "#283618", warning = "#DDA15E", error = "#BC6C25" }
+
+# 1.2 상태 컬러 (Status - 테마 무드에 맞춤)
+[palette.earth_forest.status]
+success = "#283618" # 성공은 짙은 녹색
+warning = "#DDA15E" # 경고는 밝은 나무색
+error = "#BC6C25"   # 에러는 붉은 브라운
+
+# 1.3 라이트 모드 UI (Light Mode Spec)
+# 자연스러운 종이 질감의 배경과 짙은 녹갈색 텍스트
+[palette.earth_forest.ui_light]
+bg_main = "#FEFAE0"    # (Eggshell) 따뜻한 미색 배경
+bg_surface = "#FFFFFF" # (White) 카드 배경
+text_main = "#283618"  # (Dark Moss) 검정 대신 짙은 녹색 사용
+text_muted = "#606C38" # (Herb Green) 연한 녹색
+border = "#E2E8C0"     # (Pale Green) 은은한 테두리
+
+# 1.4 다크 모드 UI (Dark Mode Spec) - [중요] 가독성 보정
+# 단순 블랙이 아닌, 아주 깊은 숲속의 밤색
+[palette.earth_forest.ui_dark]
+bg_main = "#0D1208"    # (Deep Forest) 거의 검정에 가까운 녹색
+bg_surface = "#1A2115" # (Night Moss) 조금 더 밝은 딥 그린
+text_main = "#FEFAE0"  # (Eggshell) 라이트 배경색을 텍스트로 반전 (가독성 최상)
+text_muted = "#A3B18A" # (Sage Gray) 차분한 회녹색
+border = "#2F3E22"     # (Dark Stem) 어두운 경계선
 
 # ==========================================
 # 2. 딥 오션 선셋 (Deep Ocean Sunset)
 # ==========================================
 [palette.ocean_sunset]
 description = "푸른 바다와 강렬한 오렌지색 석양. 여행, 스포츠, 에너지."
-base_scale = "Slate (Cool Gray)"
+
+# 2.1 브랜드 컬러
+[palette.ocean_sunset.brand]
 primary = { hex = "#023047", name = "Deep Navy" }
 secondary = { hex = "#219EBC", name = "Ocean Blue" }
 accent = { hex = "#FB8500", name = "Vivid Orange" }
-status = { success = "#219EBC", warning = "#FFB703", error = "#FB8500" }
+
+# 2.2 상태 컬러
+[palette.ocean_sunset.status]
+success = "#219EBC" # 시원한 오션 블루
+warning = "#FFB703" # 밝은 선셋 옐로우
+error = "#FB8500"   # 강렬한 번트 오렌지
+
+# 2.3 라이트 모드 UI (청량한 해변 느낌)
+[palette.ocean_sunset.ui_light]
+bg_main = "#F0F9FF"    # (Alice Blue) 아주 연한 하늘색 배경 (흰색 대신 사용)
+bg_surface = "#FFFFFF" # (White) 파도 거품 같은 순백색 카드
+text_main = "#023047"  # (Deep Navy) 검정 대신 깊은 네이비로 가독성 확보
+text_muted = "#467388" # (Muted Blue) 물 빠진 네이비
+border = "#BDE0FE"     # (Pale Blue) 맑은 물색 테두리
+
+# 2.4 다크 모드 UI (심해의 깊은 느낌)
+[palette.ocean_sunset.ui_dark]
+bg_main = "#011826"    # (Abyss) Primary보다 더 어두운 심해색
+bg_surface = "#023047" # (Deep Navy) Primary 컬러를 표면색으로 활용
+text_main = "#E0F7FA"  # (Cyan White) 야광처럼 빛나는 연한 청록색 텍스트
+text_muted = "#8ECAE6" # (Sky Blue) 보조 텍스트
+border = "#124E66"     # (Dark Teal) 어두운 청록색 경계선
 
 # ==========================================
 # 3. 레트로 아메리카나 (Retro Americana)
 # ==========================================
 [palette.retro_cream]
 description = "클래식한 레드, 네이비 그리고 크림색. 빈티지 샵, 베이커리."
-base_scale = "Sand (Warm Neutral)"
+
+# 3.1 브랜드 컬러
+[palette.retro_cream.brand]
 primary = { hex = "#C1121F", name = "Vintage Red" }
 secondary = { hex = "#003049", name = "Classic Navy" }
 accent = { hex = "#669BBC", name = "Faded Blue" }
-status = { success = "#003049", warning = "#FDF0D5", error = "#780000" }
+
+# 3.2 상태 컬러
+[palette.retro_cream.status]
+success = "#003049" # 신뢰의 네이비
+warning = "#D97706" # (수정됨) 크림색(#FDF0D5)은 배경용이라, 가독성을 위해 앰버 골드로 교체
+error = "#780000"   # 짙은 블러드 레드
+
+# 3.3 라이트 모드 UI (오래된 종이 질감)
+[palette.retro_cream.ui_light]
+bg_main = "#FDF0D5"    # (Cream) 이 테마의 핵심! 쨍한 흰색 대신 크림색 배경
+bg_surface = "#FFFBF0" # (Light Cream) 조금 더 밝은 크림색 카드
+text_main = "#003049"  # (Classic Navy) 크림색 위에는 네이비 텍스트가 찰떡
+text_muted = "#6F7E8C" # (Dusty Blue) 먼지 쌓인 듯한 블루 그레이
+border = "#E6D5B8"     # (Dark Cream) 진한 크림색 테두리
+
+# 3.4 다크 모드 UI (밤거리의 네온 사인)
+[palette.retro_cream.ui_dark]
+bg_main = "#001829"    # (Night Navy) 아주 어두운 네이비
+bg_surface = "#003049" # (Classic Navy) 브랜드 컬러를 표면으로
+text_main = "#FDF0D5"  # (Cream) 다크 배경 위에서 빛나는 크림색 텍스트
+text_muted = "#669BBC" # (Faded Blue) 은은한 블루 텍스트
+border = "#334B5C"     # (Steel Navy) 차가운 네이비 경계선
 
 # ==========================================
 # 4. 빈티지 보태니컬 (Vintage Botanical)
 # ==========================================
 [palette.vintage_botanic]
 description = "물 빠진 녹색과 붉은 꽃. 차분하고 서정적인 분위기."
-base_scale = "Sage (Greenish Gray)"
+
+# 4.1 브랜드 컬러
+[palette.vintage_botanic.brand]
 primary = { hex = "#386641", name = "Deep Hunter Green" }
 secondary = { hex = "#6A994E", name = "Asparagus Green" }
 accent = { hex = "#BC4749", name = "Muted Red" }
-status = { success = "#386641", warning = "#A7C957", error = "#BC4749" }
+
+# 4.2 상태 컬러 (채도를 낮춰서 빈티지하게)
+[palette.vintage_botanic.status]
+success = "#386641" # 차분한 헌터 그린
+warning = "#A7C957" # 잘 익은 올리브색
+error = "#BC4749"   # 말린 장미색
+
+# 4.3 라이트 모드 UI (식물도감 종이 질감)
+[palette.vintage_botanic.ui_light]
+bg_main = "#F2F5F0"    # (Pale Sage) 아주 연한 회녹색 배경
+bg_surface = "#FFFFFF" # (White) 깔끔한 카드
+text_main = "#1F2E1F"  # (Black Green) 검정 대신 아주 짙은 녹색 (가독성)
+text_muted = "#5F7A5F" # (Grayish Green) 먼지 쌓인 잎사귀 색
+border = "#D8E0D8"     # (Mist Green) 흐릿한 경계선
+
+# 4.4 다크 모드 UI (밤의 정원)
+[palette.vintage_botanic.ui_dark]
+bg_main = "#111A11"    # (Night Forest) 칠흑 같은 녹색
+bg_surface = "#1D2B1D" # (Deep Bush) 표면을 살짝 밝게
+text_main = "#E9EDC9"  # (Pale Leaf) 달빛 받은 연한 잎사귀 색 텍스트
+text_muted = "#8DA38D" # (Foggy Green) 안개 낀 녹색
+border = "#2C3E2C"     # (Bark) 나무 껍질 색 경계
 
 # ==========================================
 # 5. 파스텔 드림 (Pastel Dream)
 # ==========================================
 [palette.pastel_dream]
 description = "부드러운 솜사탕 같은 파스텔 톤. 유아, 디저트, 팬시."
-base_scale = "Gray (Neutral)"
+
+# 5.1 브랜드 컬러 (주의: 배경색으로 쓰기 좋음, 글자로 쓰면 잘 안 보임)
+[palette.pastel_dream.brand]
 primary = { hex = "#FFAFCC", name = "Cotton Candy Pink" }
 secondary = { hex = "#BDE0FE", name = "Baby Blue" }
 accent = { hex = "#CDB4DB", name = "Soft Lilac" }
-status = { success = "#A2D2FF", warning = "#FFC8DD", error = "#FFAFCC" }
+
+# 5.2 상태 컬러 (파스텔 톤 유지하되 식별 가능하게)
+[palette.pastel_dream.status]
+success = "#89CFF0" # (Baby Blue) 부드러운 긍정
+warning = "#FDFD96" # (Pastel Yellow) 경고도 귀엽게 (배경용)
+error = "#FFB7B2"   # (Melon) 위협적이지 않은 에러
+
+# 5.3 라이트 모드 UI (구름 위 세상)
+[palette.pastel_dream.ui_light]
+bg_main = "#FFF9FB"    # (Snow Pink) 흰색에 핑크 한 방울
+bg_surface = "#FFFFFF" # (White) 깨끗한 흰색
+text_main = "#4A404F"  # (Dark Violet Gray) [중요] 파스텔 핑크 대신 짙은 보라빛 회색 사용
+text_muted = "#9C8FA3" # (Lilac Gray) 연한 보라 회색
+border = "#F3E6F5"     # (Pale Lavender) 아주 연한 라벤더 테두리
+
+# 5.4 다크 모드 UI (몽환적인 밤하늘)
+[palette.pastel_dream.ui_dark]
+bg_main = "#1A1625"    # (Deep Dream) 아주 어두운 보라색 배경
+bg_surface = "#252033" # (Night Violet) 조금 더 밝은 보라색
+text_main = "#FFF0F5"  # (Lavender Blush) 밝은 분홍빛 흰색 텍스트
+text_muted = "#B5A8C0" # (Moonlight) 달빛 머금은 회색
+border = "#3E3550"     # (Dark Amethyst) 어두운 자수정색
 
 # ==========================================
 # 6. 코퍼레이트 네이비 (Corporate Navy)
 # ==========================================
 [palette.corporate_navy]
-description = "신뢰감을 주는 모노톤의 네이비. 금융, 컨설팅, 대기업."
-base_scale = "Slate (Cool Gray)"
+description = "신뢰감을 주는 모노톤의 네이비. 금융, 컨설팅, 대기업 대시보드."
+
+# 6.1 브랜드 컬러
+[palette.corporate_navy.brand]
 primary = { hex = "#0D1B2A", name = "Midnight Black" }
 secondary = { hex = "#1B263B", name = "Oxford Blue" }
 accent = { hex = "#415A77", name = "Shadow Blue" }
-status = { success = "#415A77", warning = "#778DA9", error = "#1B263B" }
+
+# 6.2 상태 컬러 (채도를 낮춰서 차분하게)
+[palette.corporate_navy.status]
+success = "#10B981" # (Emerald) 네이비와 잘 어울리는 차가운 녹색
+warning = "#F59E0B" # (Amber) 표준적인 경고색
+error = "#EF4444"   # (Red) 명확한 에러
+
+# 6.3 라이트 모드 UI (냉철한 비즈니스 무드)
+[palette.corporate_navy.ui_light]
+bg_main = "#F8FAFC"    # (Ice White) 아주 차가운 느낌의 흰색
+bg_surface = "#FFFFFF" # (White) 깨끗한 표면
+text_main = "#0F172A"  # (Slate 900) 검정 대신 짙은 네이비 블랙
+text_muted = "#64748B" # (Slate 500) 차가운 회색
+border = "#E2E8F0"     # (Slate 200) 깔끔한 경계선
+
+# 6.4 다크 모드 UI (금융 트레이딩 화면 느낌)
+[palette.corporate_navy.ui_dark]
+bg_main = "#020617"    # (Deep Space) 칠흑 같은 네이비
+bg_surface = "#0F172A" # (Midnight) 카드 배경을 짙은 네이비로
+text_main = "#F1F5F9"  # (Ice Text) 푸른끼가 도는 흰색 텍스트
+text_muted = "#94A3B8" # (Steel Gray) 금속 느낌의 보조 텍스트
+border = "#1E293B"     # (Dark Steel) 어두운 금속성 테두리
 
 # ==========================================
 # 7. 오가닉 베이지 (Organic Beige)
 # ==========================================
 [palette.organic_beige]
-description = "자극 없는 베이지와 브라운. 인테리어, 카페, 미니멀리즘."
-base_scale = "Stone (Warm Gray)"
+description = "자극 없는 베이지와 브라운. 인테리어, 카페, 미니멀 라이프."
+
+# 7.1 브랜드 컬러
+[palette.organic_beige.brand]
 primary = { hex = "#D5BDAF", name = "Latte Beige" }
 secondary = { hex = "#D6CCC2", name = "Pale Gray" }
 accent = { hex = "#E3D5CA", name = "Mocha Mousse" }
-status = { success = "#D6CCC2", warning = "#E3D5CA", error = "#D5BDAF" }
+
+# 7.2 상태 컬러 (자연스러운 톤)
+[palette.organic_beige.status]
+success = "#577555" # (Olive) 올리브 그린
+warning = "#D4A373" # (Tan) 가죽색 경고
+error = "#BC4749"   # (Clay) 붉은 점토색
+
+# 7.3 라이트 모드 UI (린넨 천 느낌)
+[palette.organic_beige.ui_light]
+bg_main = "#FDFCF8"    # (Linen) 표백되지 않은 천의 색
+bg_surface = "#FFFFFF" # (White) 깨끗한 면 느낌
+text_main = "#4A403A"  # (Espresso) [중요] 라떼색 대신 진한 커피색 텍스트 사용
+text_muted = "#9CA3AF" # (Warm Gray) 따뜻한 회색
+border = "#E5E5E5"     # (Soft Line) 부드러운 경계
+
+# 7.4 다크 모드 UI (어두운 원목 느낌)
+[palette.organic_beige.ui_dark]
+bg_main = "#1C1917"    # (Dark Wood) 짙은 고동색 배경
+bg_surface = "#292524" # (Walnut) 호두나무 색 표면
+text_main = "#E7E5E4"  # (Warm Light) 따뜻한 회백색
+text_muted = "#A8A29E" # (Stone) 돌멩이 색 보조 텍스트
+border = "#44403C"     # (Wood Grain) 나뭇결 색상
 
 # ==========================================
 # 8. 말차 앤 우드 (Matcha & Wood)
 # ==========================================
 [palette.matcha_wood]
-description = "부드러운 말차 녹색과 나무색. 티 하우스, 웰빙, 명상."
-base_scale = "Olive (Yellowish Green)"
+description = "부드러운 말차 녹색과 나무색. 티 하우스, 웰빙, 명상 앱."
+
+# 8.1 브랜드 컬러
+[palette.matcha_wood.brand]
 primary = { hex = "#CCD5AE", name = "Matcha Green" }
 secondary = { hex = "#E9EDC9", name = "Leaf Green" }
 accent = { hex = "#D4A373", name = "Wood Brown" }
-status = { success = "#CCD5AE", warning = "#FAEDCD", error = "#D4A373" }
+
+# 8.2 상태 컬러 (자연스러운 톤)
+[palette.matcha_wood.status]
+success = "#606C38" # (Deep Green) 짙은 쑥색 성공
+warning = "#D4A373" # (Wood) 나무색 경고
+error = "#BC4749"   # (Azuki Red) 팥앙금 같은 붉은색
+
+# 8.3 라이트 모드 UI (한지 느낌)
+[palette.matcha_wood.ui_light]
+bg_main = "#FAEDCD"    # (Beige Paper) 따뜻한 미색 배경
+bg_surface = "#FEFAE0" # (Off White) 아주 연한 아이보리
+text_main = "#4A4238"  # (Dark Bark) [중요] 연한 말차색 대신 짙은 나무껍질색 사용
+text_muted = "#8E8D8A" # (Gray Stone) 돌멩이색 보조 텍스트
+border = "#D4A373"     # (Wood) 나무색 테두리
+
+# 8.4 다크 모드 UI (밤의 정원)
+[palette.matcha_wood.ui_dark]
+bg_main = "#181A15"    # (Deep Olive) 아주 어두운 올리브 블랙
+bg_surface = "#242920" # (Dark Tea) 차분한 녹색톤 표면
+text_main = "#E9EDC9"  # (Leaf Green) 밝은 잎사귀색 텍스트 (가독성 좋음)
+text_muted = "#CCD5AE" # (Matcha) 말차색 보조 텍스트
+border = "#3E4238"     # (Dark Stem) 어두운 줄기색
 
 # ==========================================
 # 9. 모던 레드 & 스틸 (Red & Steel)
 # ==========================================
 [palette.red_steel]
 description = "선명한 레드와 차가운 스틸 블루의 대비. 테크, 뉴스, 데이터 시각화."
-base_scale = "Zinc (Industrial Gray)"
+
+# 9.1 브랜드 컬러
+[palette.red_steel.brand]
 primary = { hex = "#1D3557", name = "Royal Navy" }
 secondary = { hex = "#457B9D", name = "Steel Blue" }
 accent = { hex = "#E63946", name = "Alert Red" }
-status = { success = "#1D3557", warning = "#A8DADC", error = "#E63946" }
+
+# 9.2 상태 컬러 (명확한 신호)
+[palette.red_steel.status]
+success = "#2A9D8F" # (Teal) 네이비와 대비되는 청록색
+warning = "#F4A261" # (Orange) 눈에 띄는 오렌지
+error = "#E63946"   # (Red) 브랜드 포인트 컬러를 에러로 사용
+
+# 9.3 라이트 모드 UI (차가운 이성)
+[palette.red_steel.ui_light]
+bg_main = "#F1FAEE"    # (Ice White) 푸른기가 도는 차가운 흰색
+bg_surface = "#FFFFFF" # (Pure White) 깔끔한 카드
+text_main = "#1D3557"  # (Royal Navy) 검정 대신 짙은 네이비 (신뢰감)
+text_muted = "#457B9D" # (Steel Blue) 스틸 블루 보조 텍스트
+border = "#A8DADC"     # (Light Steel) 연한 하늘색 경계선
+
+# 9.4 다크 모드 UI (묵직한 금속)
+[palette.red_steel.ui_dark]
+bg_main = "#0B131F"    # (Deep Metal) 칠흑 같은 금속성 네이비
+bg_surface = "#162438" # (Navy Steel) 표면을 조금 더 밝게
+text_main = "#F1FAEE"  # (Ice White) 배경과 대비되는 아이스 화이트
+text_muted = "#A8DADC" # (Pale Blue) 연한 하늘색
+border = "#2A466B"     # (Dark Steel) 어두운 강철색
 
 # ==========================================
 # 10. 미드나잇 옐로우 (Midnight Yellow)
 # ==========================================
 [palette.midnight_yellow]
 description = "칠흑 같은 어둠 속의 강렬한 노란색. 야간 모드, 게임, 프리미엄 서비스."
-base_scale = "Neutral (Pure Black)"
+
+# 10.1 브랜드 컬러
+[palette.midnight_yellow.brand]
 primary = { hex = "#FFC300", name = "Cyber Yellow" }
 secondary = { hex = "#003566", name = "Electric Blue" }
 accent = { hex = "#FFD60A", name = "Highlighter Yellow" }
-status = { success = "#FFC300", warning = "#FFD60A", error = "#001D3D" }
+
+# 10.2 상태 컬러 (가독성을 위해 조정됨)
+[palette.midnight_yellow.status]
+success = "#FFD60A" # (Bright Yellow) 긍정적인 신호도 노란색 계열로 통일 (브랜딩)
+warning = "#F59E0B" # (Amber) 노랑과 구별되는 주황빛 경고
+error = "#FF3333"   # (Neon Red) [수정] 파란색 에러는 안 보이므로 네온 레드로 교체
+
+# 10.3 라이트 모드 UI (고대비 스트릿 패션 느낌)
+[palette.midnight_yellow.ui_light]
+bg_main = "#FFFFFF"    # (Stark White) 아주 쨍한 흰색
+bg_surface = "#F8F9FA" # (Light Gray) 밝은 회색 표면
+text_main = "#000814"  # (Rich Black) 완전한 검정 텍스트
+text_muted = "#003566" # (Electric Blue) 파란색을 보조 텍스트로 활용
+border = "#001D3D"     # (Dark Blue) 진한 파란색 테두리
+
+# 10.4 다크 모드 UI (AMOLED 블랙)
+[palette.midnight_yellow.ui_dark]
+bg_main = "#000000"    # (Pure Black) 픽셀이 꺼진 듯한 완벽한 검정
+bg_surface = "#001D3D" # (Deep Navy) 아주 어두운 네이비 카드
+text_main = "#FFC300"  # (Cyber Yellow) [중요] 흰색 대신 노란색을 메인 텍스트로 사용
+text_muted = "#94A3B8" # (Cool Gray) 차가운 회색
+border = "#334155"     # (Slate) 묻히지 않는 경계선
 
 # ==========================================
 # 11. 딥 그린 포레스트 (Deep Green Forest)
 # ==========================================
 [palette.deep_forest]
 description = "안개 낀 숲속의 차분한 그린 그라데이션. 밀리터리, 캠핑, 차분함."
-base_scale = "Sage (Greenish Gray)"
-primary = { hex = "#344e41", name = "Deep Hunter" }
+
+# 11.1 브랜드 컬러
+[palette.deep_forest.brand]
+primary = { hex = "#344E41", name = "Deep Hunter" }
 secondary = { hex = "#588157", name = "Fern Green" }
-accent = { hex = "#dad7cd", name = "Pale Sage" }
-status = { success = "#3a5a40", warning = "#a3b18a", error = "#344e41" }
+accent = { hex = "#DAD7CD", name = "Pale Sage" }
+
+# 11.2 상태 컬러 (자연색 위주)
+[palette.deep_forest.status]
+success = "#3A5A40" # (Forest) 짙은 숲색
+warning = "#E9C46A" # (Sand) 모래색 경고 (수정됨)
+error = "#BC4749"   # (Berry) 숲속 열매 같은 붉은색 (수정됨)
+
+# 11.3 라이트 모드 UI (새벽 안개)
+[palette.deep_forest.ui_light]
+bg_main = "#F3F5F1"    # (Mist) 녹색 기운이 감도는 회색 안개
+bg_surface = "#FFFFFF" # (White) 깨끗한 표면
+text_main = "#344E41"  # (Deep Hunter) 검정 대신 짙은 헌터 그린 사용
+text_muted = "#588157" # (Fern) 고사리색 보조 텍스트
+border = "#DAD7CD"     # (Pale Sage) 연한 세이지색 테두리
+
+# 11.4 다크 모드 UI (깊은 산장)
+[palette.deep_forest.ui_dark]
+bg_main = "#1A211D"    # (Dark Pine) 채도 낮은 흑녹색
+bg_surface = "#252E28" # (Charcoal Green) 숯과 이끼가 섞인 색
+text_main = "#DAD7CD"  # (Pale Sage) 배경과 대비되는 밝은 세이지 텍스트
+text_muted = "#A3B18A" # (Dried Leaf) 마른 잎사귀 색
+border = "#3A5A40"     # (Forest) 숲색 경계선
 
 # ==========================================
 # 12. 프레시 라임 (Fresh Lime)
 # ==========================================
 [palette.fresh_lime]
-description = "다크 그린과 눈부신 라임의 대비. 스포츠, 에너지 드링크, 역동적."
-base_scale = "Neutral (Gray)"
-primary = { hex = "#132a13", name = "Black Forest" }
-secondary = { hex = "#4f772d", name = "Leafy Green" }
-accent = { hex = "#ecf39e", name = "Neon Lime" }
-status = { success = "#90a955", warning = "#ecf39e", error = "#31572c" }
+description = "다크 그린과 눈부신 라임의 대비. 스포츠, 에너지 드링크, 역동적인 브랜드."
+
+# 12.1 브랜드 컬러
+[palette.fresh_lime.brand]
+primary = { hex = "#132A13", name = "Black Forest" }
+secondary = { hex = "#4F772D", name = "Leafy Green" }
+accent = { hex = "#ECF39E", name = "Neon Lime" }
+
+# 12.2 상태 컬러 (명시성 강조)
+[palette.fresh_lime.status]
+success = "#4F772D" # (Leaf Green) 브랜드 컬러와 통일
+warning = "#ECF39E" # (Neon Lime) 검은 배경에서 경고등처럼 사용
+error = "#D00000"   # (Sports Red) 스포츠 유니폼의 강렬한 빨강
+
+# 12.3 라이트 모드 UI (깨끗한 운동장)
+[palette.fresh_lime.ui_light]
+bg_main = "#FFFFFF"    # (Pure White) 깔끔하고 속도감 있는 흰색
+bg_surface = "#F7F9F5" # (Pale Mint) 아주 연한 민트빛 표면
+text_main = "#132A13"  # (Black Forest) 검정 대신 아주 짙은 녹색
+text_muted = "#4F772D" # (Leafy) 활기찬 녹색 보조 텍스트
+border = "#90A955"     # (Moss) 선명한 구획
+
+# 12.4 다크 모드 UI (야간 경기장)
+[palette.fresh_lime.ui_dark]
+bg_main = "#050D05"    # (Night Grass) 거의 검정에 가까운 짙은 녹색
+bg_surface = "#132A13" # (Black Forest) 표면을 브랜드 메인 컬러로
+text_main = "#FFFFFF"  # (White) 형광색과 대비되는 순백색 텍스트
+text_muted = "#90A955" # (Moss Gray) 차분한 녹색
+border = "#31572C"     # (Dark Leaf) 어두운 잎사귀색
 
 # ==========================================
 # 13. 클래식 레더 (Classic Leather)
 # ==========================================
 [palette.classic_leather]
 description = "중후한 가죽과 커피, 그리고 골드. 남성 패션, 바버샵, 위스키."
-base_scale = "Stone (Warm Gray)"
+
+# 13.1 브랜드 컬러
+[palette.classic_leather.brand]
 primary = { hex = "#432818", name = "Dark Espresso" }
-secondary = { hex = "#99582a", name = "Saddle Brown" }
-accent = { hex = "#ffe6a7", name = "Champagne Gold" }
-status = { success = "#6f1d1b", warning = "#bb9457", error = "#6f1d1b" }
+secondary = { hex = "#99582A", name = "Saddle Brown" }
+accent = { hex = "#FFE6A7", name = "Champagne Gold" }
+
+# 13.2 상태 컬러 (톤 다운된 고급스러움)
+[palette.classic_leather.status]
+success = "#556B2F" # (Olive Drab) 클래식한 올리브색
+warning = "#D4A373" # (Tan) 가죽 태닝 컬러
+error = "#9E2A2B"   # (Burgundy) 와인색 에러
+
+# 13.3 라이트 모드 UI (고급 서신지)
+[palette.classic_leather.ui_light]
+bg_main = "#FAF7F2"    # (Paper) 펄프 질감이 느껴지는 미색
+bg_surface = "#FFFFFF" # (White) 깨끗한 표면
+text_main = "#432818"  # (Espresso) 검정 대신 진한 갈색 텍스트
+text_muted = "#99582A" # (Saddle) 가죽색 보조 텍스트
+border = "#E3D5CA"     # (Beige Line) 부드러운 베이지 라인
+
+# 13.4 다크 모드 UI (위스키 바의 조명)
+[palette.classic_leather.ui_dark]
+bg_main = "#1F1510"    # (Dark Roast) 아주 어두운 고동색
+bg_surface = "#2E1F18" # (Leather) 가죽 질감의 어두운 표면
+text_main = "#FFE6A7"  # (Gold) [중요] 어두운 배경 위 금박 텍스트 효과
+text_muted = "#D5BDAF" # (Latte) 부드러운 라떼색
+border = "#5C3A21"     # (Brown Stitch) 가죽 스티치 색상
 
 # ==========================================
 # 14. 레트로 플로럴 (Retro Floral)
 # ==========================================
 [palette.retro_floral]
-description = "말린 장미와 빛바랜 올리브 색. 앤틱, 플라워 샵, 여성 의류."
-base_scale = "Sand (Warm Neutral)"
-primary = { hex = "#723d46", name = "Antique Rose" }
-secondary = { hex = "#c9cba3", name = "Sage Beige" }
-accent = { hex = "#e26d5c", name = "Terracotta" }
-status = { success = "#472d30", warning = "#ffe1a8", error = "#e26d5c" }
+description = "말린 장미와 빛바랜 올리브 색. 앤틱 샵, 플라워 클래스, 여성 의류."
+
+# 14.1 브랜드 컬러
+[palette.retro_floral.brand]
+primary = { hex = "#723D46", name = "Antique Rose" }
+secondary = { hex = "#C9CBA3", name = "Sage Beige" }
+accent = { hex = "#E26D5C", name = "Terracotta" }
+
+# 14.2 상태 컬러 (빈티지 무드)
+[palette.retro_floral.status]
+success = "#556B2F" # (Dark Olive) 채도 낮은 올리브 그린
+warning = "#D4A373" # (Latte) 부드러운 경고색
+error = "#9E2A2B"   # (Deep Red) 앤틱한 붉은색
+
+# 14.3 라이트 모드 UI (오래된 편지지)
+[palette.retro_floral.ui_light]
+bg_main = "#FFFDF7"    # (Floral White) 누르스름한 미색 배경
+bg_surface = "#FFFFFF" # (White) 깨끗한 표면
+text_main = "#4A3333"  # (Warm Charcoal) 붉은기가 도는 따뜻한 먹색
+text_muted = "#9D8189" # (Dusty Rose) 먼지 쌓인 장미색
+border = "#E6DCD3"     # (Beige Line) 연한 베이지 경계
+
+# 14.4 다크 모드 UI (와인 저장고)
+[palette.retro_floral.ui_dark]
+bg_main = "#1F1515"    # (Dark Brown) 붉은 기운이 감도는 흑갈색
+bg_surface = "#2C1E1E" # (Dried Rose) 말린 장미 잎사귀 색
+text_main = "#F2E8DC"  # (Bone) 뼈 색깔 같은 웜톤 화이트
+text_muted = "#C9CBA3" # (Sage) 세이지 베이지를 보조 텍스트로 활용
+border = "#4F3535"     # (Rose Wood) 어두운 장미나무색
 
 # ==========================================
 # 15. 오션 뎁스 (Ocean Depths)
 # ==========================================
 [palette.ocean_depths]
 description = "심해의 짙은 파랑부터 수면의 하늘색까지. 물, 기술, 청량함."
-base_scale = "Sky (Cool Blue)"
-primary = { hex = "#03045e", name = "Abyss Blue" }
-secondary = { hex = "#0077b6", name = "Pacific Blue" }
-accent = { hex = "#caf0f8", name = "Ice Water" }
-status = { success = "#00b4d8", warning = "#90e0ef", error = "#03045e" }
+
+# 15.1 브랜드 컬러
+[palette.ocean_depths.brand]
+primary = { hex = "#03045E", name = "Abyss Blue" }
+secondary = { hex = "#0077B6", name = "Pacific Blue" }
+accent = { hex = "#CAF0F8", name = "Ice Water" }
+
+# 15.2 상태 컬러 (가독성 보정)
+[palette.ocean_depths.status]
+success = "#00B4D8" # (Cyan) 밝은 청록색
+warning = "#FFD166" # (Soft Yellow) 파란색과 대비되는 노랑 (수정됨)
+error = "#FF6B6B"   # (Coral) [중요] 파란색 에러는 안 보이므로 산호색으로 교체
+
+# 15.3 라이트 모드 UI (투명한 수면)
+[palette.ocean_depths.ui_light]
+bg_main = "#F0F9FF"    # (Alice Blue) 물 탄 듯 아주 연한 하늘색
+bg_surface = "#FFFFFF" # (White) 물거품 같은 흰색
+text_main = "#03045E"  # (Abyss Blue) 검정 대신 가장 깊은 파란색 사용
+text_muted = "#486581" # (Slate Blue) 차분한 블루 그레이
+border = "#BDE0FE"     # (Water Line) 물색 테두리
+
+# 15.4 다크 모드 UI (심해의 어둠)
+[palette.ocean_depths.ui_dark]
+bg_main = "#010114"    # (Deepest Ocean) 거의 검정에 가까운 남색
+bg_surface = "#020224" # (Midnight Blue) 살짝 밝은 심해색
+text_main = "#CAF0F8"  # (Ice Water) [중요] 어둠 속에서 빛나는 야광 하늘색 텍스트
+text_muted = "#90E0EF" # (Mist) 흐릿한 물안개색
+border = "#1E3A8A"     # (Dark Blue) 짙은 파랑 경계선
 
 # ==========================================
 # 16. 소프트 보헤미안 (Soft Boho)
 # ==========================================
 [palette.soft_boho]
-description = "부드러운 피치와 민트, 크림색. 일러스트, 베이커리, 감성 앱."
-base_scale = "Warm Gray"
-primary = { hex = "#f28482", name = "Soft Coral" }
-secondary = { hex = "#84a59d", name = "Muted Mint" }
-accent = { hex = "#f6bd60", name = "Mellow Yellow" }
-status = { success = "#84a59d", warning = "#f6bd60", error = "#f28482" }
+description = "부드러운 피치와 민트, 크림색. 일러스트, 베이커리, 감성적인 브이로그."
+
+# 16.1 브랜드 컬러
+[palette.soft_boho.brand]
+primary = { hex = "#F28482", name = "Soft Coral" }
+secondary = { hex = "#84A59D", name = "Muted Mint" }
+accent = { hex = "#F6BD60", name = "Mellow Yellow" }
+
+# 16.2 상태 컬러 (눈이 편안한 톤)
+[palette.soft_boho.status]
+success = "#6B8F71" # (Dark Mint) 가독성을 위해 민트색을 조금 어둡게 조정
+warning = "#E09F3E" # (Honey) 멜로우 옐로우보다 진한 꿀색
+error = "#D16666"   # (Brick) 코랄보다 차분한 벽돌색
+
+# 16.3 라이트 모드 UI (따뜻한 카페 조명)
+[palette.soft_boho.ui_light]
+bg_main = "#FDFBF7"    # (Cream Paper) 아주 연한 크림색 종이 질감
+bg_surface = "#FFFFFF" # (White) 깨끗한 표면
+text_main = "#5D4A4A"  # (Cocoa) [중요] 검정 대신 따뜻한 코코아색 텍스트
+text_muted = "#998B8B" # (Warm Gray) 웜 그레이 보조 텍스트
+border = "#EBE0D6"     # (Beige) 연한 베이지 라인
+
+# 16.4 다크 모드 UI (초콜릿 숍의 밤)
+[palette.soft_boho.ui_dark]
+bg_main = "#262020"    # (Dark Cocoa) 붉은기가 도는 흑갈색
+bg_surface = "#332B2B" # (Brownie) 조금 더 밝은 브라운
+text_main = "#F7EDE2"  # (Ivory) 배경과 잘 어울리는 아이보리 텍스트
+text_muted = "#B5A39E" # (Muted Rose) 채도 낮은 로즈 그레이
+border = "#4D4040"     # (Cookie) 어두운 쿠키색
 
 # ==========================================
 # 17. 유니콘 캔디 (Unicorn Candy)
 # ==========================================
 [palette.unicorn_candy]
-description = "꿈환적인 파스텔 핑크, 옐로우, 블루. 키즈, 팬시, 아이돌."
-base_scale = "Neutral (White Base)"
-primary = { hex = "#ff99c8", name = "Bubblegum Pink" }
-secondary = { hex = "#a9def9", name = "Sky Pastel" }
-accent = { hex = "#fcf6bd", name = "Lemon Chiffon" }
-status = { success = "#d0f4de", warning = "#fcf6bd", error = "#ff99c8" }
+description = "몽환적인 파스텔 핑크, 옐로우, 블루. 키즈, 팬시, 아이돌 앱."
+
+# 17.1 브랜드 컬러 (배경/오브젝트용)
+[palette.unicorn_candy.brand]
+primary = { hex = "#FF99C8", name = "Bubblegum Pink" }
+secondary = { hex = "#A9DEF9", name = "Sky Pastel" }
+accent = { hex = "#FCF6BD", name = "Lemon Chiffon" }
+
+# 17.2 상태 컬러 (귀엽지만 명확하게)
+[palette.unicorn_candy.status]
+success = "#70D6FF" # (Vivid Sky) 파스텔보다 선명한 하늘색
+warning = "#FFD670" # (Sunshine) 뚜렷한 노란색
+error = "#FF9770"   # (Salmon) 부드러운 주황빛 에러
+
+# 17.3 라이트 모드 UI (달콤한 캔디샵)
+[palette.unicorn_candy.ui_light]
+bg_main = "#FFFAFC"    # (Snow Pink) 흰색에 핑크 한 방울 톡
+bg_surface = "#FFFFFF" # (White) 순백색
+text_main = "#5D4E6D"  # (Grape) [중요] 파스텔 핑크 텍스트는 안 보임! 짙은 포도색 사용
+text_muted = "#9E94A8" # (Lilac Gray) 연보라 회색
+border = "#E4C1F9"     # (Lavender) 라벤더색 테두리
+
+# 17.4 다크 모드 UI (우주 속 유니콘)
+[palette.unicorn_candy.ui_dark]
+bg_main = "#19102E"    # (Deep Space) 깊은 보라색 우주
+bg_surface = "#251A40" # (Galaxy) 조금 더 밝은 네이비 퍼플
+text_main = "#FF99C8"  # (Bubblegum) [반전] 어두운 배경에선 핑크 텍스트가 네온처럼 빛남
+text_muted = "#A9DEF9" # (Sky Pastel) 파스텔 블루 보조 텍스트
+border = "#5E4B8B"     # (Deep Purple) 진한 보라색 경계선
 
 # ==========================================
 # 18. 쥬얼 선셋 (Jewel Sunset)
 # ==========================================
 [palette.jewel_sunset]
 description = "보석처럼 강렬한 퍼플, 레드, 오렌지. 화려함, 축제, 칵테일 바."
-base_scale = "Zinc (Industrial Gray)"
-primary = { hex = "#5f0f40", name = "Deep Plum" }
-secondary = { hex = "#9a031e", name = "Ruby Red" }
-accent = { hex = "#fb8b24", name = "Sunset Orange" }
-status = { success = "#0f4c5c", warning = "#fb8b24", error = "#9a031e" }
+
+# 18.1 브랜드 컬러
+[palette.jewel_sunset.brand]
+primary = { hex = "#5F0F40", name = "Deep Plum" }
+secondary = { hex = "#9A031E", name = "Ruby Red" }
+accent = { hex = "#FB8B24", name = "Sunset Orange" }
+
+# 18.2 상태 컬러 (고대비)
+[palette.jewel_sunset.status]
+success = "#00897B" # (Teal) 보라/레드와 보색 대비를 이루는 청록색
+warning = "#FBBF24" # (Amber) 밝은 호박색
+error = "#E11D48"   # (Rose) 루비색보다 조금 더 형광빛 도는 레드
+
+# 18.3 라이트 모드 UI (로제 샴페인)
+[palette.jewel_sunset.ui_light]
+bg_main = "#FFFCFE"    # (Snow Violet) 흰색에 보라 한 방울
+bg_surface = "#FFFFFF" # (White) 깨끗한 표면
+text_main = "#420A2C"  # (Darkest Plum) 검정 대신 아주 어두운 자두색 텍스트
+text_muted = "#9A031E" # (Ruby) 루비색을 연하게 써서 보조 텍스트로
+border = "#EAD4D8"     # (Pale Rose) 연한 로즈 핑크 경계선
+
+# 18.4 다크 모드 UI (미드나잇 라운지)
+[palette.jewel_sunset.ui_dark]
+bg_main = "#1A0510"    # (Dark Wine) 붉은기가 도는 아주 어두운 블랙
+bg_surface = "#2D0A1E" # (Plum Shadow) 어두운 자두색 표면
+text_main = "#FFD9E8"  # (Pale Pink) 어두운 배경 위에서 빛나는 연분홍 텍스트
+text_muted = "#FB8B24" # (Sunset) 오렌지색을 톤다운하여 보조 텍스트로
+border = "#5F0F40"     # (Deep Plum) 브랜드 컬러 경계선
 
 # ==========================================
 # 19. 모던 레트로 (Modern Retro)
 # ==========================================
 [palette.modern_retro]
-description = "차콜과 틸, 그리고 번트 오렌지. 가장 트렌디한 일러스트 배색."
-base_scale = "Slate (Cool Gray)"
+description = "차콜과 틸, 그리고 번트 오렌지. 가장 트렌디한 핀터레스트 감성 배색."
+
+# 19.1 브랜드 컬러
+[palette.modern_retro.brand]
 primary = { hex = "#264653", name = "Charcoal Green" }
-secondary = { hex = "#2a9d8f", name = "Persian Green" }
-accent = { hex = "#e76f51", name = "Burnt Sienna" }
-status = { success = "#2a9d8f", warning = "#e9c46a", error = "#e76f51" }
+secondary = { hex = "#2A9D8F", name = "Persian Green" }
+accent = { hex = "#E76F51", name = "Burnt Sienna" }
+
+# 19.2 상태 컬러 (일러스트 톤)
+[palette.modern_retro.status]
+success = "#2A9D8F" # (Persian Green) 브랜드 컬러 활용
+warning = "#E9C46A" # (Mustard) 머스타드 옐로우
+error = "#E76F51"   # (Burnt Sienna) 브랜드 포인트 컬러 활용
+
+# 19.3 라이트 모드 UI (아트북 종이)
+[palette.modern_retro.ui_light]
+bg_main = "#F4F1DE"    # (Eggshell) [중요] 이 테마의 핵심인 웜톤 베이지 배경
+bg_surface = "#FFFFFF" # (White) 깔끔한 카드
+text_main = "#264653"  # (Charcoal) 검정 대신 차콜 그린 텍스트 (눈이 편함)
+text_muted = "#5F7D8B" # (Blue Gray) 차분한 블루 그레이
+border = "#D1D5DB"     # (Gray) 무난한 회색 경계
+
+# 19.4 다크 모드 UI (깊은 숲속의 밤)
+[palette.modern_retro.ui_dark]
+bg_main = "#101F25"    # (Deep Jungle) Primary보다 더 어두운 흑녹색
+bg_surface = "#1D333C" # (Dark Charcoal) 표면을 차콜로
+text_main = "#F4F1DE"  # (Cream) [중요] 어두운 녹색 배경 위 크림색 텍스트 (가독성/무드 최상)
+text_muted = "#81B29A" # (Sage) 세이지 그린 보조 텍스트
+border = "#2F5766"     # (Teal Line) 틸 그린 경계선
 
 # ==========================================
 # 20. 프라이머리 팝 (Primary Pop)
 # ==========================================
 [palette.primary_pop]
 description = "네이비, 레드, 옐로우의 강력한 원색 대비. 브랜드, 푸드 트럭, 에너지."
-base_scale = "Neutral (Gray)"
+
+# 20.1 브랜드 컬러
+[palette.primary_pop.brand]
 primary = { hex = "#003049", name = "Prussian Blue" }
-secondary = { hex = "#d62828", name = "Fire Engine Red" }
-accent = { hex = "#fcbf49", name = "Marigold" }
-status = { success = "#003049", warning = "#fcbf49", error = "#d62828" }
+secondary = { hex = "#D62828", name = "Fire Engine Red" }
+accent = { hex = "#FCBF49", name = "Marigold" }
+
+# 20.2 상태 컬러 (명확하고 굵직하게)
+[palette.primary_pop.status]
+success = "#003049" # (Navy) 성공 메시지를 단단한 네이비로 (신뢰)
+warning = "#FCBF49" # (Yellow) 명확한 노란색 경고
+error = "#D62828"   # (Red) 소방차 색상의 강력한 에러
+
+# 20.3 라이트 모드 UI (몬드리안 캔버스)
+[palette.primary_pop.ui_light]
+bg_main = "#FFFFFF"    # (Pure White) 원색을 가장 잘 살리는 순백색
+bg_surface = "#F2F4F6" # (Light Gray) 아주 옅은 회색 표면
+text_main = "#003049"  # (Prussian Blue) 검정 대신 브랜드 네이비 사용
+text_muted = "#5B7C8C" # (Muted Navy) 물 빠진 네이비
+border = "#EAE2B7"     # (Beige) 딱딱함을 중화시키는 베이지 라인
+
+# 20.4 다크 모드 UI (미드나잇 잉크)
+[palette.primary_pop.ui_dark]
+bg_main = "#02121C"    # (Ink Black) 푸른빛이 감도는 칠흑
+bg_surface = "#003049" # (Prussian Blue) 표면을 브랜드 컬러로
+text_main = "#FCBF49"  # (Marigold) [중요] 어두운 배경 위 노란색 텍스트 (가독성/팝한 느낌)
+text_muted = "#EAE2B7" # (Vanilla) 부드러운 바닐라색 보조 텍스트
+border = "#D62828"     # (Red Line) 강렬한 빨간색 포인트 경계선
 
 # ==========================================
 # 21. 테라 캄 (Terra Calm)
 # ==========================================
 [palette.terra_calm]
 description = "차분한 네이비와 부드러운 테라코타, 크림색. 교육, 인테리어, 서점."
-base_scale = "Sand (Beige Gray)"
-primary = { hex = "#3d405b", name = "Independence Blue" }
-secondary = { hex = "#e07a5f", name = "Terra Cotta" }
-accent = { hex = "#81b29a", name = "Dusty Green" }
-status = { success = "#81b29a", warning = "#f2cc8f", error = "#e07a5f" }
+
+# 21.1 브랜드 컬러
+[palette.terra_calm.brand]
+primary = { hex = "#3D405B", name = "Independence Blue" }
+secondary = { hex = "#E07A5F", name = "Terra Cotta" }
+accent = { hex = "#81B29A", name = "Dusty Green" }
+
+# 21.2 상태 컬러 (눈이 편안한 파스텔 톤)
+[palette.terra_calm.status]
+success = "#81B29A" # (Dusty Green) 브랜드 컬러 활용
+warning = "#F2CC8F" # (Egg Yolk) 부드러운 난황색
+error = "#E07A5F"   # (Terra Cotta) 자극적이지 않은 붉은색
+
+# 21.3 라이트 모드 UI (독서실의 오후)
+[palette.terra_calm.ui_light]
+bg_main = "#FDFCF8"    # (Book Paper) 미색 종이 질감
+bg_surface = "#FFFFFF" # (White) 깨끗한 표면
+text_main = "#3D405B"  # (Independence Blue) 검정 대신 차분한 네이비 그레이
+text_muted = "#9FA2B2" # (Cool Gray) 채도 낮은 쿨 그레이
+border = "#F2CC8F"     # (Cream Line) 따뜻한 크림색 테두리
+
+# 21.4 다크 모드 UI (새벽의 서재)
+[palette.terra_calm.ui_dark]
+bg_main = "#15161F"    # (Night Library) 아주 어두운 네이비 그레이
+bg_surface = "#1E202E" # (Dark Desk) 조금 더 밝은 책상색
+text_main = "#F4F1DE"  # (Eggshell) 눈이 편한 아이보리 텍스트
+text_muted = "#81B29A" # (Dusty Green) 포인트가 되는 녹색 보조 텍스트
+border = "#3D405B"     # (Navy Line) 묵직한 네이비 경계선

@@ -4,342 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VibeCoding Studio v3.1</title>
+    <title>VibeCoding Studio v3.2 (Modular)</title>
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Noto+Serif+KR:wght@400;700&family=Inter:wght@300;400;500;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-
-    <style>
-        :root {
-            /* Colors */
-            --bg-main: #ffffff;
-            --bg-surface: #f8fafc;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --primary: #3b82f6;
-            --secondary: #64748b;
-            --accent: #f59e0b;
-            --success: #22c55e;
-            --warning: #f59e0b;
-            --error: #ef4444;
-
-            /* UI Options */
-            --font-main: "Pretendard", sans-serif;
-            --line-height: 1.5;
-            --fw-base: 400;
-            --fw-bold: 700;
-            --radius: 0.5rem;
-            --base-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --border-width: 1px;
-            --container-width: 1024px;
-            --spacing: 1rem;
-
-            /* Motion Variables (Separated) */
-            --motion-speed: 150ms;
-            /* Interaction */
-            --theme-speed: 300ms;
-            /* Global Transition */
-            --motion-curve: ease-in-out;
-
-            --active-scale: 0.95;
-            --hover-ty: 0px;
-            --hover-scale: 1;
-            --hover-opacity: 1;
-            --hover-shadow: var(--base-shadow);
-        }
-
-        [data-theme="dark"] {
-            --bg-main: #0f172a;
-            --bg-surface: #1e293b;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --border-color: #334155;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            margin: 0;
-            padding: 20px;
-            line-height: var(--line-height);
-            /* Theme Transition applied here */
-            transition: background-color var(--theme-speed) ease, color var(--theme-speed) ease;
-        }
-
-        /* ... (Previous Layout Styles: .app-container, .sidebar, etc. - No Change) ... */
-        .app-container {
-            max-width: 1600px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 340px 1fr;
-            gap: 30px;
-        }
-
-        @media (max-width: 1000px) {
-            .app-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .sidebar {
-            background: var(--bg-surface);
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            height: 90vh;
-            overflow-y: auto;
-            position: sticky;
-            top: 20px;
-            transition: background-color var(--theme-speed) ease, border-color var(--theme-speed) ease;
-        }
-
-        .sidebar h1 {
-            font-size: 1.3rem;
-            margin: 0 0 5px 0;
-        }
-
-        .sidebar p.subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        details {
-            margin-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        details[open] summary {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        summary {
-            font-weight: 700;
-            cursor: pointer;
-            font-size: 0.95rem;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        summary::after {
-            content: '+';
-        }
-
-        details[open] summary::after {
-            content: '-';
-        }
-
-        label {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin: 10px 0 5px;
-            color: var(--text-muted);
-        }
-
-        select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            background: var(--bg-main);
-            color: var(--text-main);
-            font-size: 0.9rem;
-        }
-
-        .toggle-group {
-            display: flex;
-            gap: 5px;
-            margin-bottom: 20px;
-        }
-
-        .toggle-btn {
-            flex: 1;
-            padding: 8px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            border: 1px solid var(--border-color);
-            background: var(--bg-main);
-            color: var(--text-muted);
-            border-radius: 6px;
-        }
-
-        .toggle-btn.active {
-            background-color: var(--text-main);
-            color: var(--bg-main);
-            border-color: var(--text-main);
-            font-weight: bold;
-        }
-
-        .copy-btn {
-            width: 100%;
-            padding: 15px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: transform 0.1s;
-        }
-
-        .copy-btn:active {
-            transform: scale(0.98);
-        }
-
-        .preview-area {
-            background: var(--bg-main);
-            border: 1px dashed var(--border-color);
-            border-radius: 16px;
-            padding: 40px;
-            overflow-x: hidden;
-            transition: background-color var(--theme-speed) ease, border-color var(--theme-speed) ease;
-        }
-
-        .mockup-container {
-            margin: 0 auto;
-            max-width: var(--container-width);
-            transition: max-width 0.3s ease;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: var(--border-width) solid var(--border-color);
-        }
-
-        .brand {
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .menu a {
-            margin-left: var(--spacing);
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: var(--fw-base);
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            font-weight: var(--fw-bold);
-            line-height: 1.1;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 2rem;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: var(--spacing);
-        }
-
-        /* INTERACTIVE ELEMENTS (Uses --motion-speed) */
-        .btn,
-        .card {
-            transition-property: transform, box-shadow, opacity, background-color, border-color;
-            transition-duration: var(--motion-speed);
-            transition-timing-function: var(--motion-curve);
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius);
-            font-weight: var(--fw-bold);
-            border: var(--border-width) solid transparent;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .btn-p {
-            background: var(--primary);
-            color: #fff;
-            box-shadow: var(--base-shadow);
-        }
-
-        .btn-s {
-            background: var(--bg-surface);
-            color: var(--text-main);
-            border-color: var(--border-color);
-        }
-
-        /* Hover & Active */
-        .btn:hover,
-        .card:hover {
-            transform: translateY(var(--hover-ty)) scale(var(--hover-scale));
-            box-shadow: var(--hover-shadow);
-            opacity: var(--hover-opacity);
-        }
-
-        .btn:active {
-            transform: scale(var(--active-scale));
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing);
-            margin-top: 50px;
-        }
-
-        .card {
-            background: var(--bg-surface);
-            border: var(--border-width) solid var(--border-color);
-            border-radius: var(--radius);
-            padding: var(--spacing);
-            box-shadow: var(--base-shadow);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            font-weight: var(--fw-bold);
-            color: var(--text-main);
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-weight: var(--fw-base);
-            margin-bottom: 0;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: var(--radius);
-            background: var(--bg-main);
-            color: var(--accent);
-            font-size: 0.8rem;
-            font-weight: var(--fw-bold);
-            margin-bottom: 10px;
-            border: var(--border-width) solid var(--border-color);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="base-slate">
 
     <div class="app-container">
         <aside class="sidebar">
-            <h1>Vibe Studio v3.1</h1>
+            <h1>Vibe Studio v3.2</h1>
             <p class="subtitle">Theme & UI Configurator</p>
 
             <div class="toggle-group">
@@ -351,7 +29,7 @@
                 <summary>🎨 1. Theme (Color)</summary>
                 <label>Color Palette</label>
                 <select id="themeSelect"></select>
-                <div id="swatches" style="display:flex; gap:5px; margin-top:10px; height:24px;"></div>
+                <div id="swatches" class="swatches-container"></div>
             </details>
 
             <details>
@@ -424,7 +102,6 @@
                     <option value="0ms">Instant (0ms)</option>
                     <option value="500ms">Slow Blend (500ms)</option>
                 </select>
-
                 <label>Interaction Speed</label>
                 <select id="speedSelect">
                     <option value="150ms">Snappy (150ms)</option>
@@ -442,7 +119,7 @@
 
             <details>
                 <summary>👆 5. Interaction</summary>
-                <label>Hover Style (Visual)</label>
+                <label>Hover Style</label>
                 <select id="hoverStyleSelect">
                     <option value="dim">Dimming (Opacity 80%)</option>
                     <option value="none">None</option>
@@ -485,8 +162,8 @@
 
                 <section class="hero">
                     <div class="tag">Vibe Check</div>
-                    <h2 style="color: var(--text-main)">Design System<br>Simulator.</h2>
-                    <p>왼쪽의 옵션을 변경하여 테마 전환 속도와 인터랙션 반응 속도의 차이를 느껴보세요. (상단 Light/Dark 버튼 클릭)</p>
+                    <h2 style="color: var(--text-main)">Tinted Dark Mode.<br>Better Contrast.</h2>
+                    <p>이제 다크모드는 단순한 블랙이 아닙니다. 테마에 맞춰 스톤, 네이비, 세이지 등 고유의 틴트가 적용되며, 텍스트 대비가 자동으로 보정됩니다.</p>
                     <div class="btn-group">
                         <button class="btn btn-p">Primary Button</button>
                         <button class="btn btn-s">Secondary</button>
@@ -495,206 +172,39 @@
 
                 <div class="grid">
                     <div class="card">
+                        <div class="card-header">
+                            <h3>Tinted Background</h3>
+                            <span class="badge">New</span>
+                        </div>
+                        <p>Base Scale에 따라 배경색이 미묘하게 다릅니다.</p>
+                    </div>
+                    <div class="card">
+                        <h3>High Contrast Text</h3>
+                        <p>다크모드에서 텍스트 대비가 자동으로 보정됩니다.</p>
+                        <a href="#" class="link">Learn more →</a>
+                    </div>
+                    <div class="card">
                         <h3>Interaction</h3>
-                        <p>이 카드는 <code>var(--motion-speed)</code>로 반응합니다.</p>
+                        <p>카드를 호버해보세요. 움직임과 그림자를 확인하세요.</p>
                     </div>
-                    <div class="card">
-                        <h3>Theme Transition</h3>
-                        <p>전체 배경은 <code>var(--theme-speed)</code>로 전환됩니다.</p>
+                </div>
+
+                <div class="status-alerts">
+                    <div class="alert alert-s">
+                        <span>✅ Success:</span> 작업이 완료되었습니다.
                     </div>
-                    <div class="card">
-                        <h3>Shape & Depth</h3>
-                        <p>그림자와 둥글기는 UI의 인상을 결정하는 핵심 요소입니다.</p>
+                    <div class="alert alert-w">
+                        <span>⚠️ Warning:</span> 주의가 필요한 항목입니다.
+                    </div>
+                    <div class="alert alert-e">
+                        <span>⛔ Error:</span> 치명적인 오류가 발생했습니다.
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <script>
-        // Themes Data (Abbreviated for brevity - same 21 themes as before)
-        const colors = {
-            slate: { 50: '#f8fafc', 200: '#e2e8f0', 500: '#64748b', 700: '#334155', 900: '#0f172a', 950: '#020617' },
-            stone: { 50: '#fafaf9', 200: '#e7e5e4', 500: '#78716c', 700: '#44403c', 900: '#1c1917', 950: '#0c0a09' },
-            gray: { 50: '#f9fafb', 200: '#e5e7eb', 500: '#6b7280', 700: '#374151', 900: '#111827', 950: '#030712' },
-            zinc: { 50: '#fafafa', 200: '#e4e4e7', 500: '#71717a', 700: '#3f3f46', 900: '#18181b', 950: '#09090b' },
-            neutral: { 50: '#fafafa', 200: '#e5e5e5', 500: '#737373', 700: '#404040', 900: '#171717', 950: '#0a0a0a' },
-            sand: { 50: '#fdfcfb', 200: '#e7e5e4', 500: '#78716c', 700: '#44403c', 900: '#1c1917', 950: '#0c0a09' },
-            sage: { 50: '#f4f7f4', 200: '#c5d9c5', 500: '#5e8e5e', 700: '#365336', 900: '#1a2e1a', 950: '#0d170d' },
-            olive: { 50: '#f9faf0', 200: '#e2e8b6', 500: '#94b338', 700: '#556a1b', 900: '#2e331a', 950: '#161a0b' },
-            sky: { 50: '#f0f9ff', 200: '#bae6fd', 500: '#0ea5e9', 700: '#0369a1', 900: '#0c4a6e', 950: '#082f49' }
-        };
-
-        const themes = [
-            { name: "Earth & Forest", base: "stone", c: { p: "#283618", s: "#606C38", a: "#BC6C25", suc: "#283618", war: "#DDA15E", err: "#BC6C25" } },
-            { name: "Deep Ocean Sunset", base: "slate", c: { p: "#023047", s: "#219EBC", a: "#FB8500", suc: "#219EBC", war: "#FFB703", err: "#FB8500" } },
-            { name: "Retro Americana", base: "sand", c: { p: "#C1121F", s: "#003049", a: "#669BBC", suc: "#003049", war: "#FDF0D5", err: "#780000" } },
-            { name: "Vintage Botanical", base: "sage", c: { p: "#386641", s: "#6A994E", a: "#BC4749", suc: "#386641", war: "#A7C957", err: "#BC4749" } },
-            { name: "Pastel Dream", base: "gray", c: { p: "#FFAFCC", s: "#BDE0FE", a: "#CDB4DB", suc: "#A2D2FF", war: "#FFC8DD", err: "#FFAFCC" } },
-            { name: "Corporate Navy", base: "slate", c: { p: "#0D1B2A", s: "#1B263B", a: "#415A77", suc: "#415A77", war: "#778DA9", err: "#1B263B" } },
-            { name: "Organic Beige", base: "stone", c: { p: "#D5BDAF", s: "#D6CCC2", a: "#E3D5CA", suc: "#D6CCC2", war: "#E3D5CA", err: "#D5BDAF" } },
-            { name: "Matcha & Wood", base: "olive", c: { p: "#CCD5AE", s: "#E9EDC9", a: "#D4A373", suc: "#CCD5AE", war: "#FAEDCD", err: "#D4A373" } },
-            { name: "Red & Steel", base: "zinc", c: { p: "#1D3557", s: "#457B9D", a: "#E63946", suc: "#1D3557", war: "#A8DADC", err: "#E63946" } },
-            { name: "Midnight Yellow", base: "neutral", c: { p: "#FFC300", s: "#003566", a: "#FFD60A", suc: "#FFC300", war: "#FFD60A", err: "#001D3D" } },
-            { name: "Deep Green Forest", base: "sage", c: { p: "#344e41", s: "#588157", a: "#dad7cd", suc: "#3a5a40", war: "#a3b18a", err: "#344e41" } },
-            { name: "Fresh Lime", base: "gray", c: { p: "#132a13", s: "#4f772d", a: "#ecf39e", suc: "#90a955", war: "#ecf39e", err: "#31572c" } },
-            { name: "Classic Leather", base: "stone", c: { p: "#432818", s: "#99582a", a: "#ffe6a7", suc: "#6f1d1b", war: "#bb9457", err: "#6f1d1b" } },
-            { name: "Retro Floral", base: "sand", c: { p: "#723d46", s: "#c9cba3", a: "#e26d5c", suc: "#472d30", war: "#ffe1a8", err: "#e26d5c" } },
-            { name: "Ocean Depths", base: "sky", c: { p: "#03045e", s: "#0077b6", a: "#caf0f8", suc: "#00b4d8", war: "#90e0ef", err: "#03045e" } },
-            { name: "Soft Boho", base: "stone", c: { p: "#f28482", s: "#84a59d", a: "#f6bd60", suc: "#84a59d", war: "#f6bd60", err: "#f28482" } },
-            { name: "Unicorn Candy", base: "neutral", c: { p: "#ff99c8", s: "#a9def9", a: "#fcf6bd", suc: "#d0f4de", war: "#fcf6bd", err: "#ff99c8" } },
-            { name: "Jewel Sunset", base: "zinc", c: { p: "#5f0f40", s: "#9a031e", a: "#fb8b24", suc: "#0f4c5c", war: "#fb8b24", err: "#9a031e" } },
-            { name: "Modern Retro", base: "slate", c: { p: "#264653", s: "#2a9d8f", a: "#e76f51", suc: "#2a9d8f", war: "#e9c46a", err: "#e76f51" } },
-            { name: "Primary Pop", base: "gray", c: { p: "#003049", s: "#d62828", a: "#fcbf49", suc: "#003049", war: "#fcbf49", err: "#d62828" } },
-            { name: "Terra Calm", base: "sand", c: { p: "#3d405b", s: "#e07a5f", a: "#81b29a", suc: "#81b29a", war: "#f2cc8f", err: "#e07a5f" } }
-        ];
-
-        let currentMode = 'light';
-        let currentTheme = themes[0];
-        const root = document.documentElement.style;
-
-        function init() {
-            // 1. Theme Init
-            const themeSel = document.getElementById('themeSelect');
-            themes.forEach((t, i) => {
-                const opt = document.createElement('option');
-                opt.value = i; opt.textContent = `${i + 1}. ${t.name}`;
-                themeSel.appendChild(opt);
-            });
-            themeSel.addEventListener('change', (e) => updateTheme(themes[e.target.value]));
-            updateTheme(themes[0]);
-
-            // 2. UI Init (EventListeners)
-            bindVar('fontSelect', '--font-main');
-            bindVar('lhSelect', '--line-height');
-            bindVar('radiusSelect', '--radius');
-            bindVar('shadowSelect', '--base-shadow');
-            bindVar('borderSelect', '--border-width');
-            bindVar('widthSelect', '--container-width');
-            bindVar('spacingSelect', '--spacing');
-            bindVar('speedSelect', '--motion-speed');
-            bindVar('themeSpeedSelect', '--theme-speed'); // New
-            bindVar('curveSelect', '--motion-curve');
-            bindVar('clickSelect', '--active-scale');
-
-            document.getElementById('fwSelect').addEventListener('change', (e) => {
-                const [base, bold] = e.target.value.split(',');
-                root.setProperty('--fw-base', base); root.setProperty('--fw-bold', bold);
-            });
-
-            document.getElementById('hoverStyleSelect').addEventListener('change', updateHoverStyle);
-            document.getElementById('hoverMoveSelect').addEventListener('change', updateHoverMove);
-        }
-
-        function bindVar(id, cssVar) {
-            document.getElementById(id).addEventListener('change', (e) => root.setProperty(cssVar, e.target.value));
-        }
-
-        function updateHoverStyle(e) {
-            const val = e.target.value;
-            root.setProperty('--hover-opacity', val === 'dim' ? '0.8' : '1');
-            root.setProperty('--hover-shadow', val === 'shadow' ? '0 10px 15px -3px rgba(0,0,0,0.15)' : 'var(--base-shadow)');
-        }
-
-        function updateHoverMove(e) {
-            const val = e.target.value;
-            root.setProperty('--hover-ty', val === 'lift' ? '-4px' : '0px');
-            root.setProperty('--hover-scale', val === 'scale' ? '1.05' : '1');
-        }
-
-        function setMode(mode) {
-            currentMode = mode;
-            document.documentElement.setAttribute('data-theme', mode);
-            document.getElementById('btnLight').classList.toggle('active', mode === 'light');
-            document.getElementById('btnDark').classList.toggle('active', mode === 'dark');
-            updateTheme(currentTheme);
-        }
-
-        function updateTheme(theme) {
-            currentTheme = theme;
-            const s = colors[theme.base] || colors.slate;
-
-            root.setProperty('--primary', theme.c.p);
-            root.setProperty('--secondary', theme.c.s);
-            root.setProperty('--accent', theme.c.a);
-            root.setProperty('--success', theme.c.suc);
-            root.setProperty('--warning', theme.c.war);
-            root.setProperty('--error', theme.c.err);
-
-            if (currentMode === 'light') {
-                root.setProperty('--bg-main', '#ffffff');
-                root.setProperty('--bg-surface', s[50]);
-                root.setProperty('--text-main', s[900]);
-                root.setProperty('--text-muted', s[500]);
-                root.setProperty('--border-color', s[200]);
-            } else {
-                root.setProperty('--bg-main', s[950]);
-                root.setProperty('--bg-surface', s[900]);
-                root.setProperty('--text-main', s[50]);
-                root.setProperty('--text-muted', s[500]);
-                root.setProperty('--border-color', s[700]);
-            }
-
-            const sw = document.getElementById('swatches');
-            sw.innerHTML = '';
-            Object.values(theme.c).forEach(c => {
-                const d = document.createElement('div');
-                d.style.cssText = `flex:1; border-radius:4px; background:${c}`;
-                sw.appendChild(d);
-            });
-        }
-
-        const getText = (id) => document.getElementById(id).options[document.getElementById(id).selectedIndex].text;
-        const getVal = (id) => document.getElementById(id).value;
-
-        function copyFullBlueprint() {
-            const t = currentTheme;
-            const s = colors[t.base] || colors.slate;
-
-            const colorTable = `### 4.1. 컬러 팔레트 (Color Tokens)
-
-[선택된 테마]: ${t.name} / [Base Scale]: ${t.base}
-
-| 용도 (Token) | 라이트 HEX | 다크 HEX | 비고 |
-| :--- | :--- | :--- | :--- |
-| 기본 (Primary) | ${t.c.p} | ${t.c.p} | 브랜드 메인 |
-| 보조 (Secondary) | ${t.c.s} | ${t.c.s} | 서브 강조 |
-| 포인트 (Accent) | ${t.c.a} | ${t.c.a} | 링크, 포커스 |
-| 배경 (Background) | #FFFFFF | ${s[950]} | 전체 배경 |
-| 표면 (Surface) | ${s[50]} | ${s[900]} | 카드 배경 |
-| 테두리 (Border) | ${s[200]} | ${s[700]} | 구분선 |
-| 텍스트 (Main) | ${s[900]} | ${s[50]} | 기본 본문 |
-| 텍스트 (Muted) | ${s[500]} | ${s[500]} | 보조 텍스트 |
-| 성공 (Success) | ${t.c.suc} | ${t.c.suc} | 성공 상태 |
-| 경고 (Warning) | ${t.c.war} | ${t.c.war} | 경고 상태 |
-| 오류 (Error) | ${t.c.err} | ${t.c.err} | 에러 상태 |`;
-
-            const uiTable = `### 4.2. UI 스타일 및 구조 (Shape & Typography)
-
-| 구분 | 선택된 스타일 (Vibe) | 적용 값 (Class / Value) |
-| :--- | :--- | :--- |
-| 폰트 패밀리 | ${getText('fontSelect')} | ${getVal('fontSelect')} |
-| 줄 간격 | ${getText('lhSelect')} | ${getVal('lhSelect')} |
-| 글자 굵기 | ${getText('fwSelect')} | ${getVal('fwSelect')} |
-| 둥글기 (Radius) | ${getText('radiusSelect')} | ${getVal('radiusSelect')} |
-| 그림자 (Shadow) | ${getText('shadowSelect')} | ${getVal('shadowSelect')} |
-| 테두리 두께 | ${getText('borderSelect')} | ${getVal('borderSelect')} |
-| 컨테이너 폭 | ${getText('widthSelect')} | ${getVal('widthSelect')} |
-| 여백 밀도 | ${getText('spacingSelect')} | ${getVal('spacingSelect')} |
-| 인터랙션 속도 | ${getText('speedSelect')} | ${getVal('speedSelect')} |
-| 테마 전환 속도 | ${getText('themeSpeedSelect')} | ${getVal('themeSpeedSelect')} |
-| 움직임 곡선 | ${getText('curveSelect')} | ${getVal('curveSelect')} |
-| 호버 스타일 | ${getText('hoverStyleSelect')} | ${getVal('hoverStyleSelect')} |
-| 호버 움직임 | ${getText('hoverMoveSelect')} | ${getVal('hoverMoveSelect')} |
-| 클릭 효과 | ${getText('clickSelect')} | ${getVal('clickSelect')} |
-| 사운드 | ${getText('soundSelect')} | ${getVal('soundSelect')} |`;
-
-            const fullText = colorTable + "\n\n" + uiTable;
-            navigator.clipboard.writeText(fullText).then(() => alert("설계도가 복사되었습니다!"));
-        }
-
-        init();
-    </script>
+    <script src="app.js"></script>
 </body>
 
 </html>

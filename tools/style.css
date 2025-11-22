@@ -1,0 +1,419 @@
+/* --- Reset & Variables --- */
+:root {
+    /* Theme Colors (Dynamic - JS will inject values) */
+    --bg-main: #ffffff;
+    --bg-surface: #f8fafc;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+
+    --primary: #3b82f6;
+    --secondary: #64748b;
+    --accent: #f59e0b;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --error: #ef4444;
+
+    /* UI Options (Defaults) */
+    --font-main: "Pretendard", sans-serif;
+    --line-height: 1.5;
+    --fw-base: 400;
+    --fw-bold: 700;
+
+    --radius: 0.5rem;
+    --base-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --border-width: 1px;
+    --container-width: 1024px;
+    --spacing: 1rem;
+
+    /* Motion */
+    --motion-speed: 150ms;
+    --theme-speed: 300ms;
+    --motion-curve: ease-in-out;
+
+    /* Interaction States */
+    --active-scale: 0.95;
+    --hover-ty: 0px;
+    --hover-scale: 1;
+    --hover-opacity: 1;
+    --hover-shadow: var(--base-shadow);
+
+    /* Dark Mode Text Adjustments */
+    --text-muted-light: #64748b;
+    --text-muted-dark: #94a3b8;
+}
+
+/* Dark Mode Placeholder (JS handles logic) */
+[data-theme="dark"] {
+    --bg-main: #0f172a;
+    --bg-surface: #1e293b;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    margin: 0;
+    padding: 20px;
+    line-height: var(--line-height);
+    transition: background-color var(--theme-speed) ease, color var(--theme-speed) ease;
+}
+
+/* --- Layout --- */
+.app-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 1000px) {
+    .app-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    background: var(--bg-surface);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    height: 90vh;
+    overflow-y: auto;
+    position: sticky;
+    top: 20px;
+    transition: background-color var(--theme-speed) ease, border-color var(--theme-speed) ease;
+}
+
+.sidebar h1 {
+    font-size: 1.3rem;
+    margin: 0 0 5px 0;
+}
+
+.sidebar p.subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+/* Details & Summary */
+details {
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+details[open] summary {
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+summary {
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.95rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+summary::after {
+    content: '+';
+}
+
+details[open] summary::after {
+    content: '-';
+}
+
+/* Sidebar Controls */
+label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 10px 0 5px;
+    color: var(--text-muted);
+}
+
+select,
+button {
+    width: 100%;
+    padding: 10px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    /* [중요] 다크모드 가독성을 위해 배경/글자색 명시 */
+    background-color: var(--bg-surface);
+    color: var(--text-main);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    cursor: pointer;
+    /* 브라우저 기본 화살표 색상 제어 */
+    color-scheme: light dark;
+}
+
+/* 드롭다운 옵션 가독성 패치 */
+select option {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    padding: 10px;
+}
+
+.toggle-group {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    background: var(--bg-main);
+    color: var(--text-muted);
+    border-radius: 6px;
+    margin-bottom: 0;
+    /* Reset default margin */
+}
+
+.toggle-btn.active {
+    background-color: var(--text-main);
+    color: var(--bg-main);
+    border-color: var(--text-main);
+    font-weight: bold;
+}
+
+.copy-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.1s;
+}
+
+.copy-btn:active {
+    transform: scale(0.98);
+}
+
+.swatches-container {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+    height: 24px;
+}
+
+/* --- Preview Area --- */
+.preview-area {
+    background: var(--bg-main);
+    border: 1px dashed var(--border-color);
+    border-radius: 16px;
+    padding: 40px;
+    overflow-x: hidden;
+    transition: background-color var(--theme-speed) ease, border-color var(--theme-speed) ease;
+}
+
+.mockup-container {
+    margin: 0 auto;
+    max-width: var(--container-width);
+    transition: max-width 0.3s ease;
+}
+
+/* Components */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.brand {
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.menu a {
+    margin-left: var(--spacing);
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: var(--fw-base);
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    font-weight: var(--fw-bold);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.btn-group {
+    display: flex;
+    gap: var(--spacing);
+}
+
+/* Interactive Elements */
+.btn,
+.card {
+    transition-property: transform, box-shadow, opacity, background-color, border-color;
+    transition-duration: var(--motion-speed);
+    transition-timing-function: var(--motion-curve);
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: var(--fw-bold);
+    border: var(--border-width) solid transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-p {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: var(--base-shadow);
+}
+
+.btn-s {
+    background: var(--bg-surface);
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+
+/* Hover & Active Logic */
+.btn:hover,
+.card:hover {
+    transform: translateY(var(--hover-ty)) scale(var(--hover-scale));
+    box-shadow: var(--hover-shadow);
+    opacity: var(--hover-opacity);
+}
+
+.btn:active {
+    transform: scale(var(--active-scale));
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing);
+    margin-top: 50px;
+}
+
+.card {
+    background: var(--bg-surface);
+    border: var(--border-width) solid var(--border-color);
+    border-radius: var(--radius);
+    padding: var(--spacing);
+    box-shadow: var(--base-shadow);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin-top: 0;
+    font-weight: var(--fw-bold);
+    color: var(--text-main);
+}
+
+.card p {
+    color: var(--text-muted);
+    font-weight: var(--fw-base);
+    margin-bottom: 0;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: var(--radius);
+    background: var(--bg-main);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: var(--fw-bold);
+    margin-bottom: 10px;
+    border: var(--border-width) solid var(--border-color);
+}
+
+/* --- New Elements: Badge, Link, Alerts --- */
+
+.badge {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 99px;
+    background-color: var(--accent);
+    color: #fff;
+    font-weight: bold;
+}
+
+.link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.status-alerts {
+    display: grid;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.alert {
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: white;
+}
+
+.alert span {
+    font-weight: 800;
+    opacity: 0.9;
+}
+
+.alert-s {
+    background-color: var(--success);
+}
+
+.alert-w {
+    background-color: var(--warning);
+    color: #1a1a1a;
+}
+
+.alert-e {
+    background-color: var(--error);
+}

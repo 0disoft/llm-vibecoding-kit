@@ -74,34 +74,34 @@
 
 > [지침]
 >
-> 1. **색상**: .vibecoding/theme_options.toml 참고하여 테마 선택 및 팔레트 작성.
-> 2. **UI 스타일**: .vibecoding/ui_options.toml 참고.
-> 3. [중요] 스타일 옵션을 기입할 때는 메뉴판의 이름뿐만 아니라, 괄호 안에 있는 '참조용 표준값(Reference Value)'을 반드시 별도 컬럼에 명시하십시오.
->    - 예: 선택 옵션이 "Tight (leading-tight)"라면 -> 적용 값에 "leading-tight" 기입.
+> 1. 색상: .vibecoding/theme_options.toml 파일에서 테마 하나를 선택하십시오.
+> 2. 값 적용: 선택한 테마의 brand, status, ui_light, ui_dark 섹션에 정의된 HEX 값을 아래 표에 그대로 옮겨 적으십시오.
+>    - 주의: 임의로 색상을 계산하거나 변경하지 마십시오. (테마별로 조정된 가독성 세팅을 유지해야 합니다.)
+> 3. UI 스타일: .vibecoding/ui_options.toml 참고.
 
 ### 4.1. 컬러 팔레트 및 토큰 정의
 
-[선택된 테마]: (예: corporate_navy) / [Base Scale]: (예: Slate)
+[선택된 테마]: (예: Earth & Forest)
 
-| 용도 (Token) | 라이트 HEX | 라이트 OKLCH | 다크 HEX | 다크 OKLCH | 비고 |
+| 용도 (Token) | 라이트 HEX | 라이트 설명 | 다크 HEX | 다크 설명 | 비고 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 기본 (Primary) | (TOML값) | ... | (TOML값) | ... | 브랜드 메인 |
-| 보조 (Secondary) | (TOML값) | ... | (TOML값) | ... | 서브 강조 |
-| 포인트 (Accent) | (TOML값) | ... | (TOML값) | ... | 링크, 포커스 |
-| 배경 (Background) | #FFFFFF | ... | (Scale-900) | ... | 전체 배경 |
-| 표면 (Surface) | (Scale-50) | ... | (Scale-800) | ... | 카드 배경 |
-| 테두리 (Border) | (Scale-200) | ... | (Scale-700) | ... | 구분선 |
-| 텍스트 (Main) | (Scale-700) | ... | (Scale-200) | ... | 기본 본문 |
-| 텍스트 (Muted) | (Scale-500) | ... | (Scale-400) | ... | 보조 텍스트 |
-| 성공 (Success) | (Status.succ) | ... | (Status.succ) | ... | 성공 상태 |
-| 경고 (Warning) | (Status.warn) | ... | (Status.warn) | ... | 경고 상태 |
-| 오류 (Error) | (Status.err) | ... | (Status.err) | ... | 에러 상태 |
+| 기본 (Primary) | (brand.primary) | ... | (brand.primary) | ... | 브랜드 메인 |
+| 보조 (Secondary) | (brand.secondary) | ... | (brand.secondary) | ... | 서브 강조 |
+| 포인트 (Accent) | (brand.accent) | ... | (brand.accent) | ... | 링크, 포커스 |
+| 배경 (Background) | (ui_light.bg_main) | ... | (ui_dark.bg_main) | ... | 전체 배경 |
+| 표면 (Surface) | (ui_light.bg_surface) | ... | (ui_dark.bg_surface) | ... | 카드 배경 |
+| 테두리 (Border) | (ui_light.border) | ... | (ui_dark.border) | ... | 구분선 |
+| 텍스트 (Main) | (ui_light.text_main) | ... | (ui_dark.text_main) | ... | 기본 본문 |
+| 텍스트 (Muted) | (ui_light.text_muted) | ... | (ui_dark.text_muted) | ... | 보조 텍스트 |
+| 성공 (Success) | (status.success) | ... | (status.success) | ... | 성공 상태 |
+| 경고 (Warning) | (status.warning) | ... | (status.warning) | ... | 경고 상태 |
+| 오류 (Error) | (status.error) | ... | (status.error) | ... | 에러 상태 |
 
 ### 4.2. UI 스타일 및 구조 (Shape & Typography)
 
 > [지침]
 > .vibecoding/ui_options.toml의 항목들을 빠짐없이 결정하여 기입하십시오.
-> **적용 값**에는 괄호 안의 내용(Tailwind Class 또는 CSS 값)을 정확히 옮겨 적으십시오.
+> 적용 값에는 괄호 안의 내용(Tailwind Class 또는 CSS 값)을 정확히 옮겨 적으십시오.
 
 | 구분 | 선택된 스타일 (Vibe) | 적용 값 (Class / Value) |
 | :--- | :--- | :--- |
@@ -113,8 +113,7 @@
 | 테두리 두께 | (예: Hairline) | 1px |
 | 컨테이너 폭 | (예: Dashboard) | max-w-7xl |
 | 여백 밀도 | (예: Comfortable) | Base 1rem |
-| 인터랙션 속도 | (예: Snappy) | duration-150 |
-| 테마 전환 속도 | (예: Instant) | duration-0 |
+| 반응 속도 | (예: Snappy) | duration-150 |
 | 움직임 곡선 | (예: Standard) | ease-in-out |
 | 호버 스타일 | (예: Dimming) | hover:opacity-80 |
 | 호버 움직임 | (예: None) | None |
