@@ -79,27 +79,71 @@ spacing_density = [
 ]
 
 # ==========================================
-# 4. 모션 및 인터랙션 (Motion)
+# 4. 모션 물리 (Motion Physics)
 # ==========================================
 [motion]
-# 반응 속도 (Duration): UX의 경쾌함 결정
-speed = [
-    "Instant (0ms)",     # 즉시: 게임, 전문 툴 (성능 최우선)
-    "Snappy (150ms)",    # 빠릿함: 모바일 앱 표준, 피드백이 빠름
-    "Smooth (300ms)",    # 부드러움: 웹페이지 전환, 드로어 열림
-    "Cinematic (700ms)", # 우아함: 히어로 섹션 등장, 브랜드 무비
+# 인터랙션 속도 (Hover/Click/Active)
+# 버튼, 카드, 모달 등 UI 요소의 반응 속도
+interaction_speed = [
+    "Instant (duration-0)",     # 즉시 (0ms) - 게임/전문툴
+    "Snappy (duration-150)",    # 빠릿함 (150ms) - 표준 웹/앱
+    "Smooth (duration-300)",    # 부드러움 (300ms) - 고급스러운 느낌
+    "Cinematic (duration-700)", # 영화 같은 (700ms) - 소개 페이지
 ]
 
-# 움직임 곡선 (Easing): 애니메이션의 성격
+# 테마 전환 속도 (Light/Dark Toggle)
+# 다크모드로 바뀔 때의 화면 전환 속도
+theme_speed = [
+    "Instant (duration-0)",      # 즉시 전환 (깜빡임 없음)
+    "Soft Fade (duration-300)",  # 부드러운 페이드 (표준)
+    "Slow Blend (duration-500)", # 천천히 스며들기 (감성적)
+]
+
+# 움직임 곡선 (Easing): 애니메이션의 가속도 성격
 curve = [
-    "Linear (Constant)",      # 기계적: 로딩 스피너, 색상 변화
-    "Standard (Ease-in-out)", # 자연스러움: 대부분의 UI 이동
-    "Bounce (Elastic)",       # 탄성: 알림 뱃지, 좋아요 하트, 강조
+    "Linear (ease-linear)",                                # 일정함 (Constant): 로딩 스피너, 단순 색상/투명도 변화 (기계적 느낌)
+    "Standard (ease-in-out)",                              # 자연스러움 (Natural): 모달, 드로어, 페이지 전환 (대부분의 UI 표준)
+    "Bounce (ease-[cubic-bezier(0.68,-0.55,0.265,1.55)])", # 탄성 (Elastic): 알림 뱃지, 좋아요 하트, 주의 환기 (통통 튀는 느낌)
 ]
 
-# 클릭 효과 (Active State): 터치감/타건감 시각화
-click_effect = [
-    "None",                     # 효과 없음: 시스템 기본 동작
-    "Subtle Press (Scale 95%)", # 살짝 눌림: 세련된 버튼 피드백
-    "Deep Press (Scale 90%)",   # 깊게 눌림: 게임 버튼, 확실한 조작감
+# ==========================================
+# 5. 인터랙션 및 피드백 (Interaction & Feedback)
+# ==========================================
+[interaction]
+# 호버 시 시각적 변화 (Hover Visual)
+# 마우스를 올렸을 때 색상이나 투명도 변화
+hover_style = [
+    "None",                                    # 변화 없음
+    "Dimming (hover:opacity-80)",              # 투명도 조절 (버튼/링크 표준)
+    "Tint Background (hover:bg-accent/10)",    # 배경색 은은하게 (리스트 아이템)
+    "Glow Border (hover:ring-2 ring-primary)", # 테두리 빛남 (카드 Focus)
+    "Elevate Shadow (hover:shadow-lg)",        # 그림자 깊어짐 (클릭 유도)
+]
+
+# 호버 시 물리적 움직임 (Hover Movement)
+# 마우스를 올렸을 때 위치나 크기 변화
+hover_movement = [
+    "None",                           # 움직임 없음
+    "Lift Up (hover:-translate-y-1)", # 위로 살짝 뜸 (카드/버튼)
+    "Scale Up (hover:scale-105)",     # 전체적으로 커짐 (이미지/아이콘)
+    "Tilt (3D Rotation)",             # 3D로 기울어짐 (고급 인터랙션)
+]
+
+# 클릭/터치 피드백 (Active State)
+# 눌렀을 때의 반응 (기존 4번에서 이동됨)
+active_effect = [
+    "None (active:scale-100)",        # 변화 없음
+    "Subtle Press (active:scale-95)", # 살짝 눌림 (표준 버튼)
+    "Deep Press (active:scale-90)",   # 깊게 눌림 (게임/확실한 조작감)
+    "Ripple Effect (Material)",       # 물결 효과 (안드로이드 스타일)
+]
+
+# 사운드 피드백 (Sound)
+# CSS가 아닌 JS 라이브러리(use-sound 등)로 구현
+sound_feedback = [
+    "None (Silent)",       # 무음
+    "Soft Click (Tick)",   # 틱 (애플 스타일)
+    "Bubble Pop (Pop)",    # 뽁 (캐주얼/게임)
+    "Mechanical (Clack)",  # 타자기 소리 (블로그)
+    "Digital Beep (Beep)", # 미래지향적 비프음
 ]

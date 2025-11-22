@@ -105,16 +105,21 @@
 
 | 구분 | 선택된 스타일 (Vibe) | 적용 값 (Class / Value) |
 | :--- | :--- | :--- |
-| **폰트 패밀리** | (예: Modern Gothic) | font-['Pretendard'] |
-| **줄 간격** | (예: Normal) | leading-normal |
-| **글자 굵기** | (예: Standard) | 400 / 700 |
-| **둥글기 (Radius)** | (예: Standard) | rounded-lg |
-| **그림자 (Shadow)** | (예: Subtle) | shadow-sm |
-| **테두리 두께** | (예: Hairline) | 1px |
-| **컨테이너 폭** | (예: Dashboard) | max-w-7xl |
-| **여백 밀도** | (예: Comfortable) | Base 1rem |
-| **반응 속도** | (예: Snappy) | duration-150 |
-| **클릭 효과** | (예: Subtle Press) | active:scale-95 |
+| 폰트 패밀리 | (예: Modern Gothic) | font-['Pretendard'] |
+| 줄 간격 | (예: Normal) | leading-normal |
+| 글자 굵기 | (예: Standard) | 400 / 700 |
+| 둥글기 (Radius) | (예: Standard) | rounded-lg |
+| 그림자 (Shadow) | (예: Subtle) | shadow-sm |
+| 테두리 두께 | (예: Hairline) | 1px |
+| 컨테이너 폭 | (예: Dashboard) | max-w-7xl |
+| 여백 밀도 | (예: Comfortable) | Base 1rem |
+| 인터랙션 속도 | (예: Snappy) | duration-150 |
+| 테마 전환 속도 | (예: Instant) | duration-0 |
+| 움직임 곡선 | (예: Standard) | ease-in-out |
+| 호버 스타일 | (예: Dimming) | hover:opacity-80 |
+| 호버 움직임 | (예: None) | None |
+| 클릭 효과 | (예: Subtle Press) | active:scale-95 |
+| 사운드 | (예: Soft Click) | use-sound (Tick) |
 
 ## 5. 페이지 구조 및 기능 명세
 
