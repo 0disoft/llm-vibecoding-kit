@@ -72,6 +72,14 @@ client_storage = [
 # 업데이트 알림 전략
 update_strategy = ["Auto-update Toast", "Force Update Modal", "Silent Update"]
 
+# 에러 처리 및 피드백
+error_handling = [
+    "Global Error Boundary (전역 에러 방어)",
+    "Toast Notifications (토스트 알림)",
+    "Form Validation Feedback (인라인 피드백)",
+    "404/500 Custom Pages (커스텀 에러 페이지)",
+]
+
 # ==========================================
 # 3. SEO 및 메타 데이터 (SEO & Meta)
 # ==========================================
@@ -84,7 +92,7 @@ search_engine = [
     "RSS/Atom Feed",
 ]
 
-# AI 에이전트 최적화 (LLM용) - [중요]
+# AI 에이전트 최적화 (LLM용)
 ai_readability = [
     "llms.txt (AI Summary)",
     "llms-full.txt (Full Content)",

@@ -44,22 +44,31 @@
 
 > [지침]
 > .vibecoding/feature_options.toml 파일을 참고하여, 구현해야 할 기능을 체크리스트로 구성하십시오.
+> 각 섹션별로 프로젝트에 필요한 항목을 "선택"하여 기입하십시오.
 
-### 3.1. UI/UX 표준
+### 3.1. UI/UX 표준 (UI/UX)
 
-- [ ] (ui_ux_standards 섹션 참고...)
+- [ ] (responsive_strategy, theme_system 등 선택...)
 
-### 3.2. 앱 기능 및 성능
+### 3.2. 앱 기능 및 성능 (App Capabilities)
 
-- [ ] (app_capabilities 섹션 참고...)
+- [ ] (pwa_support, client_storage 등 선택...)
 
-### 3.3. SEO 및 메타 전략
+### 3.3. SEO 및 메타 전략 (SEO & Meta)
 
-- [ ] (seo_and_meta 섹션 참고...)
+- [ ] (search_engine, ai_readability, social_sharing 등 선택...)
 
-### 3.4. 보안 및 규정
+### 3.4. 보안 및 API 정책 (Security)
 
-- [ ] (security_policies 및 compliance 섹션 참고...)
+- [ ] (http_headers, api_protection, cors_policy 등 선택...)
+
+### 3.5. 성능 최적화 전략 (Performance)
+
+- [ ] (image_handling, bundling, rendering_strategy 등 선택...)
+
+### 3.6. 규정 준수 및 법적 고지 (Compliance)
+
+- [ ] (policies 항목 선택...)
 
 ## 4. 디자인 시스템 및 테마
 
