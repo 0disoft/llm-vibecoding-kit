@@ -1,4 +1,4 @@
-// --- Color Scales (Fallback / Reference) ---
+// --- 색상 스케일 기본값 ---
 const colors = {
     slate: { 50: '#f8fafc', 200: '#e2e8f0', 500: '#64748b', 700: '#334155', 900: '#0f172a', 950: '#020617' },
     stone: { 50: '#fafaf9', 200: '#e7e5e4', 500: '#78716c', 700: '#44403c', 900: '#1c1917', 950: '#0c0a09' },
@@ -11,11 +11,11 @@ const colors = {
     sky: { 50: '#f0f9ff', 200: '#bae6fd', 500: '#0ea5e9', 700: '#0369a1', 900: '#0c4a6e', 950: '#041824' }
 };
 
-// --- 21 Themes Data (Full Spec with UI Overrides) ---
+// --- 21개 테마 전체 정의 (UI 오버라이드 포함) ---
 const themes = [
     {
         name: "Earth & Forest", base: "stone",
-        c: { p: "#283618", s: "#606C38", a: "#BC6C25", suc: "#283618", war: "#DDA15E", err: "#BC6C25" },
+        c: { p: "#4A6741", s: "#606C38", a: "#BC6C25", suc: "#4A6741", war: "#DDA15E", err: "#BC6C25" },
         ui: {
             light: { bg: "#FEFAE0", surf: "#FFFFFF", txt: "#283618", mut: "#606C38", bord: "#E2E8C0" },
             dark: { bg: "#0D1208", surf: "#1A2115", txt: "#FEFAE0", mut: "#A3B18A", bord: "#2F3E22" }
@@ -47,7 +47,7 @@ const themes = [
     },
     {
         name: "Pastel Dream", base: "gray",
-        c: { p: "#FFAFCC", s: "#BDE0FE", a: "#CDB4DB", suc: "#A2D2FF", war: "#FFC8DD", err: "#FFAFCC" },
+        c: { p: "#FFAFCC", s: "#BDE0FE", a: "#CDB4DB", suc: "#89CFF0", war: "#FDFD96", err: "#FFB7B2" },
         ui: {
             light: { bg: "#FFF9FB", surf: "#FFFFFF", txt: "#4A404F", mut: "#9C8FA3", bord: "#F3E6F5" },
             dark: { bg: "#1A1625", surf: "#252033", txt: "#FFF0F5", mut: "#B5A8C0", bord: "#3E3550" }
@@ -55,7 +55,7 @@ const themes = [
     },
     {
         name: "Corporate Navy", base: "slate",
-        c: { p: "#0D1B2A", s: "#1B263B", a: "#415A77", suc: "#415A77", war: "#778DA9", err: "#1B263B" },
+        c: { p: "#0D1B2A", s: "#1B263B", a: "#415A77", suc: "#10B981", war: "#F59E0B", err: "#EF4444" },
         ui: {
             light: { bg: "#F8FAFC", surf: "#FFFFFF", txt: "#0F172A", mut: "#64748B", bord: "#E2E8F0" },
             dark: { bg: "#020617", surf: "#0F172A", txt: "#F1F5F9", mut: "#94A3B8", bord: "#1E293B" }
@@ -188,45 +188,57 @@ let currentTheme = themes[0];
 const root = document.documentElement.style;
 
 function init() {
-    // 1. Theme Init
-    const themeSel = document.getElementById('themeSelect');
-    themes.forEach((t, i) => {
-        const opt = document.createElement('option');
-        opt.value = i; opt.textContent = `${i + 1}. ${t.name}`;
-        themeSel.appendChild(opt);
-    });
-    themeSel.addEventListener('change', (e) => updateTheme(themes[e.target.value]));
-
-    // 2. UI Init (EventListeners)
-    bindVar('fontSelect', '--font-main');
-    bindVar('lhSelect', '--line-height');
-    bindVar('radiusSelect', '--radius');
-    bindVar('shadowSelect', '--base-shadow');
-    bindVar('borderSelect', '--border-width');
-    bindVar('widthSelect', '--container-width');
-    bindVar('spacingSelect', '--spacing');
-    bindVar('speedSelect', '--motion-speed');
-    bindVar('themeSpeedSelect', '--theme-speed');
-    bindVar('curveSelect', '--motion-curve');
-    bindVar('clickSelect', '--active-scale');
-
-    // Font Weight Split Logic
-    document.getElementById('fwSelect').addEventListener('change', (e) => {
-        const [base, bold] = e.target.value.split(',');
-        root.setProperty('--fw-base', base);
-        root.setProperty('--fw-bold', bold);
-    });
-
-    // Interaction Logic
-    document.getElementById('hoverStyleSelect').addEventListener('change', updateHoverStyle);
-    document.getElementById('hoverMoveSelect').addEventListener('change', updateHoverMove);
-
-    // Init View
+    setupThemeSelect();
+    bindUiControls();
+    bindFontWeight();
+    bindInteractionControls();
     updateTheme(themes[0]);
 }
 
 function bindVar(id, cssVar) {
     document.getElementById(id).addEventListener('change', (e) => root.setProperty(cssVar, e.target.value));
+}
+
+function setupThemeSelect() {
+    const themeSel = document.getElementById('themeSelect');
+    themes.forEach((t, i) => {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = `${i + 1}. ${t.name}`;
+        themeSel.appendChild(opt);
+    });
+    themeSel.addEventListener('change', (e) => updateTheme(themes[e.target.value]));
+}
+
+function bindUiControls() {
+    const bindings = [
+        ['fontSelect', '--font-main'],
+        ['lhSelect', '--line-height'],
+        ['radiusSelect', '--radius'],
+        ['shadowSelect', '--base-shadow'],
+        ['borderSelect', '--border-width'],
+        ['widthSelect', '--container-width'],
+        ['spacingSelect', '--spacing'],
+        ['speedSelect', '--motion-speed'],
+        ['themeSpeedSelect', '--theme-speed'],
+        ['curveSelect', '--motion-curve'],
+        ['clickSelect', '--active-scale'],
+    ];
+    bindings.forEach(([id, variable]) => bindVar(id, variable));
+}
+
+function bindFontWeight() {
+    const fw = document.getElementById('fwSelect');
+    fw.addEventListener('change', (e) => {
+        const [base, bold] = e.target.value.split(',');
+        root.setProperty('--fw-base', base);
+        root.setProperty('--fw-bold', bold);
+    });
+}
+
+function bindInteractionControls() {
+    document.getElementById('hoverStyleSelect').addEventListener('change', updateHoverStyle);
+    document.getElementById('hoverMoveSelect').addEventListener('change', updateHoverMove);
 }
 
 function updateHoverStyle(e) {
@@ -252,7 +264,7 @@ function setMode(mode) {
 function updateTheme(theme) {
     currentTheme = theme;
 
-    // Brand Colors
+    // 브랜드 색상 토큰 적용
     root.setProperty('--primary', theme.c.p);
     root.setProperty('--secondary', theme.c.s);
     root.setProperty('--accent', theme.c.a);
@@ -260,8 +272,7 @@ function updateTheme(theme) {
     root.setProperty('--warning', theme.c.war);
     root.setProperty('--error', theme.c.err);
 
-    // UI Colors (Based on Custom Data)
-    // If ui data missing (fallback), use colors array (not implemented here for brevity but assumed all have ui)
+    // UI 색상 (테마별 라이트/다크 정의 사용)
     const ui = currentMode === 'light' ? theme.ui.light : theme.ui.dark;
 
     root.setProperty('--bg-main', ui.bg);
@@ -270,7 +281,7 @@ function updateTheme(theme) {
     root.setProperty('--text-muted', ui.mut);
     root.setProperty('--border-color', ui.bord);
 
-    // Update Swatches
+    // 스와치 미리보기 업데이트
     const sw = document.querySelector('.swatches-container');
     sw.innerHTML = '';
     Object.values(theme.c).forEach(c => {
@@ -280,36 +291,42 @@ function updateTheme(theme) {
     });
 }
 
-// Helper: Get text from select
+// 셀렉트 박스에서 현재 표시 문자열/값을 추출
 const getText = (id) => document.getElementById(id).options[document.getElementById(id).selectedIndex].text;
 const getVal = (id) => document.getElementById(id).value;
 
 function copyFullBlueprint() {
-    const t = currentTheme;
+    const fullText = buildBlueprintText(currentTheme);
+    navigator.clipboard.writeText(fullText).then(showCopyToast);
+}
 
-    // UI Colors Extraction
-    const L = t.ui.light;
-    const D = t.ui.dark;
+function buildBlueprintText(theme) {
+    return `${buildColorTable(theme)}\n\n${buildUiTable()}`;
+}
 
-    const colorTable = `### 4.1. 컬러 팔레트 (Color Tokens)
+function buildColorTable(theme) {
+    const { light: L, dark: D } = theme.ui;
+    return `### 4.1. 컬러 팔레트 (Color Tokens)
 
-[선택된 테마]: ${t.name} / [Base Scale]: ${t.base}
+[선택된 테마]: ${theme.name} / [Base Scale]: ${theme.base}
 
 | 용도 (Token) | 라이트 HEX | 라이트 설명 | 다크 HEX | 다크 설명 | 비고 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 기본 (Primary) | ${t.c.p} | Brand | ${t.c.p} | Brand | 브랜드 메인 |
-| 보조 (Secondary) | ${t.c.s} | Secondary | ${t.c.s} | Secondary | 서브 강조 |
-| 포인트 (Accent) | ${t.c.a} | Accent | ${t.c.a} | Accent | 링크, 포커스 |
+| 기본 (Primary) | ${theme.c.p} | Brand | ${theme.c.p} | Brand | 브랜드 메인 |
+| 보조 (Secondary) | ${theme.c.s} | Secondary | ${theme.c.s} | Secondary | 서브 강조 |
+| 포인트 (Accent) | ${theme.c.a} | Accent | ${theme.c.a} | Accent | 링크, 포커스 |
 | 배경 (Background) | ${L.bg} | Light Bg | ${D.bg} | Dark Bg | 전체 배경 |
 | 표면 (Surface) | ${L.surf} | Light Surf | ${D.surf} | Dark Surf | 카드 배경 |
 | 테두리 (Border) | ${L.bord} | Light Bord | ${D.bord} | Dark Bord | 구분선 |
 | 텍스트 (Main) | ${L.txt} | Light Txt | ${D.txt} | Dark Txt | 기본 본문 |
 | 텍스트 (Muted) | ${L.mut} | Light Mut | ${D.mut} | Dark Mut | 보조 텍스트 |
-| 성공 (Success) | ${t.c.suc} | Success | ${t.c.suc} | Success | 성공 상태 |
-| 경고 (Warning) | ${t.c.war} | Warning | ${t.c.war} | Warning | 경고 상태 |
-| 오류 (Error) | ${t.c.err} | Error | ${t.c.err} | Error | 에러 상태 |`;
+| 성공 (Success) | ${theme.c.suc} | Success | ${theme.c.suc} | Success | 성공 상태 |
+| 경고 (Warning) | ${theme.c.war} | Warning | ${theme.c.war} | Warning | 경고 상태 |
+| 오류 (Error) | ${theme.c.err} | Error | ${theme.c.err} | Error | 에러 상태 |`;
+}
 
-    const uiTable = `### 4.2. UI 스타일 및 구조 (Shape & Typography)
+function buildUiTable() {
+    return `### 4.2. UI 스타일 및 구조 (Shape & Typography)
 
 | 구분 | 선택된 스타일 (Vibe) | 적용 값 (Class / Value) |
 | :--- | :--- | :--- |
@@ -328,15 +345,14 @@ function copyFullBlueprint() {
 | 호버 움직임 | ${getText('hoverMoveSelect')} | ${getVal('hoverMoveSelect')} |
 | 클릭 효과 | ${getText('clickSelect')} | ${getVal('clickSelect')} |
 | 사운드 | ${getText('soundSelect')} | ${getVal('soundSelect')} |`;
-
-    const fullText = colorTable + "\n\n" + uiTable;
-    navigator.clipboard.writeText(fullText).then(() => {
-        const btn = document.querySelector('.copy-btn');
-        const originalText = btn.textContent;
-        btn.textContent = "✅ 설계도 복사 완료!";
-        setTimeout(() => btn.textContent = originalText, 2000);
-    });
 }
 
-// Initialize app
+function showCopyToast() {
+    const btn = document.querySelector('.copy-btn');
+    const originalText = btn.textContent;
+    btn.textContent = "✅ 설계도 복사 완료!";
+    setTimeout(() => btn.textContent = originalText, 2000);
+}
+
+// 초기 진입점
 init();
