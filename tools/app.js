@@ -49,7 +49,7 @@ const themes = [
         name: "Pastel Dream", base: "gray",
         c: { p: "#FFAFCC", s: "#BDE0FE", a: "#CDB4DB", suc: "#89CFF0", war: "#FDFD96", err: "#FFB7B2" },
         ui: {
-            light: { bg: "#FFF9FB", surf: "#FFFFFF", txt: "#4A404F", mut: "#9C8FA3", bord: "#F3E6F5" },
+            light: { bg: "#FFF9FB", surf: "#FFFFFF", txt: "#4A404F", mut: "#7C6E7F", bord: "#F3E6F5" },
             dark: { bg: "#1A1625", surf: "#252033", txt: "#FFF0F5", mut: "#B5A8C0", bord: "#3E3550" }
         }
     },
@@ -65,7 +65,7 @@ const themes = [
         name: "Organic Beige", base: "stone",
         c: { p: "#D5BDAF", s: "#D6CCC2", a: "#E3D5CA", suc: "#577555", war: "#D4A373", err: "#BC4749" },
         ui: {
-            light: { bg: "#FDFCF8", surf: "#FFFFFF", txt: "#4A403A", mut: "#9CA3AF", bord: "#E5E5E5" },
+            light: { bg: "#FDFCF8", surf: "#FFFFFF", txt: "#4A403A", mut: "#736A62", bord: "#E5E5E5" },
             dark: { bg: "#1C1917", surf: "#292524", txt: "#E7E5E4", mut: "#A8A29E", bord: "#44403C" }
         }
     },
@@ -73,7 +73,7 @@ const themes = [
         name: "Matcha & Wood", base: "olive",
         c: { p: "#CCD5AE", s: "#E9EDC9", a: "#D4A373", suc: "#606C38", war: "#D4A373", err: "#BC4749" },
         ui: {
-            light: { bg: "#FAEDCD", surf: "#FEFAE0", txt: "#4A4238", mut: "#8E8D8A", bord: "#D4A373" },
+            light: { bg: "#FAEDCD", surf: "#FEFAE0", txt: "#4A4238", mut: "#6F695F", bord: "#D4A373" },
             dark: { bg: "#181A15", surf: "#242920", txt: "#E9EDC9", mut: "#CCD5AE", bord: "#3E4238" }
         }
     },
@@ -81,7 +81,7 @@ const themes = [
         name: "Red & Steel", base: "zinc",
         c: { p: "#1D3557", s: "#457B9D", a: "#E63946", suc: "#2A9D8F", war: "#F4A261", err: "#E63946" },
         ui: {
-            light: { bg: "#F1FAEE", surf: "#FFFFFF", txt: "#1D3557", mut: "#457B9D", bord: "#A8DADC" },
+            light: { bg: "#F1FAEE", surf: "#FFFFFF", txt: "#1D3557", mut: "#3F6F8E", bord: "#A8DADC" },
             dark: { bg: "#0B131F", surf: "#162438", txt: "#F1FAEE", mut: "#A8DADC", bord: "#2A466B" }
         }
     },
@@ -97,7 +97,7 @@ const themes = [
         name: "Deep Green Forest", base: "sage",
         c: { p: "#344E41", s: "#588157", a: "#DAD7CD", suc: "#3A5A40", war: "#E9C46A", err: "#BC4749" },
         ui: {
-            light: { bg: "#F3F5F1", surf: "#FFFFFF", txt: "#344E41", mut: "#588157", bord: "#DAD7CD" },
+            light: { bg: "#F3F5F1", surf: "#FFFFFF", txt: "#344E41", mut: "#477058", bord: "#DAD7CD" },
             dark: { bg: "#1A211D", surf: "#252E28", txt: "#DAD7CD", mut: "#A3B18A", bord: "#3A5A40" }
         }
     },
@@ -121,7 +121,7 @@ const themes = [
         name: "Retro Floral", base: "sand",
         c: { p: "#723D46", s: "#C9CBA3", a: "#E26D5C", suc: "#556B2F", war: "#D4A373", err: "#9E2A2B" },
         ui: {
-            light: { bg: "#FFFDF7", surf: "#FFFFFF", txt: "#4A3333", mut: "#9D8189", bord: "#E6DCD3" },
+            light: { bg: "#FFFDF7", surf: "#FFFFFF", txt: "#4A3333", mut: "#7B6068", bord: "#E6DCD3" },
             dark: { bg: "#1F1515", surf: "#2C1E1E", txt: "#F2E8DC", mut: "#C9CBA3", bord: "#4F3535" }
         }
     },
@@ -137,7 +137,7 @@ const themes = [
         name: "Soft Boho", base: "stone",
         c: { p: "#F28482", s: "#84A59D", a: "#F6BD60", suc: "#6B8F71", war: "#E09F3E", err: "#D16666" },
         ui: {
-            light: { bg: "#FDFBF7", surf: "#FFFFFF", txt: "#5D4A4A", mut: "#998B8B", bord: "#EBE0D6" },
+            light: { bg: "#FDFBF7", surf: "#FFFFFF", txt: "#5D4A4A", mut: "#776B68", bord: "#EBE0D6" },
             dark: { bg: "#262020", surf: "#332B2B", txt: "#F7EDE2", mut: "#B5A39E", bord: "#4D4040" }
         }
     },
@@ -145,7 +145,7 @@ const themes = [
         name: "Unicorn Candy", base: "neutral",
         c: { p: "#FF99C8", s: "#A9DEF9", a: "#FCF6BD", suc: "#70D6FF", war: "#FFD670", err: "#FF9770" },
         ui: {
-            light: { bg: "#FFFAFC", surf: "#FFFFFF", txt: "#5D4E6D", mut: "#9E94A8", bord: "#E4C1F9" },
+            light: { bg: "#FFFAFC", surf: "#FFFFFF", txt: "#5D4E6D", mut: "#726075", bord: "#E4C1F9" },
             dark: { bg: "#19102E", surf: "#251A40", txt: "#FF99C8", mut: "#A9DEF9", bord: "#5E4B8B" }
         }
     },
@@ -161,7 +161,7 @@ const themes = [
         name: "Modern Retro", base: "slate",
         c: { p: "#264653", s: "#2A9D8F", a: "#E76F51", suc: "#2A9D8F", war: "#E9C46A", err: "#E76F51" },
         ui: {
-            light: { bg: "#F4F1DE", surf: "#FFFFFF", txt: "#264653", mut: "#5F7D8B", bord: "#D1D5DB" },
+            light: { bg: "#F4F1DE", surf: "#FFFFFF", txt: "#264653", mut: "#4C6878", bord: "#D1D5DB" },
             dark: { bg: "#101F25", surf: "#1D333C", txt: "#F4F1DE", mut: "#81B29A", bord: "#2F5766" }
         }
     },
@@ -177,7 +177,7 @@ const themes = [
         name: "Terra Calm", base: "sand",
         c: { p: "#3D405B", s: "#E07A5F", a: "#81B29A", suc: "#81B29A", war: "#F2CC8F", err: "#E07A5F" },
         ui: {
-            light: { bg: "#FDFCF8", surf: "#FFFFFF", txt: "#3D405B", mut: "#9FA2B2", bord: "#F2CC8F" },
+            light: { bg: "#FDFCF8", surf: "#FFFFFF", txt: "#3D405B", mut: "#616673", bord: "#F2CC8F" },
             dark: { bg: "#15161F", surf: "#1E202E", txt: "#F4F1DE", mut: "#81B29A", bord: "#3D405B" }
         }
     }

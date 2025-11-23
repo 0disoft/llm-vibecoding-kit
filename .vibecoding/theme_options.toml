@@ -162,7 +162,7 @@ error = "#FFB7B2"   # (Melon) 위협적이지 않은 에러
 bg_main = "#FFF9FB"    # (Snow Pink) 흰색에 핑크 한 방울
 bg_surface = "#FFFFFF" # (White) 깨끗한 흰색
 text_main = "#4A404F"  # (Dark Violet Gray) [중요] 파스텔 핑크 대신 짙은 보라빛 회색 사용
-text_muted = "#9C8FA3" # (Lilac Gray) 연한 보라 회색
+text_muted = "#7C6E7F" # (Lilac Gray) 대비 확보를 위해 한 톤 어둡게 조정
 border = "#F3E6F5"     # (Pale Lavender) 아주 연한 라벤더 테두리
 
 # 5.4 다크 모드 UI (몽환적인 밤하늘)
@@ -230,7 +230,7 @@ error = "#BC4749"   # (Clay) 붉은 점토색
 bg_main = "#FDFCF8"    # (Linen) 표백되지 않은 천의 색
 bg_surface = "#FFFFFF" # (White) 깨끗한 면 느낌
 text_main = "#4A403A"  # (Espresso) [중요] 라떼색 대신 진한 커피색 텍스트 사용
-text_muted = "#9CA3AF" # (Warm Gray) 따뜻한 회색
+text_muted = "#736A62" # (Warm Gray) 가독성을 높인 짙은 웜 그레이
 border = "#E5E5E5"     # (Soft Line) 부드러운 경계
 
 # 7.4 다크 모드 UI (어두운 원목 느낌)
@@ -264,7 +264,7 @@ error = "#BC4749"   # (Azuki Red) 팥앙금 같은 붉은색
 bg_main = "#FAEDCD"    # (Beige Paper) 따뜻한 미색 배경
 bg_surface = "#FEFAE0" # (Off White) 아주 연한 아이보리
 text_main = "#4A4238"  # (Dark Bark) [중요] 연한 말차색 대신 짙은 나무껍질색 사용
-text_muted = "#8E8D8A" # (Gray Stone) 돌멩이색 보조 텍스트
+text_muted = "#6F695F" # (Gray Stone) 대비 확보를 위해 한 톤 어둡게 조정
 border = "#D4A373"     # (Wood) 나무색 테두리
 
 # 8.4 다크 모드 UI (밤의 정원)
@@ -298,7 +298,7 @@ error = "#E63946"   # (Red) 브랜드 포인트 컬러를 에러로 사용
 bg_main = "#F1FAEE"    # (Ice White) 푸른기가 도는 차가운 흰색
 bg_surface = "#FFFFFF" # (Pure White) 깔끔한 카드
 text_main = "#1D3557"  # (Royal Navy) 검정 대신 짙은 네이비 (신뢰감)
-text_muted = "#457B9D" # (Steel Blue) 스틸 블루 보조 텍스트
+text_muted = "#3F6F8E" # (Steel Blue) 약간 짙게 조정해 대비 확보
 border = "#A8DADC"     # (Light Steel) 연한 하늘색 경계선
 
 # 9.4 다크 모드 UI (묵직한 금속)
@@ -366,7 +366,7 @@ error = "#BC4749"   # (Berry) 숲속 열매 같은 붉은색 (수정됨)
 bg_main = "#F3F5F1"    # (Mist) 녹색 기운이 감도는 회색 안개
 bg_surface = "#FFFFFF" # (White) 깨끗한 표면
 text_main = "#344E41"  # (Deep Hunter) 검정 대신 짙은 헌터 그린 사용
-text_muted = "#588157" # (Fern) 고사리색 보조 텍스트
+text_muted = "#477058" # (Fern) 대비 확보를 위한 짙은 그린
 border = "#DAD7CD"     # (Pale Sage) 연한 세이지색 테두리
 
 # 11.4 다크 모드 UI (깊은 산장)
@@ -468,7 +468,7 @@ error = "#9E2A2B"   # (Deep Red) 앤틱한 붉은색
 bg_main = "#FFFDF7"    # (Floral White) 누르스름한 미색 배경
 bg_surface = "#FFFFFF" # (White) 깨끗한 표면
 text_main = "#4A3333"  # (Warm Charcoal) 붉은기가 도는 따뜻한 먹색
-text_muted = "#9D8189" # (Dusty Rose) 먼지 쌓인 장미색
+text_muted = "#7B6068" # (Dusty Rose) 대비 확보를 위해 한 톤 어둡게 조정
 border = "#E6DCD3"     # (Beige Line) 연한 베이지 경계
 
 # 14.4 다크 모드 UI (와인 저장고)
@@ -536,7 +536,7 @@ error = "#D16666"   # (Brick) 코랄보다 차분한 벽돌색
 bg_main = "#FDFBF7"    # (Cream Paper) 아주 연한 크림색 종이 질감
 bg_surface = "#FFFFFF" # (White) 깨끗한 표면
 text_main = "#5D4A4A"  # (Cocoa) [중요] 검정 대신 따뜻한 코코아색 텍스트
-text_muted = "#998B8B" # (Warm Gray) 웜 그레이 보조 텍스트
+text_muted = "#776B68" # (Warm Gray) 대비 확보를 위해 한 톤 어둡게 조정
 border = "#EBE0D6"     # (Beige) 연한 베이지 라인
 
 # 16.4 다크 모드 UI (초콜릿 숍의 밤)
@@ -570,7 +570,7 @@ error = "#FF9770"   # (Salmon) 부드러운 주황빛 에러
 bg_main = "#FFFAFC"    # (Snow Pink) 흰색에 핑크 한 방울 톡
 bg_surface = "#FFFFFF" # (White) 순백색
 text_main = "#5D4E6D"  # (Grape) [중요] 파스텔 핑크 텍스트는 안 보임! 짙은 포도색 사용
-text_muted = "#9E94A8" # (Lilac Gray) 연보라 회색
+text_muted = "#726075" # (Lilac Gray) 대비 확보를 위해 한 톤 어둡게 조정
 border = "#E4C1F9"     # (Lavender) 라벤더색 테두리
 
 # 17.4 다크 모드 UI (우주 속 유니콘)
@@ -638,7 +638,7 @@ error = "#E76F51"   # (Burnt Sienna) 브랜드 포인트 컬러 활용
 bg_main = "#F4F1DE"    # (Eggshell) [중요] 이 테마의 핵심인 웜톤 베이지 배경
 bg_surface = "#FFFFFF" # (White) 깔끔한 카드
 text_main = "#264653"  # (Charcoal) 검정 대신 차콜 그린 텍스트 (눈이 편함)
-text_muted = "#5F7D8B" # (Blue Gray) 차분한 블루 그레이
+text_muted = "#4C6878" # (Blue Gray) 대비 확보를 위해 한 톤 어둡게 조정
 border = "#D1D5DB"     # (Gray) 무난한 회색 경계
 
 # 19.4 다크 모드 UI (깊은 숲속의 밤)
@@ -706,7 +706,7 @@ error = "#E07A5F"   # (Terra Cotta) 자극적이지 않은 붉은색
 bg_main = "#FDFCF8"    # (Book Paper) 미색 종이 질감
 bg_surface = "#FFFFFF" # (White) 깨끗한 표면
 text_main = "#3D405B"  # (Independence Blue) 검정 대신 차분한 네이비 그레이
-text_muted = "#9FA2B2" # (Cool Gray) 채도 낮은 쿨 그레이
+text_muted = "#616673" # (Cool Gray) 대비 확보를 위해 한 톤 어둡게 조정
 border = "#F2CC8F"     # (Cream Line) 따뜻한 크림색 테두리
 
 # 21.4 다크 모드 UI (새벽의 서재)
