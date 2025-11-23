@@ -94,7 +94,7 @@ error = "#780000"   # 짙은 블러드 레드
 bg_main = "#FDF0D5"    # (Cream) 이 테마의 핵심! 쨍한 흰색 대신 크림색 배경
 bg_surface = "#FFFBF0" # (Light Cream) 조금 더 밝은 크림색 카드
 text_main = "#003049"  # (Classic Navy) 크림색 위에는 네이비 텍스트가 찰떡
-text_muted = "#6F7E8C" # (Dusty Blue) 먼지 쌓인 듯한 블루 그레이
+text_muted = "#5A6B7A" # (Dusty Blue) 가독성 확보를 위해 채도·명도 소폭 하향
 border = "#E6D5B8"     # (Dark Cream) 진한 크림색 테두리
 
 # 3.4 다크 모드 UI (밤거리의 네온 사인)

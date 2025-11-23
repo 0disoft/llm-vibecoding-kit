@@ -33,7 +33,7 @@ const themes = [
         name: "Retro Americana", base: "sand",
         c: { p: "#C1121F", s: "#003049", a: "#669BBC", suc: "#003049", war: "#D97706", err: "#780000" },
         ui: {
-            light: { bg: "#FDF0D5", surf: "#FFFBF0", txt: "#003049", mut: "#6F7E8C", bord: "#E6D5B8" },
+            light: { bg: "#FDF0D5", surf: "#FFFBF0", txt: "#003049", mut: "#5A6B7A", bord: "#E6D5B8" },
             dark: { bg: "#001829", surf: "#003049", txt: "#FDF0D5", mut: "#669BBC", bord: "#334B5C" }
         }
     },
