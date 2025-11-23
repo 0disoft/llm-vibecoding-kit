@@ -9,13 +9,13 @@ description = "깊은 숲속의 이끼와 나무. 캠핑, 아웃도어, 자연 �
 
 # 1.1 브랜드 컬러 (Brand Identity)
 [palette.earth_forest.brand]
-primary = { hex = "#283618", name = "Dark Moss Green" }
+primary = { hex = "#4A6741", name = "Dark Moss Green" }    # [수정됨] 다크모드 시인성을 위해 명도 올림
 secondary = { hex = "#606C38", name = "Dried Herb Green" }
 accent = { hex = "#BC6C25", name = "Earth Bronze" }
 
 # 1.2 상태 컬러 (Status - 테마 무드에 맞춤)
 [palette.earth_forest.status]
-success = "#283618" # 성공은 짙은 녹색
+success = "#4A6741" # [수정됨] Primary와 통일
 warning = "#DDA15E" # 경고는 밝은 나무색
 error = "#BC6C25"   # 에러는 붉은 브라운
 
@@ -24,7 +24,7 @@ error = "#BC6C25"   # 에러는 붉은 브라운
 [palette.earth_forest.ui_light]
 bg_main = "#FEFAE0"    # (Eggshell) 따뜻한 미색 배경
 bg_surface = "#FFFFFF" # (White) 카드 배경
-text_main = "#283618"  # (Dark Moss) 검정 대신 짙은 녹색 사용
+text_main = "#283618"  # (Dark Moss) 텍스트는 가독성을 위해 기존의 어두운 색 유지
 text_muted = "#606C38" # (Herb Green) 연한 녹색
 border = "#E2E8C0"     # (Pale Green) 은은한 테두리
 

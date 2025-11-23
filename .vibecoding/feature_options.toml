@@ -181,3 +181,23 @@ policies = [
     "Cookie Consent Banner (GDPR)",
     "Age Verification",
 ]
+
+# ==========================================
+# 7. 비즈니스 및 성장 (Business & Growth)
+# ==========================================
+[business_growth]
+# 수익화 모델 기능
+monetization = [
+    "Pricing Table (가격 정책표)",
+    "Subscription Management (구독 관리)",
+    "Paywall / Gated Content (유료 콘텐츠)",
+    "Ad Placements (광고 지면)",
+]
+
+# 고객 확보 및 유지
+retention = [
+    "Newsletter Signup (뉴스레터 구독)",
+    "User Onboarding Flow (튜토리얼)",
+    "Referral System (친구 초대)",
+    "Feedback Widget (피드백 수집)",
+]

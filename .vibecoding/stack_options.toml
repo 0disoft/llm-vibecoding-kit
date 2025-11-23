@@ -30,6 +30,9 @@ frameworks = ["Astro", "SvelteKit", "QwikCity", "SolidStart", "Fresh"]
 # 스타일링 및 UI 라이브러리
 styling = ["Vanilla CSS", "Tailwind CSS", "UnoCSS", "Panda CSS", "shadcn-ui"]
 
+# 애니메이션 라이브러리
+motion = ["Motion", "AutoAnimate", "Anime.js", "View Transitions API"]
+
 # 브라우저 확장 프로그램
 browser_extensions = ["WXT", "CRXJS"]
 
@@ -260,4 +263,30 @@ community = [
     "Giscus",
     "Flarum",
     "Isso",
+]
+
+# ==========================================
+# 8. AI 및 데이터 시각화 (AI & Visualization)
+# ==========================================
+[ai_and_data]
+# AI/LLM 연동 SDK
+ai_sdk = [
+    "Vercel AI SDK",
+    "OpenRouter SDK",
+    "WebLLM",
+    "MCP TS SDK",
+    "LangGraph.js",
+    "LlamaIndex TS",
+    "Semantic Kernel",
+    "LangChain JS",
+]
+
+# 차트 및 데이터 시각화 (대시보드용)
+charts = [
+    "Chart.js",
+    "ECharts",
+    "ApexCharts",
+    "uPlot",
+    "billboard.js",
+    "프레임워크 내장 기능",
 ]
