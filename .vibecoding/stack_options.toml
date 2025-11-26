@@ -9,285 +9,756 @@
 # 1. 개발 기반 (Core & Environment)
 # ==========================================
 [core]
-# 런타임 및 언어
-runtimes = ["Bun", "Node.js", "Deno", "Rust", "Go"]
 
-# 패키지 매니저
-package_managers = ["pnpm", "Bun", "Deno task"]
+# ---------------------------------------------------
+# [Runtimes] 실행 환경 및 언어
+# * 전략: '빠른 프로토타이핑(Bun)' vs '라이브러리 호환성(Node.js)'
+# ---------------------------------------------------
+runtimes = [
+    # [JavaScript/TypeScript]
+    "Bun",     # Node.js보다 훨씬 빠름. 패키지 매니저/테스트 러너 내장. 인디 개발자에게 최적.
+    "Node.js", # 모든 라이브러리가 100% 동작함. 호환성 문제가 생길 때의 안전장치.
+    "Deno",    # 보안 중심, TS 네이티브. 설정 파일 없이 바로 실행할 때 좋음.
 
-# 모노레포 및 워크스페이스
-monorepos = ["Turborepo", "Nx", "Native Workspaces"]
+    # [System Programming] 고성능 백엔드 필요 시
+    "Go",   # 배우기 쉽고 컴파일 빠름. 동시성 처리가 필요한 서버에 적합.
+    "Rust", # 메모리 안전성 및 극한의 성능. Tauri(데스크탑 앱) 개발 시 필수.
+]
 
-# 스캐폴딩 (프로젝트 초기 생성)
-scaffolding = ["yo code (Yeoman)", "create-t3-app", "create-vite"]
+# ---------------------------------------------------
+# [Package Managers] 의존성 관리
+# * 전략: '디스크 효율(pnpm)' vs '속도(Bun)'
+# ---------------------------------------------------
+package_managers = [
+    # [Efficiency] 디스크 공간 절약
+    "pnpm", # npm/yarn보다 빠르고, 중복 설치를 막아 디스크 용량을 획기적으로 아낌.
+
+    # [Speed] 설치 속도 최우선
+    "Bun", # Bun 런타임을 쓴다면 굳이 다른 걸 쓸 필요 없음. 압도적으로 빠름.
+
+    # [Built-in] 별도 설치 불필요
+    "Deno task", # Deno 환경 표준.
+]
+
+# ---------------------------------------------------
+# [Monorepos] 다중 프로젝트 관리
+# * 전략: '설정 간편함(Turbo)' vs '엔터프라이즈급 기능(Nx)'
+# ---------------------------------------------------
+monorepos = [
+    # [Lightweight] 설정이 쉽고 빠름 (인디해커 추천)
+    "Turborepo",         # Vercel 생태계. 설정이 직관적이고 캐싱을 통한 빌드 속도 향상이 강력함.
+    "Native Workspaces", # (pnpm/bun) 별도 도구 없이 패키지 매니저 기능만으로 관리. 가장 단순함.
+
+    # [Heavyweight] 대규모/복잡한 의존성 관리
+    "Nx", # 기능이 매우 방대함. 프로젝트 간 의존성 그래프 시각화 및 코드 생성 강력.
+]
+
+# ---------------------------------------------------
+# [Scaffolding] 프로젝트 초기 생성 도구
+# * 전략: '어떤 결과물을 만들 것인가'에 따라 선택.
+# ---------------------------------------------------
+scaffolding = [
+    # [Web Frontend] 리액트, 스벨트, 뷰 등
+    "create-vite", # 사실상 현재 프론트엔드 표준. React, Svelte, Vue 등을 가장 가볍게 시작.
+
+    # [Full-Stack] 백엔드 포함 (Next.js 생태계)
+    "create-t3-app", # Next.js + Tailwind + Prisma + tRPC 조합을 한방에 세팅. 생산성 최강.
+
+    # [VS Code Extension] 확장 프로그램 개발
+    "yo code (Yeoman)", # VS Code 익스텐션을 만들 거라면 선택의 여지가 없음. 공식 스캐폴딩.
+]
 
 # ==========================================
 # 2. 클라이언트 (Client Side)
 # ==========================================
 [client]
-# 웹 프레임워크
-frameworks = ["Astro", "SvelteKit", "QwikCity", "SolidStart", "Fresh"]
 
-# 스타일링 및 UI 라이브러리
-styling = ["Vanilla CSS", "Tailwind CSS", "UnoCSS", "Panda CSS", "shadcn-ui"]
+# ---------------------------------------------------
+# [Web Frameworks] 웹 프레임워크
+# ---------------------------------------------------
+frameworks = [
+    # [App Focused] 사용자 인터랙션이 많은 서비스
+    "SvelteKit",  # 코드량이 가장 적고, 상태 관리가 직관적. 1인 개발자에게 생산성 최고.
+    "SolidStart", # React와 비슷하지만 가상 돔(Virtual DOM)이 없어 훨씬 빠름.
+    "QwikCity",   # JS를 필요한 만큼만 로딩(Resumability). 초기 로딩 속도에 집착한다면 선택.
 
-# 애니메이션 라이브러리
-motion = ["Motion", "AutoAnimate", "Anime.js", "View Transitions API"]
+    # [Content Focused] 블로그, 랜딩 페이지, 문서
+    "Astro", # 아일랜드 아키텍처. JS를 0kb로 줄일 수 있음. SEO 및 콘텐츠 사이트 최강.
+    "Fresh", # (Deno) 빌드 과정 없음(JIT). Deno 런타임을 쓴다면 고려.
+]
 
-# 브라우저 확장 프로그램
-browser_extensions = ["WXT", "CRXJS"]
+# ---------------------------------------------------
+# [Styling] 스타일링 및 UI
+# ---------------------------------------------------
+styling = [
+    # [Utility-First] 클래스 이름으로 스타일링
+    "Tailwind CSS", # 설명이 필요 없음. 생태계가 가장 큼.
+    "UnoCSS",       # Tailwind 호환되지만 훨씬 빠르고 가벼움(On-demand). 설정이 자유로움.
 
-# 크로스플랫폼 (모바일/데스크탑)
-cross_platform = ["Tauri", "Flutter"]
+    # [Component Library] 완성된 UI 모음
+    "shadcn-ui", # 라이브러리 설치가 아니라 코드를 '복사/붙여넣기' 하는 방식. 커스텀 자유도 최상.
 
-# 게임 엔진
-game_engines = ["Phaser", "Flame"]
+    # [Zero-Runtime] JS 실행 없이 CSS 생성
+    "Panda CSS",   # 모던한 CSS-in-JS. 타입 안전성(Type-safe)이 중요할 때 사용.
+    "Vanilla CSS", # 순수 CSS. 아주 작은 프로젝트나 근본적인 학습용.
+]
 
-# Web3 / 블록체인
-web3 = ["Anchor", "Cadence", "ink!", "Move"]
+# ---------------------------------------------------
+# [Motion] 애니메이션 및 전환 효과
+# ---------------------------------------------------
+motion = [
+    # [Magic] 코드 한 줄로 해결
+    "AutoAnimate",          # 리스트 추가/삭제 시 자동으로 애니메이션 적용. 부모 태그에 ref만 걸면 끝.
+    "View Transitions API", # (Native) 브라우저 기본 기능으로 페이지 전환 효과 구현 (SvelteKit 내장 지원).
 
-# 리치 텍스트 에디터 (WYSIWYG)
-editors = ["TipTap", "Lexical", "Slate.js", "Editor.js"]
+    # [Control] 세밀한 제어 필요 시
+    "Motion",   # (구 Framer Motion) React/Vanilla 모두 지원. 복잡한 제스처/애니메이션의 표준.
+    "Anime.js", # 전통적인 JS 애니메이션 라이브러리. 타임라인 제어에 강점.
+]
+
+# ---------------------------------------------------
+# [Browser Extensions] 확장 프로그램 개발 프레임워크
+# * 전략: 레거시(Webpack) 말고 차세대(Vite) 도구를 쓰세요.
+# ---------------------------------------------------
+browser_extensions = [
+    # [Next-Gen] 최신 프레임워크 (추천)
+    "WXT",   # 확장 프로그램계의 Next.js/Nuxt. JS/TS/Vue/Svelte 모두 지원하며 DX가 미쳤음.
+    "CRXJS", # Vite 플러그인 방식. 기존 Vite 프로젝트를 확장 프로그램으로 바꿀 때 유용.
+]
+
+# ---------------------------------------------------
+# [Cross Platform] 모바일/데스크탑 앱 변환
+# ---------------------------------------------------
+cross_platform = [
+    "Tauri",   # 웹 프론트엔드(SvelteKit 등)를 그대로 데스크탑 앱(exe, dmg)으로 만듦. Electron보다 훨씬 가벼움.
+    "Flutter", # Dart 언어 사용. 네이티브 성능이 정말 중요할 때 선택.
+]
+
+# ---------------------------------------------------
+# [Game Engines] 웹 게임 엔진
+# ---------------------------------------------------
+game_engines = [
+    "Phaser", # 2D 웹 게임의 절대 강자. 레퍼런스가 많음.
+    "Flame",  # Flutter 기반 게임 엔진.
+]
+
+# ---------------------------------------------------
+# [Web3] 블록체인 스마트 컨트랙트 (Smart Contracts)
+# ---------------------------------------------------
+web3 = [
+    "Anchor",  # Solana(Rust) 개발 프레임워크 표준.
+    "Move",    # Aptos/Sui 등 차세대 체인 언어.
+    "ink!",    # Polkadot(Rust) 스마트 컨트랙트.
+    "Cadence", # Flow 블록체인. 리소스 지향 프로그래밍.
+]
+
+# ---------------------------------------------------
+# [Editors] 리치 텍스트 에디터 (WYSIWYG)
+# ---------------------------------------------------
+editors = [
+    "TipTap",    # Headless 방식. UI를 내 맘대로 커스텀 가능. ProseMirror 기반.
+    "Lexical",   # Meta(Facebook)에서 만든 차세대 에디터. 성능과 접근성 중시.
+    "Slate.js",  # 리액트 생태계에서 오랫동안 쓰임. 커스텀이 강력하지만 난이도 높음.
+    "Editor.js", # 블록(Block) 기반 에디터. Notion 같은 UI 만들 때 적합.
+]
 
 # ==========================================
 # 3. 서버 및 데이터 (Server & Data)
 # ==========================================
 [server]
-# 백엔드 프레임워크
-frameworks = ["Elysia", "Hono", "Axum (Rust)", "Gin (Go)"]
 
-# BaaS / 서버리스 DB
+# ---------------------------------------------------
+# [Backend Frameworks] API 서버 프레임워크
+# * 전략: 'JS/TS 생태계(빠른 개발)' vs '시스템 언어(극한의 성능)'
+# ---------------------------------------------------
+frameworks = [
+    # [Bun/Node Runtime] JS/TS 기반
+    "Elysia", # (Bun) 현재 가장 빠르고 DX(개발경험)가 뛰어난 TS 프레임워크.
+    "Hono",   # (Edge/Node) 초경량, 어디서든(Cloudflare, Vercel, Node) 돌아감.
+
+    # [System Languages] 고성능 마이크로서비스용
+    "Axum (Rust)", # Rust 생태계 표준. 타임 아웃/오류 처리가 완벽해야 할 때 선택.
+    "Gin (Go)",    # Go 언어 표준. 가볍고 빠르며, 백엔드 채용 시장에서 가장 선호됨.
+]
+
+# ---------------------------------------------------
+# [BaaS & Serverless DB] 관리형 데이터베이스
+# * 전략: 'Postgres(확장성/표준)' vs 'SQLite(가벼움/Edge)'
+# ---------------------------------------------------
 baas = [
-    "Supabase",
-    "Neon",
-    "Vercel Postgres",
-    "Turso",
-    "Cloudflare D1",
-    "CockroachDB",
-    "PocketBase",
+    # [Postgres Based] 표준 관계형 DB + 서버리스 기능
+    "Supabase",        # DB + Auth + Storage 올인원. Firebase의 오픈소스 대안.
+    "Neon",            # 서버리스 Postgres. '브랜치(Branching)' 기능으로 개발/운영 DB 분리가 혁신적.
+    "Vercel Postgres", # Neon 기반. Vercel 배포 환경과 통합이 가장 매끄러움.
+    "CockroachDB",     # 분산 SQL. 절대 죽지 않는 서버가 필요할 때(글로벌 스케일).
+
+    # [SQLite/Edge Based] 엣지 환경에 최적화된 가벼운 DB
+    "Turso",         # LibSQL 기반. 엣지에서 레이턴시가 극도로 낮음. 무료 티어 넉넉함.
+    "Cloudflare D1", # Cloudflare Workers와 함께 쓸 때 비용 효율 최강.
+
+    # [Self-Hostable BaaS]
+    "PocketBase", # Go 기반 단일 파일. Auth+DB+Admin이 파일 하나에 다 있음. 1인 개발/MVP 최적.
 ]
 
-# 데이터베이스 (직접 구축)
-databases = ["SQLite", "PostgreSQL"]
+# ---------------------------------------------------
+# [Databases] 직접 구축 (Self-hosted)
+# * 전략: 관리형 서비스(BaaS)를 쓰지 않고 VPS(Coolify)에 직접 띄울 때.
+# ---------------------------------------------------
+databases = [
+    "PostgreSQL", # 관계형 데이터베이스의 제왕. 복잡한 쿼리와 데이터 무결성이 중요할 때.
+    "SQLite",     # 설정 불필요, 파일 기반. 트래픽이 아주 많지 않은 대부분의 앱에 충분함.
+]
 
-# ORM / 쿼리 빌더
-orms = ["Drizzle", "Prisma", "Kysely", "MikroORM"]
+# ---------------------------------------------------
+# [ORM] 데이터베이스 제어 도구
+# * 전략: '개발 속도(Prisma)' vs '런타임 성능(Drizzle)'
+# ---------------------------------------------------
+orms = [
+    # [Modern Standard] TS 최적화 및 경량화
+    "Drizzle", # SQL과 비슷해서 러닝커브 낮음, 런타임 오버헤드 거의 없음, 서버리스 친화적.
+    "Kysely",  # 순수 Query Builder. ORM의 마법 싫어하고 SQL 잘 아는 개발자용.
 
-# 캐시 / 세션 스토리지
-caches = ["Redis", "Upstash Redis", "Cloudflare KV"]
+    # [Legacy / Enterprise] 전통적 방식
+    "Prisma",   # DX(자동완성) 최강자지만 무거움. 서버리스 환경에서 Cold Start 문제 있음.
+    "MikroORM", # Java/Spring 스타일(Entity 기반)에 익숙하다면 편함.
+]
 
-# 텍스트 검색 엔진
-text_search = ["Meilisearch", "Typesense", "OpenSearch"]
+# ---------------------------------------------------
+# [Cache & Session] 임시 저장소
+# * 전략: '서버리스(HTTP)' vs 'TCP 연결(Stateful)'
+# ---------------------------------------------------
+caches = [
+    # [Serverless Friendly] HTTP/REST 기반 연결
+    "Upstash Redis", # 연결 제한 걱정 없는 서버리스 Redis. Vercel/Serverless 환경 필수.
+    "Cloudflare KV", # 단순 키-값 저장. 전 세계 엣지 노드에 복제됨 (읽기 성능 최상).
 
-# 벡터 검색 (AI 임베딩)
-vector_search = ["Qdrant", "Weaviate", "Milvus"]
+    # [Traditional] 전통적 TCP 연결
+    "Redis", # 직접 호스팅(Docker) 하거나 장기 연결이 가능한 환경에서 사용.
+]
 
-# 파일 / 오브젝트 스토리지
+# ---------------------------------------------------
+# [Text Search] 전문 검색 엔진 (Full-text Search)
+# * 전략: '타이포 허용(오타 보정)'과 '설정 편의성'이 핵심.
+# ---------------------------------------------------
+text_search = [
+    # [Developer Experience] 설정 쉽고 빠름 (인디해커 추천)
+    "Meilisearch", # Algolia의 오픈소스 대안. 오타 보정이 기가 막히고 설정이 매우 쉬움. Rust 기반.
+    "Typesense",   # Meilisearch의 경쟁자. 인메모리 기반이라 속도가 극도로 빠름.
+
+    # [Enterprise] 대규모 로그 및 분석
+    "OpenSearch", # ElasticSearch의 AWS 포크 버전. 기능이 방대하지만 무겁고 운영 난이도 높음.
+]
+
+# ---------------------------------------------------
+# [Vector Search] AI 임베딩 검색 (RAG)
+# * 전략: '단독 DB 사용' vs '기존 DB(Postgres)의 플러그인'
+# ---------------------------------------------------
+vector_search = [
+    # [Dedicated Vector DB] 벡터 검색 전용 (고성능)
+    "Qdrant",   # Rust 기반, 빠르고 가벼움. 필터링 기능이 강력함. 자체 호스팅 쉬움.
+    "Weaviate", # 모듈식 구조. 텍스트를 넣으면 알아서 벡터로 바꿔주는 기능(Vectorization) 내장.
+    "Milvus",   # 대규모 데이터(수십억 개) 처리에 특화된 클라우드 네이티브 DB.
+    # [Alternative] *pgvector(Postgres)를 쓰는 것도 좋은 방법입니다.
+]
+
+# ---------------------------------------------------
+# [Storage] 파일 및 이미지 저장소
+# * 전략: 'AWS S3 호환성'을 갖추되 '전송 비용(Egress Fee)'이 0원인 곳을 고르세요.
+# ---------------------------------------------------
 storage = [
-    "Cloudflare R2",
-    "Amazon S3",
-    "Google Cloud Storage",
-    "Backblaze B2",
-    "pCloud",
+    # [Zero Egress Fee] 데이터 다운로드 비용 0원 (강추)
+    "Cloudflare R2", # S3 API와 호환됨. 대역폭 비용이 0원이라 이미지 많은 앱에 필수.
+    "Backblaze B2",  # 전통적인 저가 스토리지 강자. R2보다 저장 비용은 싸지만 대역폭은 일부만 무료.
+
+    # [Hyperscaler] 메이저 클라우드 (비용 주의)
+    "Amazon S3",            # 업계 표준이지만, 트래픽 터지면 요금 폭탄 맞을 수 있음.
+    "Google Cloud Storage", # Firebase 프로젝트라면 연동이 편해서 사용.
+
+    # [Personal Cloud] API 지원
+    "pCloud", # 유럽 기반. 평생 요금제가 있지만 프로그래밍적 제어보다는 개인 백업용 성격이 강함.
 ]
 
-# Headless CMS
-cms = ["TinaCMS", "Payload CMS", "Directus", "Strapi"]
+# ---------------------------------------------------
+# [Headless CMS] 콘텐츠 관리 시스템
+# * 전략: 'Git 기반(Markdown 파일)' vs 'API 기반(DB 데이터)'
+# ---------------------------------------------------
+cms = [
+    # [Git-based] 코드가 곧 콘텐츠 (개발자 친화적)
+    "TinaCMS", # Next.js/SvelteKit 같은 프레임워크와 결합 최상. 변경사항이 Git 커밋으로 저장됨.
+
+    # [API-based / Visual] 마케터/에디터가 쓰기 좋음
+    "Payload CMS", # TypeScript 기반. 설정이 전부 코드(Config as Code)로 되어 있어 개발자가 사랑함.
+    "Directus",    # 기존 SQL DB를 연결하면 즉시 관리자 패널과 API를 만들어줌. (Supabase와 비슷)
+    "Strapi",      # 가장 유명하고 커뮤니티가 큼. 플러그인이 많지만 다소 무거움.
+]
 
 # ==========================================
 # 4. 품질 및 보안 (Quality & Security)
 # ==========================================
 [quality]
-# 인증 솔루션
+
+# ---------------------------------------------------
+# [Authentication] 사용자 인증 및 권한 관리
+# * 전략: '편리함(BaaS)' vs '데이터 주권(Self-hosted)'
+# ---------------------------------------------------
 auth_solutions = [
-    "Supabase Auth",
-    "Firebase Auth",
-    "Better-Auth",
-    "Keycloak",
-    "SuperTokens",
+    # [BaaS] 별도 백엔드 구축 없이 즉시 사용 (추천)
+    "Supabase Auth", # 가장 무난함. 소셜 로그인 설정 쉽고 무료 티어 넉넉함.
+    "Firebase Auth", # 구글 생태계. 안정적이나 벤더 락인(Vendor Lock-in) 주의.
+
+    # [Library / Self-hosted] 내 DB에 직접 구축
+    "Better-Auth", # 최신 트렌드. TS 최적화, 프레임워크 불문하고 플러그인 강력.
+    "SuperTokens", # 세션 보안(토큰 탈취 방지)에 특화됨. 설정이 조금 복잡함.
+    "Keycloak",    # 엔터프라이즈 표준(Java 기반). 혼자 쓰기엔 너무 무거움(Overkill).
 ]
 
-# 데이터 유효성 검사
-validation = ["Zod", "ArkType", "Valibot", "TypeBox"]
+# ---------------------------------------------------
+# [Validation] 데이터 유효성 검사
+# * 전략: '생태계 호환성(Zod)' vs '번들 사이즈 최적화(Valibot)'
+# ---------------------------------------------------
+validation = [
+    # [Standard] 생태계 호환성 1위
+    "Zod", # 거의 모든 폼/DB 라이브러리가 Zod를 지원함. 무난한 선택.
 
-# 테스트 러너
-test_runners = ["Vitest", "Playwright"]
+    # [Performance] 속도 및 용량 최적화
+    "Valibot", # 필요한 기능만 import(Tree-shaking)하여 프론트 용량을 획기적으로 줄임.
+    "ArkType", # 런타임 유효성 검사 속도가 가장 빠르고 TS 타입 추론이 즉각적임.
+    "TypeBox", # JSON Schema 기반. Fastify 등 고성능 백엔드와 궁합이 좋음.
+]
 
-# API 클라이언트
-api_clients = ["Bruno", "Hoppscotch"]
+# ---------------------------------------------------
+# [Test Runners] 테스트 자동화
+# * 전략: '단위 테스트(Vitest)'와 'E2E 테스트(Playwright)'는 상호 보완재입니다.
+# ---------------------------------------------------
+test_runners = [
+    # [Unit & Integration] 함수/컴포넌트 단위 테스트
+    "Vitest", # Vite/SvelteKit 환경의 표준. Jest보다 압도적으로 빠르고 설정이 쉬움.
+
+    # [E2E] 실제 브라우저 시뮬레이션
+    "Playwright", # 크롬/사파리 띄워서 클릭 매크로 돌리기. 게임 로직 검증에 필수적.
+]
+
+# ---------------------------------------------------
+# [API Clients] API 테스트 도구
+# * 전략: '로컬 파일 저장(Bruno)' vs '클라우드 협업(Postman/Hoppscotch)'
+# ---------------------------------------------------
+api_clients = [
+    # [Git Friendly] API 명세서를 코드 저장소에 함께 커밋
+    "Bruno", # (강추) 완전 오프라인, .bru 파일로 저장돼서 깃허브 관리가 됨. Postman 대체제.
+
+    # [Web Based] 웹에서 즉시 테스트
+    "Hoppscotch", # 가볍고 빠름. 설치 없이 웹에서 바로 API 찔러볼 때 유용.
+]
 
 # ==========================================
 # 5. 인프라 및 데브옵스 (DevOps & Infra)
 # ==========================================
 [infra]
-# 배포 플랫폼
+
+# ---------------------------------------------------
+# [Deployment] 배포 플랫폼
+# * 전략: '초기 무료/편리함(PaaS)' vs '장기적 비용 절감(Self-hosted)'
+# ---------------------------------------------------
 deployment = [
-    "Docker",
-    "Vercel",
-    "Netlify",
-    "Cloudflare Workers",
-    "Fly.io",
-    "Render",
-    "Railway",
-    "Coolify",
+    # [Frontend & Serverless] 프론트엔드/SSR 최적화 (비쌈, 매우 편함)
+    "Vercel",             # 트래픽 터지면 비쌈
+    "Netlify",            # Vercel의 경쟁자, 무료 티어가 좀 더 관대함
+    "Cloudflare Workers", # 엣지 컴퓨팅, 전 세계 배포, 엄청나게 저렴함
+
+    # [Backend PaaS] 백엔드/DB/Docker 컨테이너 호스팅
+    "Railway", # UI 직관적, DX 최고, 소규모 프로젝트에 적합
+    "Fly.io",  # 전 세계 리전 선택 가능, 지연 시간(Latency) 최소화에 강점
+    "Render",  # Heroku의 현대적 대안, 정적 사이트 + 백엔드 통합
+
+    # [Self-Hosted PaaS] 내 서버(VPS)에 직접 구축 (인디해커 추천)
+    "Coolify", # 오픈소스 Vercel/Heroku. 월 $5 VPS 하나로 무한 배포 가능
+    "Docker",  # 가장 원시적인 방법 (직접 관리)
 ]
 
-# 모니터링 / 관측성
+# ---------------------------------------------------
+# [Observability] 모니터링 및 에러 추적
+# * 전략: '단순 생존 확인(Uptime)' vs '심층 디버깅(APM)'
+# ---------------------------------------------------
 observability = [
-    "Uptime Kuma",
-    "Sentry",
-    "GlitchTip",
-    "Prometheus + Grafana",
-    "SigNoz",
-    "Datadog",
-    "New Relic",
+    # [Error Tracking] 에러 로그 수집 (필수)
+    "Sentry",    # 프론트/백엔드 에러 추적의 표준.
+    "GlitchTip", # Sentry의 오픈소스 대안 (자체 호스팅 가능)
+
+    # [Uptime Monitor] 서버 다운 여부 감시
+    "Uptime Kuma", # UI 예쁜 오픈소스 모니터링, Status Page 제공, 자체 호스팅
+
+    # [Full APM] 성능/메트릭 심층 분석 (엔터프라이즈급)
+    "Datadog",              # 기능 막강하지만 인디 개발자가 쓰기엔 너무 비쌈
+    "New Relic",            # Datadog 경쟁자
+    "SigNoz",               # Datadog의 오픈소스 대안 (설치형)
+    "Prometheus + Grafana", # 대시보드 커스텀 끝판왕, 설정이 어렵고 무거움
 ]
 
-# 제품 분석 (Analytics)
-analytics = ["Plausible", "PostHog", "Umami", "Matomo", "GA4"]
+# ---------------------------------------------------
+# [Analytics] 제품 분석 및 웹 로그
+# * 전략: '단순 트래픽(마케팅용)' vs '유저 행동 분석(제품 개선용)'
+# ---------------------------------------------------
+analytics = [
+    # [Product Intelligence] 유저가 앱 안에서 뭘 클릭하는지 분석
+    "PostHog",  # 분석 + 리플레이 + 피처 플래그 + A/B 테스트. 스타트업 표준.
+    "Mixpanel", # 유저 행동 분석의 깊이가 깊음 (데이터 전문가용)
 
-# 자동화 / 워크플로우
+    # [Privacy-First] 가볍고, 쿠키 배너 필요 없음 (블로그/랜딩페이지용)
+    "Umami",     # 무료, 오픈소스, 직접 호스팅 가능, UI 매우 깔끔함
+    "Plausible", # 유료(SaaS)지만 가장 유명함. 구글 애널리틱스의 가벼운 대안
+    "Matomo",    # (구 Piwik) 구글의 모든 기능을 대체하는 오픈소스 (다소 무거움)
+
+    # [Standard] 업계 표준
+    "GA4", # (Google Analytics 4) 무료지만 복잡함, 학습 곡선 높음, 개인정보 이슈
+]
+
+# ---------------------------------------------------
+# [Automation] 자동화 및 워크플로우
+# * 전략: '노코드(No-Code)' 툴인지 '코드 기반(Code-First)'인지 구분해야 합니다.
+# ---------------------------------------------------
 automation = [
-    "Apache Airflow",
-    "Node-RED",
-    "Windmill",
-    "GitHub Actions",
-    "n8n",
-    "Dagger",
-    "Trigger.dev",
-    "ActivePieces",
-    "Huginn",
-    "Inngest",
+    # [CI/CD] 배포 및 빌드 자동화
+    "GitHub Actions", # 코드 푸시하면 자동 배포/테스트.
+    "Dagger",         # CI/CD 파이프라인을 코드로 작성 (대규모 프로젝트용)
+
+    # [Workflow Automation] 앱 간 연동 (Zapier의 오픈소스 대안)
+    "n8n",          # 노드 기반 워크플로우 1위. 내 서버에 설치하면 공짜. 기능 막강함.
+    "ActivePieces", # n8n보다 더 가볍고 직관적인 UI (떠오르는 신예)
+    "Node-RED",     # IoT나 하드웨어 제어, 시각적 흐름 제어에 강점
+    "Huginn",       # 웹 스크래핑 및 에이전트 자동화에 특화된 고전 명작
+
+    # [Code-First Background Jobs] 코드 안에서 도는 장기 작업
+    "Trigger.dev", # "헤비한 작업"을 서버리스 함수처럼 쉽게 작성. DX 최상.
+    "Inngest",     # 이벤트 기반(Event-driven) 아키텍처 구축에 최적
+
+    # [Internal Tools] 개발자용 내부 도구 / 스크립트 실행
+    "Windmill",       # Python/TS 스크립트를 UI 있는 관리자 페이지로 바꿔줌 (Retool 대안)
+    "Apache Airflow", # 데이터 엔지니어링용 (ETL). 인디 개발자에겐 너무 무거움(Overkill).
 ]
 
 # ==========================================
 # 6. 비즈니스 및 수익화 (Business & Money)
 # ==========================================
 [business]
-# 결제 PG
-payments = ["포트원", "Paddle", "Lemon Squeezy", "Creem", "부트페이", "Stripe Billing"]
 
-# 인앱 결제 / 구독
+# ---------------------------------------------------
+# [Fiat Payments] 일반 결제 (카드/계좌)
+# * 전략: '국내 위주(PG)' vs '글로벌 SaaS(MoR)' 구분 필수.
+# ---------------------------------------------------
+payments = [
+    # [Global SaaS / MoR] 전 세계 부가세/세금 자동 처리 (인디해커 추천)
+    "Lemon Squeezy",  # Stripe 기반 MoR, 개발 친화적, 세금 자동 처리
+    "Paddle",         # B2B SaaS의 정석, 승인 절차가 다소 까다로움
+    "Creem",          # 커뮤니티/디지털 상품 특화, 노코드 결제 링크 생성 강력
+    "Stripe Billing", # 업계 표준이나, 한국 사업자는 세금 신고 직접 해야 함
+
+    # [Domestic / Korea] 한국 카드 결제/카카오페이
+    "포트원",  # (구 아임포트) 한국 PG사 연동의 표준, 개발자 경험(DX) 최상
+    "부트페이", # 포트원의 강력한 경쟁자, 통계 기능 우수
+]
+
+crypto_payments = [
+    # [Privacy & Sovereignty] 프라이버시 및 검열 저항성
+    "BTCPay Server", # 수수료 0%, 내 서버에 직접 설치, 그 누구도 간섭 불가
+    "Cryptomus",     # KYC(신원인증)가 널널하거나 없음, 익명성 중시, 연동 쉬움
+
+    # [Web3 Native] 지갑 연결 결제 (DApp 스타일)
+    "DePay", # P2P 방식. 유저는 아무 코인이나 내고, 판매자는 USDT로 자동 환전 수취
+
+    # [Aggregator] 다양한 알트코인 지원
+    "NOWPayments", # 비수탁(Non-custodial) 방식, 300개 이상의 알트코인 지원, API 직관적
+
+    # [CEX Ecosystem] 거래소 기반
+    "Binance Pay", # 바이낸스 유저 타겟 시 최강, 앱 내에서 즉시 송금 (수수료 절감)
+
+    # [Bitcoin Specific] 비트코인 라이트닝 네트워크
+    "OpenNode", # 비트코인 전용, 라이트닝 네트워크로 초고속/소액 결제 처리
+]
+
+# ---------------------------------------------------
+# [In-App Purchases] 앱 내 결제 (IAP)
+# * 전략: 구글/애플의 복잡한 로직을 직접 짜지 말고 'Wrapper'를 쓰세요.
+# ---------------------------------------------------
 in_app_purchases = [
+    # [Wrapper / Infrastructure] IAP 통합 관리 솔루션
+    "RevenueCat",    # (필수) 업계 표준. 월 매출 $2,500까지 무료. 분석 대시보드 제공
+    "Adapty.io",     # RevenueCat 대안, 페이월(Paywall) A/B 테스트 기능 강력
+    "Qonversion.io", # 코호트 분석 및 마케팅 데이터 연동에 강점
+
+    # [Native SDK] 직접 구현 (비추천)
     "Google Play Billing",
     "Apple StoreKit",
-    "RevenueCat",
-    "Adapty.io",
-    "Qonversion.io",
 ]
 
-# 후원 플랫폼
+# ---------------------------------------------------
+# [Donations] 후원 및 팁
+# * 전략: '일회성 커피값'인지 '구독형 멤버십'인지 결정.
+# ---------------------------------------------------
 donations = [
-    "Gumroad",
-    "GitHub Sponsors",
-    "Buy Me a Coffee",
-    "Ko-fi",
-    "Patreon",
-    "Toonation",
-    "Open Collective",
-    "Liberapay",
-    "Donorbox",
-    "Payoneer",
-    "Wise",
+    # [One-time Tipping] 가벼운 후원
+    "Buy Me a Coffee", # 가장 유명함, UI 직관적
+    "Ko-fi",           # 수수료 0% 옵션 있음, 갤러리 기능 제공
+
+    # [Membership & Content] 콘텐츠 판매 결합
+    "Gumroad", # 전자책/에셋 판매 겸용, 크리에이터에게 최적
+    "Patreon", # 정기 구독 후원(멤버십)의 대명사
+
+    # [Platform Specific] 특정 플랫폼 전용
+    "GitHub Sponsors", # 오픈소스 개발자에게 최고 (수수료 0%)
+    "Toonation",       # 한국 트위치/유튜브 스트리머 국룰
+
+    # [Direct Transfer] 송금 링크
+    "Payoneer", # 프리랜서 대금 수취용
+    "Wise",     # 계좌 이체 방식
 ]
 
-# 정산 / 송금 (수취용)
-payouts = ["Payoneer", "Wise", "Revolut", "Paysera"]
+# ---------------------------------------------------
+# [Payouts] 정산 및 해외 대금 수취
+# * 전략: 달러($)를 원화(₩)로 가져올 때 '환전 수수료'를 아끼는 것이 핵심.
+# ---------------------------------------------------
+payouts = [
+    # [Virtual Bank Account] 해외 가상 계좌 발급
+    "Wise",     # (강추) 환율 우대 가장 좋음, 실제 현지 계좌번호 제공
+    "Payoneer", # 아마존/에어비앤비 등 주요 플랫폼 공식 파트너
+    "Revolut",  # 핀테크 은행 (지원 국가 확인 필요)
+    "Paysera",  # 유럽(IBAN) 계좌 필요 시 유용
+]
 
-# 광고 네트워크
-ads = [
-    "AdSense",
-    "Ezoic",
-    "Raptive",
-    "Mediavine",
-    "Monumetric",
-    "Freestar",
-    "Snigel",
-    "NitroPay",
-    "Setupad",
-    "Newor Media",
-    "Publift",
-    "Prebid.js",
+# ---------------------------------------------------
+# [Money OUT] 마케팅 및 유저 획득 (Marketing Channels)
+# * 내 돈을 내고 내 서비스(BitSwipe)를 홍보하는 곳입니다.
+# ---------------------------------------------------
+marketing_channels = [
+    # [Tier 1] 메이저/엄격 (금융/도박 심의 통과 어려움, 트래픽 최상)
+    "Google Ads",           # 검색/유튜브/디스플레이 (압도적 1위)
+    "Meta Ads",             # Facebook/Instagram (정교한 타겟팅)
+    "Apple Search Ads",     # 앱스토어 검색 최상단 (고비용, 고효율)
+    "Microsoft Ads (Bing)", # 구매력 높은 PC 유저, B2B 강점
+    "Pinterest Ads",        # 여성/쇼핑/인테리어 타겟 (이미지 중요)
+
+    # [Tier 2] 커뮤니티/뉴스 (약간의 유연성 있음, 특정 계층 타겟)
+    "X Ads",      # 크립토/Web3/정치 친화적, 바이럴용
+    "Reddit Ads", # 특정 관심사(Subreddit) 타겟팅, 까다로운 유저
+
+    # [Tier 3] 대안/우회 (BitSwipe 추천 - 심사 관대, 가성비)
+    "A-ADS",        # 무심사, 익명, 비트코인 입금 (가장 안전)
+    "Adsterra",     # 게임/유틸리티 홍보 최적 (CPA/CPI)
+    "PropellerAds", # 푸시 알림 마케팅 강점
+]
+
+# ---------------------------------------------------
+# [Money IN] 수익 창출 (Monetization Partners)
+# * 내 서비스에 남의 광고를 달아주고 돈을 버는 곳입니다.
+# ---------------------------------------------------
+monetization_partners = [
+    # [Entry] 진입 장벽 낮음 (초기 블로그/앱)
+    "AdSense", # 구글 기본, 가장 범용적
+    "Ezoic",   # 월 1만 방문자 이하도 가능 (AI 최적화)
+
+    # [Mid-Tier] 중급 트래픽 (월 1만~5만 PV)
+    "Monumetric",  # 월 1만 뷰 이상, 초기 설정비 있음
+    "NitroPay",    # 비디오/디스플레이 광고 강점
+    "Newor Media", # 속도 저하 적음, 중간 규모 적합
+
+    # [Premium] 상위 티어 (월 5만~10만 PV 이상, 고수익)
+    "Mediavine", # 라이프스타일/정보성, RPM 매우 높음
+    "Raptive",   # (구 AdThrive) 업계 최고 수준 단가
+    "Freestar",  # 프리미엄 퍼블리셔용
+    "Snigel",    # AdSense 차단된 사이트도 받아주는 경우 있음
+
+    # [Tech & B2B] 헤더 비딩 및 플랫폼
+    "Publift",   # 호주/뉴질랜드 강세, 프로그래매틱
+    "Setupad",   # 헤더 비딩 솔루션
+    "Prebid.js", # 오픈소스 헤더 비딩 (직접 구축 시)
+]
+
+ad_formats = [
+    "Banner (Standard)",  # 일반 배너 (가장 무난)
+    "Native Ads",         # 콘텐츠 위장형 (기사/글 처럼 보임)
+    "Pop-under",          # 클릭 시 새 창 뜸 (수익 높음, 사용자 혐오)
+    "Social Bar",         # 알림/채팅처럼 생긴 UI (클릭률 최상)
+    "Push Notifications", # 브라우저 알림 발송
+    "Interstitial",       # 화면 전환 시 전면 광고
+    "Offerwall",          # 미션 수행 후 보상 (게임용)
 ]
 
 # ==========================================
 # 7. 운영 및 기능 (Operations & Features)
 # ==========================================
 [ops]
-# 이메일 전송
-email = ["Resend", "Brevo", "Mailjet", "SMTP2GO", "Mailtrap", "AWS SES"]
 
-# 알림 통합 (Push/SMS)
+# ---------------------------------------------------
+# [Email] 트랜잭셔널(가입/비번찾기) 및 마케팅 메일
+# ---------------------------------------------------
+email = [
+    # [Developer Favorite] 개발자 친화적 (API 직관적)
+    "Resend",   # 현재 1티어, React-Email 지원, 깔끔한 UI/API
+    "Mailtrap", # 테스트 환경(Sandbox) 최강자, 실제 발송도 가능
+
+    # [All-in-One] 마케팅 자동화 겸용
+    "Brevo",   # (구 Sendinblue) 무료 하루 300건, 마케팅 기능 포함
+    "Mailjet", # 저렴한 편, 유럽 기반 (GDPR 준수 유리)
+
+    # [Infrastructure] 가성비/대량 발송
+    "AWS SES", # 압도적 최저가, 설정 복잡함, IP 평판 관리 필요
+    "SMTP2GO", # 전송 실패 시 로그 확인이 매우 상세함
+]
+
+# ---------------------------------------------------
+# [Notifications] 알림 통합 (Push, Email, SMS, Chat)
+# ---------------------------------------------------
 notifications = [
-    "Novu",
-    "SuprSend",
-    "OneSignal",
-    "Firebase Cloud Messaging",
-    "ntfy",
+    # [Unified API] 모든 채널을 하나로 통합 (추천)
+    "Novu",     # 오픈소스 알림 인프라 1위, React 컴포넌트 제공
+    "SuprSend", # 인도/아시아권 SMS 발송에 강점
+
+    # [Raw Push Provider] 모바일 푸시 전용
+    "OneSignal",                # 마케팅 푸시, 세그먼트 발송에 강함 (무료 넉넉함)
+    "Firebase Cloud Messaging", # (FCM) 안드로이드/iOS 표준, 원시적(Low-level)
+
+    # [Indie/Admin] 나(관리자)에게 보내는 알림
+    "ntfy", # 앱 설치 없이 HTTP 요청만으로 폰에 알림 (서버 상태 체크용)
 ]
 
-# 백그라운드 작업 큐
-background_jobs = ["Trigger", "Asynq", "BullMQ", "Inngest", "Apalis", "Faktory"]
+# ---------------------------------------------------
+# [Background Jobs] 비동기 작업 및 스케줄링
+# ---------------------------------------------------
+background_jobs = [
+    # [Serverless Friendly] 서버 관리 없이 함수만 작성
+    "Trigger.dev", # Vercel/Next.js와 궁합 최상, 긴 작업(Long-running) 가능
+    "Inngest",     # 이벤트 기반 워크플로우, 재시도/취소 로직 강력
 
-# 피처 플래그 / 실험
+    # [Node.js Standard] Redis 필수 (전통적 방식)
+    "BullMQ", # Node.js 생태계 표준, 안정성 높음
+
+    # [Language Specific] 언어별 최적화 도구
+    "Asynq",   # (Go) Go 언어 프로젝트 표준, Redis 기반
+    "Apalis",  # (Rust) Rust 생태계, 안정적
+    "Faktory", # 언어 무관(Polyglot), 별도 워커 서버 필요
+]
+
+# ---------------------------------------------------
+# [Feature Flags] 배포 없이 기능 켜고 끄기 / A/B 테스트
+# ---------------------------------------------------
 feature_flags = [
-    "PostHog",
-    "GO Feature Flag",
-    "Flipt",
-    "GrowthBook",
-    "Flagsmith",
+    # [All-in-One] 분석 + 실험 + 플래그 (추천)
+    "PostHog", # 제품 분석 툴이지만 플래그 기능도 강력함 (도구 통합 효과)
+
+    # [Dedicated] 전문 플래그/실험 도구
+    "GrowthBook",      # A/B 테스트 시각화 및 통계 분석에 특화
+    "Flagsmith",       # 심플함, 온프레미스(직접 설치) 지원
+    "Flipt",           # (Go) 초고속, 컨테이너 환경에 최적화된 오픈소스
+    "GO Feature Flag", # 설정 파일 기반, 가볍게 쓰기 좋음
 ]
 
-# 국제화 (i18n)
-i18n = ["Lingui", "inlang", "Tolgee", "typesafe-i18n", "i18next", "Weblate"]
+# ---------------------------------------------------
+# [Internationalization] 다국어 지원 (i18n)
+# * 전략: '타입 안전성(Type-safety)'과 '번역 자동화' 중 무엇이 우선인지 결정.
+# ---------------------------------------------------
+i18n = [
+    # [Developer Experience] 개발 편의성 중심
+    "typesafe-i18n", # (추천) TS 강력 지원, 번역 키 실수 시 컴파일 에러 발생
+    "Lingui",        # JS/React 최적화, 코드 내 텍스트 추출(Extraction)이 깔끔함
+    "i18next",       # 업계 표준, 가장 기능이 많지만 무거움 (레거시/대형 프로젝트)
 
-# 고객 지원 / 채팅
-support = ["Chatwoot", "Sleekplan", "Crisp", "Upvoty", "Help Scout", "Tidio"]
+    # [Translator Experience] 번역가 협업 중심
+    "Tolgee",  # 화면에서 Alt+Click으로 즉시 번역 수정 (In-context editing)
+    "inlang",  # 번역 도구 생태계 (VSCode 익스텐션 등 자동화 강력)
+    "Weblate", # (도구) Git 기반의 번역 관리 시스템(TMS), 라이브러리가 아님
+]
 
-# 문서 / 위키
+# ---------------------------------------------------
+# [Support & Feedback] 고객 지원 및 피드백
+# * 전략: '실시간 응대(Chat)'와 '기능 요청 수집(Roadmap)'을 구분해야 합니다.
+# ---------------------------------------------------
+support = [
+    # [Live Chat] 실시간 상담 위젯
+    "Crisp",      # 인디 해커 국룰, 무료 티어가 혜자스럽고 UI가 예쁨
+    "Tidio",      # 챗봇/자동화 기능이 강력함 (마케팅/세일즈 용도)
+    "Chatwoot",   # 오픈소스(Intercom 대안), 직접 호스팅 가능(데이터 소유)
+    "Help Scout", # 이메일 기반 티켓팅 시스템 (전통적 CS 방식)
+
+    # [Feedback & Roadmap] 기능 요청/버그 제보 게시판
+    "Sleekplan", # 피드백 보드 + 로드맵 + 변경 로그 통합
+    "Upvoty",    # 유저 투표 기능이 강력한 피드백 보드
+]
+
+# ---------------------------------------------------
+# [Documentation] 문서 및 위키 (Internal & External)
+# * 전략: '고객용 매뉴얼(Public)'인지 '팀 내부 위키(Private)'인지에 따라 선택.
+# ---------------------------------------------------
 documentation = [
-    "MkDocs",
-    "Wiki.js",
-    "Docusaurus",
-    "Nextra",
-    "BookStack",
-    "Outline",
+    # [Public Docs] 사용자 매뉴얼 / API 문서 (Code-based)
+    "Docusaurus", # (Meta) 리액트 기반 표준, MDX 지원, 커스텀 용이
+    "Nextra",     # (Vercel) Next.js 기반, 속도 빠르고 디자인이 모던함
+    "MkDocs",     # (Python) 설정이 매우 단순함, 'Material Theme'이 유명
+
+    # [Internal Wiki] 사내 지식 관리 / 기획서 (Notion 대체)
+    "Outline",   # 노션과 비슷한 UI, 매우 빠름, 오픈소스 (Docker 호스팅)
+    "BookStack", # 책(Book) > 챕터 > 페이지 구조, 정돈된 매뉴얼 작성에 적합
+    "Wiki.js",   # Node.js 기반 올인원 위키, 기능이 방대함
 ]
 
-# 커뮤니티 / 댓글
+# ---------------------------------------------------
+# [Community] 댓글 및 토론
+# * 전략: 'DB 관리 귀찮음(GitHub)' vs '프라이버시/익명성(Self-hosted)'
+# ---------------------------------------------------
 community = [
-    "Remark42",
-    "Commento",
-    "Cusdis",
-    "Talkyard",
-    "Hyvor Talk",
-    "Giscus",
-    "Flarum",
-    "Isso",
+    # [GitHub Based] 개발자 블로그에 최적 (로그인 불필요)
+    "Giscus",     # (추천) GitHub Discussions 연동, 무료, 광고 없음, 깔끔함
+    "Utterances", # GitHub Issues 연동 (Giscus의 구형 버전 느낌)
+
+    # [Self-Hosted] 내 서버에 직접 설치 (데이터 소유)
+    "Remark42", # (Go) 가볍고 프라이버시 중심, 소셜 로그인 지원
+    "Commento", # Disqus의 가벼운 대안
+    "Cusdis",   # (추천) 초경량, Vercel/Supabase로 무료 호스팅 가능
+    "Isso",     # Python 기반, 매우 심플함
+
+    # [Forum Software] 댓글창이 아니라 '게시판'이 필요할 때
+    "Flarum",     # 모던한 UI의 포럼 소프트웨어 (PHP)
+    "Hyvor Talk", # 유료(SaaS), 디자인 커스텀이 자유롭고 기능 강력
+    "Talkyard",   # StackOverflow(Q&A) 스타일 + 포럼 결합
 ]
 
 # ==========================================
 # 8. AI 및 데이터 시각화 (AI & Visualization)
 # ==========================================
 [ai_and_data]
-# AI/LLM 연동 SDK
+
+# ---------------------------------------------------
+# [AI Integration] LLM 연동 및 에이전트 구축
+# ---------------------------------------------------
 ai_sdk = [
-    "Vercel AI SDK",
-    "OpenRouter SDK",
-    "WebLLM",
-    "MCP TS SDK",
-    "LangGraph.js",
-    "LlamaIndex TS",
-    "Semantic Kernel",
-    "LangChain JS",
+    # [UI & Streaming] 챗봇/스트리밍 UI 구축에 최적
+    "Vercel AI SDK", # Next.js/SvelteKit 표준, 스트리밍 처리 최강
+    "WebLLM",        # 브라우저 구동(WASM), 서버비 0원, 프라이버시
+
+    # [Agent & Workflow] 복잡한 사고 과정 및 툴 사용
+    "LangGraph.js",    # 상태 관리(Stateful) 에이전트, 루프 제어
+    "LangChain JS",    # 범용성 1위, 방대한 통합(Integrations), 무거움
+    "Semantic Kernel", # MS 생태계, 엔터프라이즈급 설계
+
+    # [Data & RAG] 문서 검색 및 지식 기반
+    "LlamaIndex TS", # RAG(검색 증강 생성) 전문, 데이터 인덱싱 최적화
+
+    # [Connectivity] 모델 연결 및 프로토콜
+    "OpenRouter SDK", # 저렴한 모델 스위칭, 통합 API
+    "MCP TS SDK",     # (Model Context Protocol) 시스템-AI 표준 인터페이스
 ]
 
-# 차트 및 데이터 시각화 (대시보드용)
+# ---------------------------------------------------
+# [Visualization] 차트 및 데이터 표현
+# ---------------------------------------------------
 charts = [
-    "Chart.js",
-    "ECharts",
-    "ApexCharts",
-    "uPlot",
-    "billboard.js",
-    "프레임워크 내장 기능",
+    # [Financial & Big Data] 주식/코인/대용량 데이터 (BitSwipe 추천)
+    "ECharts", # 캔들스틱 지원 강력, 줌/팬 기능 우수, 바이낸스 스타일
+    "uPlot",   # 초경량/초고속, 실시간 데이터(틱 차트)에 최적
+
+    # [Dashboard & Marketing] 예쁜 UI/통계용
+    "ApexCharts",   # SVG 기반, 세련된 디자인, 인터랙션 좋음
+    "Chart.js",     # 가장 오래된 표준, 캔버스 기반, 무난함
+    "billboard.js", # D3.js 기반을 쉽게 래핑함
+
+    # [Framework Native] 컴포넌트 친화적
+    "프레임워크 내장 기능", # (예: Svelte의 LayerChart, React의 Recharts)
 ]
