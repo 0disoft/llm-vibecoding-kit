@@ -478,7 +478,7 @@ crypto_payments = [
 # ---------------------------------------------------
 in_app_purchases = [
     # [Wrapper / Infrastructure] IAP 통합 관리 솔루션
-    "RevenueCat",    # (필수) 업계 표준. 월 매출 $2,500까지 무료. 분석 대시보드 제공
+    "RevenueCat",    # 업계 표준. 월 매출 $2,500까지 무료. 분석 대시보드 제공
     "Adapty.io",     # RevenueCat 대안, 페이월(Paywall) A/B 테스트 기능 강력
     "Qonversion.io", # 코호트 분석 및 마케팅 데이터 연동에 강점
 
@@ -523,7 +523,7 @@ payouts = [
 
 # ---------------------------------------------------
 # [Money OUT] 마케팅 및 유저 획득 (Marketing Channels)
-# * 내 돈을 내고 내 서비스(BitSwipe)를 홍보하는 곳입니다.
+# * 내 돈을 내고 내 서비스를 홍보하는 곳입니다.
 # ---------------------------------------------------
 marketing_channels = [
     # [Tier 1] 메이저/엄격 (금융/도박 심의 통과 어려움, 트래픽 최상)
@@ -561,7 +561,7 @@ monetization_partners = [
     "Blockchain-Ads", # Web3/DeFi 프로젝트 광고가 많음.
     "A-ADS",          # 심사 없음, 익명, HTML 코드로 즉시 삽입. 비트코인으로 칼정산.
 
-    # [Mobile & Gaming] 모바일 게임 보상형 광고 (BitSwipe 앱 버전 1순위)
+    # [Mobile & Gaming] 모바일 게임 보상형 광고
     "AppLovin",  # (필수) 모바일 게임 광고의 제왕. '보상형 비디오(MAX)' 수익이 압도적.
     "Unity Ads", # 게임 엔진 Unity와 통합 최적. 구현이 가장 쉬움.
 
