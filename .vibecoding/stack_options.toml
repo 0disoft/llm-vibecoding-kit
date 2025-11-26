@@ -58,14 +58,11 @@ monorepos = [
 # * 전략: '어떤 결과물을 만들 것인가'에 따라 선택.
 # ---------------------------------------------------
 scaffolding = [
-    # [Web Frontend] 리액트, 스벨트, 뷰 등
-    "create-vite", # 사실상 현재 프론트엔드 표준. React, Svelte, Vue 등을 가장 가볍게 시작.
-
-    # [Full-Stack] 백엔드 포함 (Next.js 생태계)
-    "create-t3-app", # Next.js + Tailwind + Prisma + tRPC 조합을 한방에 세팅. 생산성 최강.
-
-    # [VS Code Extension] 확장 프로그램 개발
-    "yo code (Yeoman)", # VS Code 익스텐션을 만들 거라면 선택의 여지가 없음. 공식 스캐폴딩.
+    "create-<framework>", # 메타 프레임워크들의 전용 CLI. SSR/SSG가 필요할 때 사용.
+    "create-vite",        # 프레임워크 없이 순수 Vanilla TS로 알고리즘/로직만 테스트하거나, 가벼운 라이브러리 만들 때.
+    "create-t3-app",      # Next.js + Tailwind + Prisma + tRPC 조합을 한방에 세팅. 생산성 최강.
+    "yo code (Yeoman)",   # VS Code 익스텐션을 만들 거라면 선택의 여지가 없음. 공식 스캐폴딩.
+    "degit",              # (추가 제안) 깃허브에 있는 남의 템플릿이나 내가 만들어둔 보일러플레이트를 그대로 복제해올 때.
 ]
 
 # ==========================================
