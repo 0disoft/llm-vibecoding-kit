@@ -549,27 +549,46 @@ marketing_channels = [
 # ---------------------------------------------------
 # [Money IN] 수익 창출 (Monetization Partners)
 # * 내 서비스에 남의 광고를 달아주고 돈을 버는 곳입니다.
+# * 전략: 일반 트래픽(AdSense)보다 내 앱의 주제(코인/게임)에 맞는 전용 네트워크가 단가가 훨씬 높습니다.
 # ---------------------------------------------------
 monetization_partners = [
-    # [Entry] 진입 장벽 낮음 (초기 블로그/앱)
-    "AdSense", # 구글 기본, 가장 범용적
-    "Ezoic",   # 월 1만 방문자 이하도 가능 (AI 최적화)
+    # [Crypto & Web3] 코인/블록체인 전용
+    "Coinzilla",      # 크립토 업계 표준. 광고 퀄리티 좋고 단가(CPM) 높음.
+    "Bitmedia",       # 비트코인 관련 광고 위주. 타겟팅이 좋아 클릭률 준수함.
+    "Cointraffic",    # 프리미엄 크립토 네트워크. 배너 외 네이티브/팝업 지원.
+    "Blockchain-Ads", # Web3/DeFi 프로젝트 광고가 많음.
+    "A-ADS",          # 심사 없음, 익명, HTML 코드로 즉시 삽입. 비트코인으로 칼정산.
+
+    # [Mobile & Gaming] 모바일 게임 보상형 광고 (BitSwipe 앱 버전 1순위)
+    "AppLovin",  # (필수) 모바일 게임 광고의 제왕. '보상형 비디오(MAX)' 수익이 압도적.
+    "Unity Ads", # 게임 엔진 Unity와 통합 최적. 구현이 가장 쉬움.
+
+    # [Alternative / Fallback] 심사 거절 시 최후의 보루
+    "Adsterra", # 어떤 트래픽이든 다 받아줌. 팝언더/소셜바 등 공격적 포맷 위주.
+
+    # [Niche Finance] 금융/투자 특화
+    "MoneyMade", # 투자/핀테크 뉴스레터나 위젯 형태. 일반 배너보다 정보성 느낌이 강함.
+    "Dianomi",   # 블룸버그급 금융 언론사만 가능. (인디 개발자는 진입 불가)
+
+    # [Entry] 진입 장벽 낮음 (일반 블로그/사이트)
+    "AdSense", # 구글 기본. 승인만 난다면 가장 범용적.
+    "Ezoic",   # 월 1만 방문자 이하도 가능 (AI 최적화).
 
     # [Mid-Tier] 중급 트래픽 (월 1만~5만 PV)
-    "Monumetric",  # 월 1만 뷰 이상, 초기 설정비 있음
-    "NitroPay",    # 비디오/디스플레이 광고 강점
-    "Newor Media", # 속도 저하 적음, 중간 규모 적합
+    "Monumetric",  # 월 1만 뷰 이상, 초기 설정비 있음.
+    "NitroPay",    # 비디오/디스플레이 광고 강점.
+    "Newor Media", # 속도 저하 적음, 중간 규모 적합.
 
     # [Premium] 상위 티어 (월 5만~10만 PV 이상, 고수익)
-    "Mediavine", # 라이프스타일/정보성, RPM 매우 높음
-    "Raptive",   # (구 AdThrive) 업계 최고 수준 단가
-    "Freestar",  # 프리미엄 퍼블리셔용
-    "Snigel",    # AdSense 차단된 사이트도 받아주는 경우 있음
+    "Mediavine", # 라이프스타일/정보성, RPM 매우 높음.
+    "Raptive",   # (구 AdThrive) 업계 최고 수준 단가.
+    "Freestar",  # 프리미엄 퍼블리셔용.
+    "Snigel",    # AdSense 차단된 사이트도 받아주는 경우 있음.
 
     # [Tech & B2B] 헤더 비딩 및 플랫폼
-    "Publift",   # 호주/뉴질랜드 강세, 프로그래매틱
-    "Setupad",   # 헤더 비딩 솔루션
-    "Prebid.js", # 오픈소스 헤더 비딩 (직접 구축 시)
+    "Publift",   # 호주/뉴질랜드 강세, 프로그래매틱.
+    "Setupad",   # 헤더 비딩 솔루션.
+    "Prebid.js", # 오픈소스 헤더 비딩 (직접 구축 시).
 ]
 
 ad_formats = [
@@ -608,7 +627,7 @@ email = [
 # [Notifications] 알림 통합 (Push, Email, SMS, Chat)
 # ---------------------------------------------------
 notifications = [
-    # [Unified API] 모든 채널을 하나로 통합 (추천)
+    # [Unified API] 모든 채널을 하나로 통합 
     "Novu",     # 오픈소스 알림 인프라 1위, React 컴포넌트 제공
     "SuprSend", # 인도/아시아권 SMS 발송에 강점
 
@@ -657,7 +676,7 @@ feature_flags = [
 # ---------------------------------------------------
 i18n = [
     # [Developer Experience] 개발 편의성 중심
-    "typesafe-i18n", # (추천) TS 강력 지원, 번역 키 실수 시 컴파일 에러 발생
+    "typesafe-i18n", # TS 강력 지원, 번역 키 실수 시 컴파일 에러 발생
     "Lingui",        # JS/React 최적화, 코드 내 텍스트 추출(Extraction)이 깔끔함
     "i18next",       # 업계 표준, 가장 기능이 많지만 무거움 (레거시/대형 프로젝트)
 
@@ -705,13 +724,13 @@ documentation = [
 # ---------------------------------------------------
 community = [
     # [GitHub Based] 개발자 블로그에 최적 (로그인 불필요)
-    "Giscus",     # (추천) GitHub Discussions 연동, 무료, 광고 없음, 깔끔함
+    "Giscus",     # GitHub Discussions 연동, 무료, 광고 없음, 깔끔함
     "Utterances", # GitHub Issues 연동 (Giscus의 구형 버전 느낌)
 
     # [Self-Hosted] 내 서버에 직접 설치 (데이터 소유)
     "Remark42", # (Go) 가볍고 프라이버시 중심, 소셜 로그인 지원
     "Commento", # Disqus의 가벼운 대안
-    "Cusdis",   # (추천) 초경량, Vercel/Supabase로 무료 호스팅 가능
+    "Cusdis",   # 초경량, Vercel/Supabase로 무료 호스팅 가능
     "Isso",     # Python 기반, 매우 심플함
 
     # [Forum Software] 댓글창이 아니라 '게시판'이 필요할 때
