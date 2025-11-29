@@ -263,7 +263,7 @@ vector_search = [
 # * 전략: 'AWS S3 호환성'을 갖추되 '전송 비용(Egress Fee)'이 0원인 곳을 고르세요.
 # ---------------------------------------------------
 storage = [
-    # [Zero Egress Fee] 데이터 다운로드 비용 0원 (강추)
+    # [Zero Egress Fee] 데이터 다운로드 비용 0원
     "Cloudflare R2", # S3 API와 호환됨. 대역폭 비용이 0원이라 이미지 많은 앱에 필수.
     "Backblaze B2",  # 전통적인 저가 스토리지 강자. R2보다 저장 비용은 싸지만 대역폭은 일부만 무료.
 
@@ -341,7 +341,7 @@ test_runners = [
 # ---------------------------------------------------
 api_clients = [
     # [Git Friendly] API 명세서를 코드 저장소에 함께 커밋
-    "Bruno", # (강추) 완전 오프라인, .bru 파일로 저장돼서 깃허브 관리가 됨. Postman 대체제.
+    "Bruno", # 완전 오프라인, .bru 파일로 저장돼서 깃허브 관리가 됨. Postman 대체제.
 
     # [Web Based] 웹에서 즉시 테스트
     "Hoppscotch", # 가볍고 빠름. 설치 없이 웹에서 바로 API 찔러볼 때 유용.
@@ -478,7 +478,7 @@ crypto_payments = [
 # ---------------------------------------------------
 in_app_purchases = [
     # [Wrapper / Infrastructure] IAP 통합 관리 솔루션
-    "RevenueCat",    # (필수) 업계 표준. 월 매출 $2,500까지 무료. 분석 대시보드 제공
+    "RevenueCat",    # 업계 표준. 월 매출 $2,500까지 무료. 분석 대시보드 제공
     "Adapty.io",     # RevenueCat 대안, 페이월(Paywall) A/B 테스트 기능 강력
     "Qonversion.io", # 코호트 분석 및 마케팅 데이터 연동에 강점
 
@@ -515,7 +515,7 @@ donations = [
 # ---------------------------------------------------
 payouts = [
     # [Virtual Bank Account] 해외 가상 계좌 발급
-    "Wise",     # (강추) 환율 우대 가장 좋음, 실제 현지 계좌번호 제공
+    "Wise",     # 환율 우대 가장 좋음, 실제 현지 계좌번호 제공
     "Payoneer", # 아마존/에어비앤비 등 주요 플랫폼 공식 파트너
     "Revolut",  # 핀테크 은행 (지원 국가 확인 필요)
     "Paysera",  # 유럽(IBAN) 계좌 필요 시 유용
@@ -523,7 +523,7 @@ payouts = [
 
 # ---------------------------------------------------
 # [Money OUT] 마케팅 및 유저 획득 (Marketing Channels)
-# * 내 돈을 내고 내 서비스(BitSwipe)를 홍보하는 곳입니다.
+# * 내 돈을 내고 내 서비스를 홍보하는 곳입니다.
 # ---------------------------------------------------
 marketing_channels = [
     # [Tier 1] 메이저/엄격 (금융/도박 심의 통과 어려움, 트래픽 최상)
@@ -533,11 +533,16 @@ marketing_channels = [
     "Microsoft Ads (Bing)", # 구매력 높은 PC 유저, B2B 강점
     "Pinterest Ads",        # 여성/쇼핑/인테리어 타겟 (이미지 중요)
 
+    # [Tier 1.5] DSP/프로그래매틱 (구글의 강력한 대안)
+    # * 구글/메타 밖의 '오픈 웹(뉴스, 블로그, 앱)'을 정밀 타겟팅합니다.
+    # * 크립토/금융 업종도 '합법'이라면 승인 잘 받아줍니다.
+    "StackAdapt", # 구글이 거절할 때 쓰는 전문가용 툴. 네이티브/디스플레이 광고 최강자.
+
     # [Tier 2] 커뮤니티/뉴스 (약간의 유연성 있음, 특정 계층 타겟)
     "X Ads",      # 크립토/Web3/정치 친화적, 바이럴용
     "Reddit Ads", # 특정 관심사(Subreddit) 타겟팅, 까다로운 유저
 
-    # [Tier 3] 대안/우회 (BitSwipe 추천 - 심사 관대, 가성비)
+    # [Tier 3] 대안/우회 (심사 관대, 가성비)
     "A-ADS",        # 무심사, 익명, 비트코인 입금 (가장 안전)
     "Adsterra",     # 게임/유틸리티 홍보 최적 (CPA/CPI)
     "PropellerAds", # 푸시 알림 마케팅 강점
@@ -556,7 +561,7 @@ monetization_partners = [
     "Blockchain-Ads", # Web3/DeFi 프로젝트 광고가 많음.
     "A-ADS",          # 심사 없음, 익명, HTML 코드로 즉시 삽입. 비트코인으로 칼정산.
 
-    # [Mobile & Gaming] 모바일 게임 보상형 광고 (BitSwipe 앱 버전 1순위)
+    # [Mobile & Gaming] 모바일 게임 보상형 광고
     "AppLovin",  # (필수) 모바일 게임 광고의 제왕. '보상형 비디오(MAX)' 수익이 압도적.
     "Unity Ads", # 게임 엔진 Unity와 통합 최적. 구현이 가장 쉬움.
 
@@ -657,7 +662,7 @@ background_jobs = [
 # [Feature Flags] 배포 없이 기능 켜고 끄기 / A/B 테스트
 # ---------------------------------------------------
 feature_flags = [
-    # [All-in-One] 분석 + 실험 + 플래그 (추천)
+    # [All-in-One] 분석 + 실험 + 플래그
     "PostHog", # 제품 분석 툴이지만 플래그 기능도 강력함 (도구 통합 효과)
 
     # [Dedicated] 전문 플래그/실험 도구
@@ -766,7 +771,7 @@ ai_sdk = [
 # [Visualization] 차트 및 데이터 표현
 # ---------------------------------------------------
 charts = [
-    # [Financial & Big Data] 주식/코인/대용량 데이터 (BitSwipe 추천)
+    # [Financial & Big Data] 주식/코인/대용량 데이터
     "ECharts", # 캔들스틱 지원 강력, 줌/팬 기능 우수, 바이낸스 스타일
     "uPlot",   # 초경량/초고속, 실시간 데이터(틱 차트)에 최적
 
