@@ -41,6 +41,15 @@ accessibility = [
     "Reduced Motion",
 ]
 
+# 다국어 및 현지화
+localization = [
+    "Multilingual UI (i18n)",
+    "Locale Switcher (Header)",
+    "Auto Detect (Accept-Language)",
+    "RTL Support (Bi-di)",
+    "Translation Pipeline (ICU/JSON/PO)",
+]
+
 # 모션 및 인터랙션
 motion_effects = [
     "Page Transitions (View Transitions API)",
@@ -104,6 +113,7 @@ social_sharing = [
     "Dynamic OpenGraph (OG) Images",
     "Twitter Cards",
     "Kakao/Line Preview",
+    "OG Locale Variants",
 ]
 
 # 구조화된 데이터 (Schema.org)
@@ -111,6 +121,7 @@ structured_data = [
     "JSON-LD Schema (Article)",
     "JSON-LD Schema (Product)",
     "Breadcrumbs",
+    "Hreflang Tags",
 ]
 
 # 분석 도구 연동

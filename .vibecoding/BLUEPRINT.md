@@ -26,7 +26,57 @@
 - **비즈니스 모델**: (예: 무료 / 구독형 / 광고 / 부분 유료화)
 - **주요 경쟁사**: (예: 토스, 뱅크샐러드 - 벤치마킹 대상)
 
-## 2. 기술 스택 선정
+## 2. 전역 기능 범위 (Global Features)
+
+> [지침]
+> `.vibecoding/feature_options.toml` 파일을 메뉴판처럼 참고하십시오.
+> 각 카테고리별로 이 프로젝트에 적용할 기능을 구체적으로 선택하여 아래 리스트에 기입하십시오.
+> (선택하지 않은 항목은 적지 않아도 됩니다.)
+>
+> **[참고: 작성 예시]**
+>
+> ### 2.1. UI/UX 표준
+>
+> - [x] Mobile First (모바일 우선)
+> - [x] System Preference Sync (시스템 테마 동기화)
+> - [x] Pretendard (Variable)
+>
+> ### 2.7. 비즈니스 및 성장
+>
+> - [x] Pricing Table (가격 정책표)
+> - [x] Newsletter Signup (뉴스레터 구독)
+
+**[실제 기능 명세]**
+
+### 2.1. UI/UX 표준 (UI/UX)
+
+- [ ] (feature_options.toml의 [ui_ux_standards] 참고하여 기입)
+
+### 2.2. 앱 기능 및 성능 (App Capabilities)
+
+- [ ] (feature_options.toml의 [app_capabilities] 참고하여 기입)
+
+### 2.3. SEO 및 메타 전략 (SEO & Meta)
+
+- [ ] (feature_options.toml의 [seo_and_meta] 참고하여 기입)
+
+### 2.4. 보안 및 API 정책 (Security)
+
+- [ ] (feature_options.toml의 [security_policies] 참고하여 기입)
+
+### 2.5. 성능 최적화 전략 (Performance)
+
+- [ ] (feature_options.toml의 [performance_optimization] 참고하여 기입)
+
+### 2.6. 규정 준수 및 법적 고지 (Compliance)
+
+- [ ] (feature_options.toml의 [compliance_and_legal] 참고하여 기입)
+
+### 2.7. 비즈니스 및 성장 (Business & Growth)
+
+- [ ] (feature_options.toml의 [business_growth] 참고하여 기입)
+
+## 3. 기술 스택 선정
 
 > [지침]
 > .vibecoding/stack_options.toml 파일을 참고하여, 프로젝트 목표 달성에 필수적인 기술만 선별하여 기입하십시오.
@@ -39,56 +89,6 @@
 | (예시) 런타임 | Bun | 빠른 프로토타이핑 속도 필요 |
 | (예시) DB | SQLite | 로컬 중심의 가벼운 데이터 관리 |
 | (이곳을 채우세요) | ... | ... |
-
-## 3. 전역 기능 범위 (Global Features)
-
-> [지침]
-> `.vibecoding/feature_options.toml` 파일을 메뉴판처럼 참고하십시오.
-> 각 카테고리별로 이 프로젝트에 적용할 기능을 구체적으로 선택하여 아래 리스트에 기입하십시오.
-> (선택하지 않은 항목은 적지 않아도 됩니다.)
->
-> **[참고: 작성 예시]**
->
-> ### 3.1. UI/UX 표준
->
-> - [x] Mobile First (모바일 우선)
-> - [x] System Preference Sync (시스템 테마 동기화)
-> - [x] Pretendard (Variable)
->
-> ### 3.7. 비즈니스 및 성장
->
-> - [x] Pricing Table (가격 정책표)
-> - [x] Newsletter Signup (뉴스레터 구독)
-
-**[실제 기능 명세]**
-
-### 3.1. UI/UX 표준 (UI/UX)
-
-- [ ] (feature_options.toml의 [ui_ux_standards] 참고하여 기입)
-
-### 3.2. 앱 기능 및 성능 (App Capabilities)
-
-- [ ] (feature_options.toml의 [app_capabilities] 참고하여 기입)
-
-### 3.3. SEO 및 메타 전략 (SEO & Meta)
-
-- [ ] (feature_options.toml의 [seo_and_meta] 참고하여 기입)
-
-### 3.4. 보안 및 API 정책 (Security)
-
-- [ ] (feature_options.toml의 [security_policies] 참고하여 기입)
-
-### 3.5. 성능 최적화 전략 (Performance)
-
-- [ ] (feature_options.toml의 [performance_optimization] 참고하여 기입)
-
-### 3.6. 규정 준수 및 법적 고지 (Compliance)
-
-- [ ] (feature_options.toml의 [compliance_and_legal] 참고하여 기입)
-
-### 3.7. 비즈니스 및 성장 (Business & Growth)
-
-- [ ] (feature_options.toml의 [business_growth] 참고하여 기입)
 
 ## 4. 디자인 시스템 및 테마
 
