@@ -103,19 +103,19 @@
 
 [선택된 테마]: (예: Earth & Forest)
 
-| 용도 (Token) | 라이트 HEX | 라이트 설명 | 다크 HEX | 다크 설명 | 비고 |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 기본 (Primary) | (brand.primary) | ... | (brand.primary) | ... | 브랜드 메인 |
-| 보조 (Secondary) | (brand.secondary) | ... | (brand.secondary) | ... | 서브 강조 |
-| 포인트 (Accent) | (brand.accent) | ... | (brand.accent) | ... | 링크, 포커스 |
-| 배경 (Background) | (ui_light.bg_main) | ... | (ui_dark.bg_main) | ... | 전체 배경 |
-| 표면 (Surface) | (ui_light.bg_surface) | ... | (ui_dark.bg_surface) | ... | 카드 배경 |
-| 테두리 (Border) | (ui_light.border) | ... | (ui_dark.border) | ... | 구분선 |
-| 텍스트 (Main) | (ui_light.text_main) | ... | (ui_dark.text_main) | ... | 기본 본문 |
-| 텍스트 (Muted) | (ui_light.text_muted) | ... | (ui_dark.text_muted) | ... | 보조 텍스트 |
-| 성공 (Success) | (status.success) | ... | (status.success) | ... | 성공 상태 |
-| 경고 (Warning) | (status.warning) | ... | (status.warning) | ... | 경고 상태 |
-| 오류 (Error) | (status.error) | ... | (status.error) | ... | 에러 상태 |
+| 용도 (Token) | 라이트 HEX | 라이트 OKLCH | 라이트 설명 | 다크 HEX | 다크 OKLCH | 다크 설명 | 비고 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 기본 (Primary) | | | ... | | | ... | 브랜드 메인 |
+| 보조 (Secondary) | | | ... | | | ... | 서브 강조 |
+| 포인트 (Accent) | | | ... | | | ... | 링크, 포커스 |
+| 배경 (Background) | | | ... | | | ... | 전체 배경 |
+| 표면 (Surface) | | | ... | | | ... | 카드 배경 |
+| 테두리 (Border) | | | ... | | | ... | 구분선 |
+| 텍스트 (Main) | | | ... | | | ... | 기본 본문 |
+| 텍스트 (Muted) | | | ... | | | ... | 보조 텍스트 |
+| 성공 (Success) | | | ... | | | ... | 성공 상태 |
+| 경고 (Warning) | | | ... | | | ... | 경고 상태 |
+| 오류 (Error) | | | ... | | | ... | 에러 상태 |
 
 ### 4.2. UI 스타일 및 구조 (Shape & Typography)
 
