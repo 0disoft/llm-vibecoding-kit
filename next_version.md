@@ -35,6 +35,7 @@ graph TD
         
         IsError{"에러가 발생하는가?<br/>(Runtime/Logic)"}:::decision
         Debug_Prompt["에러 로그 첨부 &<br/>디버깅 요청"]:::warning
+        Debug_Limit{"디버깅 시도<br/>타임박스 초과?"}:::decision
         
         Vibe_Review["결과물 Vibe 검토<br/>(속도/UX/코드 느낌)"]:::process
         IsVibeGood{"의도(Vibe)와<br/>일치하는가?"}:::decision
@@ -47,6 +48,7 @@ graph TD
     %% 규제/보안/핵심 로직 게이트
     Critical_Area{"규제/보안/핵심 로직에<br/>영향이 있는가?"}:::decision
     Human_DeepReview["인간: 심층 코드/설계 리뷰"]:::process
+    Human_ManualCode["인간: 직접 구현/수정"]:::process
 
     %% 3. 최적화 및 마무리 (Post-work)
     Refactor_Check{"코드 구조 개선/<br/>최적화 필요?"}:::decision
@@ -71,12 +73,14 @@ graph TD
     %% 4. 운영 & 학습 사이클
     Monitor["모니터링 및<br/>로그/지표/피드백 수집"]:::process
     Feedback_Analyze["피드백 분석<br/>(로그/지표/사용자 의견)"]:::process
+    NeedMore{"추가 개발이<br/>필요한가?"}:::decision
     Product_Backlog["제품/기능 백로그<br/>업데이트"]:::process
     Prompt_Learn["프롬프트/패턴<br/>라이브러리 업데이트"]:::process
 
     %% 프롬프트/지식 자산
     Knowledge_Base["프로젝트 지식 베이스"]:::data
     Prompt_Templates["프롬프트 템플릿<br/>라이브러리"]:::data
+    Code_Style_Guide["코드 스타일 가이드<br/>(팀 규칙)"]:::data
 
     End(["End: 더 이상<br/>큰 변경 없음"]):::terminal
 
@@ -98,29 +102,37 @@ graph TD
     Syntax_Check --> Run_Test
     Run_Test --> IsError
     
-    %% 에러 발생 시 처리
+    %% 에러 발생 시 처리 + 타임박스
     IsError -->|Yes: 기술적 오류| Debug_Prompt
-    Debug_Prompt --> AI_Coding
-    
+    Debug_Prompt --> Debug_Limit
+    Debug_Prompt --> Context_Refresh
+    Debug_Limit -->|계속 시도| AI_Coding
+    Debug_Limit -->|상위 재검토| Product_Backlog
+
     %% 에러 없음 -> Vibe 체크
     IsError -->|No: 동작 성공| Vibe_Review
     Vibe_Review --> IsVibeGood
     
+    %% 코드 스타일 가이드 참조
+    Code_Style_Guide -.-> Vibe_Review
+    Code_Style_Guide -.-> Refine_Prompt
+
     %% Vibe 불일치 시 처리
     IsVibeGood -->|No: 느낌이 다름| Refine_Prompt
     Refine_Prompt --> AI_Coding
+    Refine_Prompt --> Context_Refresh
     
     %% Vibe OK → 체크포인트 저장 후 규제/핵심 영역 체크
     IsVibeGood -->|Yes: 완성도 OK| Checkpoint
     Checkpoint --> Critical_Area
 
     Critical_Area -->|Yes| Human_DeepReview
-    Human_DeepReview --> Refactor_Check
+    Human_DeepReview --> Human_ManualCode
+    Human_ManualCode --> Syntax_Check
+
     Critical_Area -->|No| Refactor_Check
 
     %% 컨텍스트 리프레시 (루프가 너무 길어질 때 선택적으로 사용)
-    Debug_Prompt --> Context_Refresh
-    Refine_Prompt --> Context_Refresh
     Context_Refresh --> Init_Prompt
 
     %% 리팩터링/보안/성능/테스트
@@ -153,13 +165,13 @@ graph TD
     %% 운영 & 피드백 루프
     Deploy --> Monitor
     Monitor --> Feedback_Analyze
-    Feedback_Analyze --> Product_Backlog
+    Feedback_Analyze --> NeedMore
+    NeedMore -->|Yes| Product_Backlog
+    NeedMore -->|No| End
     Feedback_Analyze --> Prompt_Learn
 
     Product_Backlog --> Analyze
     Prompt_Learn --> Init_Prompt
-
-    Feedback_Analyze -->|추가 개발 불필요| End
 
     %% 프롬프트/지식 자산 연결 (보조 관계)
     Init_Prompt -.-> Knowledge_Base
