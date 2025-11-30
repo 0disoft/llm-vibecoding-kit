@@ -13,9 +13,10 @@ graph TD
     %% 1. 사전 기획 단계 (Pre-work)
     Start(["Start: 프로젝트 킥오프"]):::terminal
     Analyze["요구사항 및<br/>제약조건 분석"]:::data
+    Spec["The Decree:<br/>기능/비기능 스펙 정의<br/>(SPEC.md 작성)"]:::process
     StackCheck["기술 스택 및<br/>아키텍처 결정"]:::process
     Repo_Context["기존 코드베이스<br/>컨텍스트 준비"]:::data
-    Task_Split["요구사항을 AI 친화적<br/>작은 태스크로 분할"]:::process
+    Task_Split["Vertical Slice 단위로<br/>기능/태스크 분할"]:::process
 
     %% 요구사항 변경 (외부 이벤트)
     Change_Request["요구사항 변경 요청"]:::warning
@@ -81,7 +82,8 @@ graph TD
 
     %% 연결 로직 - 사전 기획
     Start --> Analyze
-    Analyze --> StackCheck
+    Analyze --> Spec
+    Spec --> StackCheck
     StackCheck --> Repo_Context
     Repo_Context --> Task_Split
     Task_Split --> Init_Prompt
@@ -146,7 +148,6 @@ graph TD
     Final_Review --> Prod_Approve
 
     Prod_Approve -->|승인| Deploy
-    %% 배포 반려 시: 전체 기획 리셋이 아니라, 튜닝 루프로 회귀
     Prod_Approve -->|보류/반려| Refine_Prompt
 
     %% 운영 & 피드백 루프
