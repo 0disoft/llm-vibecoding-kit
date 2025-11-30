@@ -1,18 +1,18 @@
 /* --- Reset & Variables --- */
 :root {
     /* Theme Colors (Dynamic - JS will inject values) */
-    --bg-main: #ffffff;
-    --bg-surface: #f8fafc;
-    --text-main: #0f172a;
-    --text-muted: #64748b;
-    --border-color: #e2e8f0;
+    --bg-main: oklch(1.000 0.031 28.9deg);
+    --bg-surface: oklch(0.987 0.027 27.7deg);
+    --text-main: oklch(0.209 0.031 228.9deg);
+    --text-muted: oklch(0.557 0.021 234.9deg);
+    --border-color: oklch(0.932 0.018 20.0deg);
 
-    --primary: #3b82f6;
-    --secondary: #64748b;
-    --accent: #f59e0b;
-    --success: #22c55e;
-    --warning: #f59e0b;
-    --error: #ef4444;
+    --primary: oklch(0.625 0.180 219.9deg);
+    --secondary: oklch(0.557 0.021 234.9deg);
+    --accent: oklch(0.769 0.157 38.2deg);
+    --success: oklch(0.726 0.092 131.1deg);
+    --warning: oklch(0.769 0.157 38.2deg);
+    --error: oklch(0.637 0.205 16.6deg);
 
     /* UI Options (Defaults) */
     --font-main: "Pretendard", sans-serif;
@@ -39,17 +39,17 @@
     --hover-shadow: var(--base-shadow);
 
     /* Dark Mode Text Adjustments */
-    --text-muted-light: #64748b;
-    --text-muted-dark: #94a3b8;
+    --text-muted-light: oklch(0.557 0.021 234.9deg);
+    --text-muted-dark: oklch(0.713 0.012 250.6deg);
 }
 
 /* Dark Mode Placeholder (JS handles logic) */
 [data-theme="dark"] {
-    --bg-main: #0f172a;
-    --bg-surface: #1e293b;
-    --text-main: #f1f5f9;
-    --text-muted: #94a3b8;
-    --border-color: #334155;
+    --bg-main: oklch(0.209 0.031 228.9deg);
+    --bg-surface: oklch(0.281 0.026 228.5deg);
+    --text-main: oklch(0.971 0.023 26.2deg);
+    --text-muted: oklch(0.713 0.012 250.6deg);
+    --border-color: oklch(0.373 0.025 228.8deg);
 }
 
 body {
@@ -291,7 +291,7 @@ select option {
 
 .btn-p {
     background: var(--primary);
-    color: #fff;
+    color: oklch(1.000 0.031 28.9deg);
     box-shadow: var(--base-shadow);
 }
 
@@ -366,7 +366,7 @@ select option {
     padding: 2px 8px;
     border-radius: 99px;
     background-color: var(--accent);
-    color: #fff;
+    color: oklch(1.000 0.031 28.9deg);
     font-weight: bold;
 }
 
@@ -411,7 +411,7 @@ select option {
 
 .alert-w {
     background-color: var(--warning);
-    color: #1a1a1a;
+    color: oklch(0.218 0.007 28.9deg);
 }
 
 .alert-e {
